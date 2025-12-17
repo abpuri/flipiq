@@ -1,0 +1,808 @@
+[
+  {
+    "timestamp": "2025-12-16T17:03:24.849395",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.870294",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.890769",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.916938",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000629
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.936794",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 1e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.957531",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.979532",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.005507",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.029458",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.052436",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000641
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.074251",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.095730",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.119434",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.142570",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.166084",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.189141",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000662
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.212139",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.234533",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.257324",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.284628",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.307098",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.330414",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000668
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.352584",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.375350",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.400410",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.429514",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.452438",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.475777",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000642
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.502760",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.527849",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 4e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.551839",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.575534",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.599134",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.626961",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000687
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.652111",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.677292",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.702281",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.727033",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.749673",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.775443",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000738
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.802531",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.833223",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.856374",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.880573",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.903842",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.928493",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000753
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.952010",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.981107",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.004976",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.030942",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.051340",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.078580",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000737
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.109904",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.135684",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.162816",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.190335",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 4e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.218179",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.245136",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000697
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.271238",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.296749",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 1e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.323037",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.349064",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.376466",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.403189",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000724
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.434713",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 1e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.462315",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.495435",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 7e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.525022",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.553819",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.584094",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000822
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.614813",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.644333",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.673909",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 3e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.703147",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 4e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.732582",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.762550",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": [
+        "weekly"
+      ]
+    },
+    "status": "success",
+    "duration_seconds": 0.000734
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.790239",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.818646",
+    "agent_name": "ReportGeneratorAgent",
+    "action": "reports_generated",
+    "details": {
+      "reports": []
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  }
+]

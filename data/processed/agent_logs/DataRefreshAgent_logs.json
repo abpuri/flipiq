@@ -1,0 +1,938 @@
+[
+  {
+    "timestamp": "2025-12-16T17:03:24.847996",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": true,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.868603",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.889371",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.909479",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.3e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.935344",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.955727",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.977658",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.999696",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 3.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.026706",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.049248",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.071800",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.093255",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.116374",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.139303",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.162805",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.185227",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.208670",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.231135",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.253631",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.275778",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.3e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.303182",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.325811",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.348586",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.371448",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.394714",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202509",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.3e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.419483",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": true,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.448362",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.470774",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.494344",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.522627",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.547079",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.570503",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.594094",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.3e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.618626",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.646295",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.671717",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 8e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.696365",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.721747",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.744499",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.766906",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.795694",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 4.8e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.821373",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.850557",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.874088",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.897955",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.921311",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.946019",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.969704",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.998685",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 8e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.023993",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.3e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.049540",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202510",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.070901",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": true,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.097484",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.128761",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.155401",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.182220",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.210675",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.237091",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.264084",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.289719",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.315706",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.4e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.341937",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.367899",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.395161",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 9e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.422282",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 8e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.453853",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 8e-06
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.483425",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.516080",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.5e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.544916",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.574295",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.605499",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.1e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.635129",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.665075",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.693935",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.723150",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.752981",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.9e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.781694",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": false,
+      "version": "v202511",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.2e-05
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.809135",
+    "agent_name": "DataRefreshAgent",
+    "action": "data_check",
+    "details": {
+      "new_data": true,
+      "version": "v202512",
+      "refresh_day": 16
+    },
+    "status": "success",
+    "duration_seconds": 1.1e-05
+  }
+]

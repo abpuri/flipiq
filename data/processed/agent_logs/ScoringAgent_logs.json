@@ -1,0 +1,1172 @@
+[
+  {
+    "timestamp": "2025-12-16T17:03:24.848642",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 362,
+      "very_high_count": 64,
+      "avg_score": 46.274441762797345,
+      "max_score": 81.38345070323265,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000548
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.869488",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 382,
+      "very_high_count": 71,
+      "avg_score": 46.321606740380595,
+      "max_score": 80.18171357113653,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000832
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.889958",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 365,
+      "very_high_count": 74,
+      "avg_score": 46.34062390473409,
+      "max_score": 80.24457942888505,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000543
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.910086",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 402,
+      "very_high_count": 76,
+      "avg_score": 46.39822834389621,
+      "max_score": 78.4108823143351,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000572
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.935870",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 383,
+      "very_high_count": 77,
+      "avg_score": 46.43185211840175,
+      "max_score": 81.9132066788453,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000497
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.956317",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 391,
+      "very_high_count": 66,
+      "avg_score": 46.45222251986218,
+      "max_score": 80.03437208744519,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000543
+  },
+  {
+    "timestamp": "2025-12-16T17:03:24.978338",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 387,
+      "very_high_count": 66,
+      "avg_score": 46.46499850033984,
+      "max_score": 80.48345489433811,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000621
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.000450",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 404,
+      "very_high_count": 77,
+      "avg_score": 46.50414921968886,
+      "max_score": 81.04264129657014,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000705
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.027584",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 417,
+      "very_high_count": 76,
+      "avg_score": 46.52013328659866,
+      "max_score": 78.10703896777017,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000808
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.050101",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 399,
+      "very_high_count": 85,
+      "avg_score": 46.564503017801336,
+      "max_score": 80.67463742473288,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000805
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.072453",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 410,
+      "very_high_count": 71,
+      "avg_score": 46.56402236850999,
+      "max_score": 80.98150334189427,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000601
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.093794",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 407,
+      "very_high_count": 68,
+      "avg_score": 46.60100542351926,
+      "max_score": 79.56078274957537,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000508
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.117126",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 406,
+      "very_high_count": 66,
+      "avg_score": 46.57740089114654,
+      "max_score": 80.30269909594635,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000706
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.140111",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 405,
+      "very_high_count": 70,
+      "avg_score": 46.593850932193696,
+      "max_score": 77.8802337169221,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000768
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.163412",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 394,
+      "very_high_count": 77,
+      "avg_score": 46.58590404078619,
+      "max_score": 78.07409455857415,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000549
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.185815",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 404,
+      "very_high_count": 82,
+      "avg_score": 46.57250759516596,
+      "max_score": 81.56738597454672,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000547
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.209334",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 392,
+      "very_high_count": 69,
+      "avg_score": 46.550563690210694,
+      "max_score": 78.11466605732625,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000624
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.231679",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 397,
+      "very_high_count": 76,
+      "avg_score": 46.538866493016094,
+      "max_score": 78.92925815119976,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000509
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.254334",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 388,
+      "very_high_count": 74,
+      "avg_score": 46.54338721870749,
+      "max_score": 79.22796300131048,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000669
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.276430",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 402,
+      "very_high_count": 89,
+      "avg_score": 46.50467024204625,
+      "max_score": 79.2881911108696,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000619
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.303694",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 379,
+      "very_high_count": 71,
+      "avg_score": 46.45354119380186,
+      "max_score": 78.99967113172727,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000483
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.326396",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 399,
+      "very_high_count": 71,
+      "avg_score": 46.4171817046624,
+      "max_score": 79.36823548569922,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000546
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.349219",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 376,
+      "very_high_count": 65,
+      "avg_score": 46.39016038582733,
+      "max_score": 78.45125625660359,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000603
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.372047",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 375,
+      "very_high_count": 73,
+      "avg_score": 46.368243601833235,
+      "max_score": 79.56558023360678,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000569
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.395348",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 382,
+      "very_high_count": 74,
+      "avg_score": 46.32243303012175,
+      "max_score": 80.30227791409101,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000601
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.420156",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 386,
+      "very_high_count": 65,
+      "avg_score": 46.3299314573525,
+      "max_score": 80.76499224885998,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.00063
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.448913",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 368,
+      "very_high_count": 64,
+      "avg_score": 46.283721426995065,
+      "max_score": 79.95747500810661,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000517
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.471520",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 384,
+      "very_high_count": 68,
+      "avg_score": 46.237751851839604,
+      "max_score": 78.80669766428801,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000713
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.495062",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 357,
+      "very_high_count": 61,
+      "avg_score": 46.19226047989606,
+      "max_score": 79.47128637850541,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000673
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.523297",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 342,
+      "very_high_count": 64,
+      "avg_score": 46.15995711148037,
+      "max_score": 77.51506993290822,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000608
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.547793",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 336,
+      "very_high_count": 73,
+      "avg_score": 46.13639936426539,
+      "max_score": 77.91763846697752,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000662
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.571422",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 359,
+      "very_high_count": 76,
+      "avg_score": 46.11908990172342,
+      "max_score": 79.76752710100983,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.00088
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.594679",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 346,
+      "very_high_count": 70,
+      "avg_score": 46.06967400633225,
+      "max_score": 79.41341962829506,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.00055
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.619244",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 346,
+      "very_high_count": 59,
+      "avg_score": 46.04913213631872,
+      "max_score": 80.6028641729276,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000562
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.647051",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 354,
+      "very_high_count": 62,
+      "avg_score": 46.0143052635594,
+      "max_score": 80.09508801016754,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000685
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.672283",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 339,
+      "very_high_count": 60,
+      "avg_score": 46.009817874931464,
+      "max_score": 77.43735873573223,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000542
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.697238",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 342,
+      "very_high_count": 60,
+      "avg_score": 46.002217843583374,
+      "max_score": 79.66240706275724,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000807
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.722309",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 352,
+      "very_high_count": 63,
+      "avg_score": 45.98302178752804,
+      "max_score": 79.26938054452715,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000523
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.745029",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 359,
+      "very_high_count": 66,
+      "avg_score": 45.96587429570055,
+      "max_score": 79.23602238564288,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.0005
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.767456",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 334,
+      "very_high_count": 61,
+      "avg_score": 45.97548084833774,
+      "max_score": 79.06569921710039,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000524
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.796522",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 354,
+      "very_high_count": 64,
+      "avg_score": 45.987254886440496,
+      "max_score": 79.30210639227458,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000773
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.821971",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 359,
+      "very_high_count": 61,
+      "avg_score": 45.97022261516732,
+      "max_score": 78.95775233451434,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000546
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.851151",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 352,
+      "very_high_count": 64,
+      "avg_score": 46.00132559680967,
+      "max_score": 80.27285439351563,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000566
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.874959",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 334,
+      "very_high_count": 61,
+      "avg_score": 46.04484801814541,
+      "max_score": 79.39211935533886,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000827
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.898466",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 335,
+      "very_high_count": 57,
+      "avg_score": 46.04465141512279,
+      "max_score": 79.88664240600443,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000485
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.921937",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 337,
+      "very_high_count": 71,
+      "avg_score": 46.078508733893074,
+      "max_score": 80.58839765052932,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000588
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.946545",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 348,
+      "very_high_count": 69,
+      "avg_score": 46.09669628812122,
+      "max_score": 77.65309639707779,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000493
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.970244",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 353,
+      "very_high_count": 69,
+      "avg_score": 46.145342504722514,
+      "max_score": 77.75836615586604,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000511
+  },
+  {
+    "timestamp": "2025-12-16T17:03:25.999227",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 352,
+      "very_high_count": 65,
+      "avg_score": 46.15754812860813,
+      "max_score": 78.98500455624398,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000518
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.024642",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 356,
+      "very_high_count": 71,
+      "avg_score": 46.203686037334464,
+      "max_score": 80.3801349567928,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000611
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.050185",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 366,
+      "very_high_count": 67,
+      "avg_score": 46.20654845374629,
+      "max_score": 77.42430328765465,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000603
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.071617",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 366,
+      "very_high_count": 75,
+      "avg_score": 46.25912498951793,
+      "max_score": 79.22966259408695,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000652
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.098286",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 379,
+      "very_high_count": 61,
+      "avg_score": 46.30317862535263,
+      "max_score": 79.05526853045534,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000761
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.129391",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 387,
+      "very_high_count": 71,
+      "avg_score": 46.33739193905943,
+      "max_score": 79.21083857647572,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000586
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.156238",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 396,
+      "very_high_count": 80,
+      "avg_score": 46.3461454485317,
+      "max_score": 79.21849187734131,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000796
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.182997",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 380,
+      "very_high_count": 67,
+      "avg_score": 46.39157180931748,
+      "max_score": 81.40951802317727,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000734
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.211332",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 396,
+      "very_high_count": 69,
+      "avg_score": 46.41684441583509,
+      "max_score": 78.7538662267822,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.0006
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.237629",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 408,
+      "very_high_count": 67,
+      "avg_score": 46.47172998211473,
+      "max_score": 79.56449656510355,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000503
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.264615",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 396,
+      "very_high_count": 77,
+      "avg_score": 46.46842573194286,
+      "max_score": 78.80069129678922,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000505
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.290239",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 393,
+      "very_high_count": 74,
+      "avg_score": 46.4914189546342,
+      "max_score": 79.46895973755866,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000495
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.316497",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 409,
+      "very_high_count": 72,
+      "avg_score": 46.53494947170916,
+      "max_score": 78.86346674256889,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000756
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.342456",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 391,
+      "very_high_count": 89,
+      "avg_score": 46.574609059103516,
+      "max_score": 78.39861822037243,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000492
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.368431",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 408,
+      "very_high_count": 72,
+      "avg_score": 46.59020370127836,
+      "max_score": 80.2119840948838,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000506
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.395677",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 409,
+      "very_high_count": 75,
+      "avg_score": 46.58718347563976,
+      "max_score": 78.9050854506827,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000487
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.422807",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 407,
+      "very_high_count": 75,
+      "avg_score": 46.59117501802397,
+      "max_score": 81.07362655351696,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000499
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.454457",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 395,
+      "very_high_count": 71,
+      "avg_score": 46.57090173446759,
+      "max_score": 79.080623494878,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.00058
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.484086",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 392,
+      "very_high_count": 75,
+      "avg_score": 46.57338933822281,
+      "max_score": 78.77131693468192,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000609
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.516792",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 405,
+      "very_high_count": 76,
+      "avg_score": 46.56742987996898,
+      "max_score": 78.52126263476356,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000674
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.545628",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 410,
+      "very_high_count": 79,
+      "avg_score": 46.578516373111604,
+      "max_score": 80.08165044788328,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000666
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.574978",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 404,
+      "very_high_count": 60,
+      "avg_score": 46.5074871475348,
+      "max_score": 78.18605365694117,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000625
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.606393",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 375,
+      "very_high_count": 78,
+      "avg_score": 46.50331268415871,
+      "max_score": 79.69848077222338,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000841
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.635828",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 381,
+      "very_high_count": 72,
+      "avg_score": 46.48353425820985,
+      "max_score": 79.38857287205929,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000633
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.665843",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 393,
+      "very_high_count": 63,
+      "avg_score": 46.43729270925536,
+      "max_score": 78.7641599152488,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000713
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.694627",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 393,
+      "very_high_count": 75,
+      "avg_score": 46.42016586040057,
+      "max_score": 81.80717255476986,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.00063
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.723854",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 385,
+      "very_high_count": 74,
+      "avg_score": 46.38207116991327,
+      "max_score": 79.26814881905457,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.00065
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.753617",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 405,
+      "very_high_count": 63,
+      "avg_score": 46.371604001187286,
+      "max_score": 81.37566829635504,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000584
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.782236",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 383,
+      "very_high_count": 71,
+      "avg_score": 46.30749039563071,
+      "max_score": 76.92878017789708,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000506
+  },
+  {
+    "timestamp": "2025-12-16T17:03:26.809879",
+    "agent_name": "ScoringAgent",
+    "action": "scoring_completed",
+    "details": {
+      "total_zips": 21680,
+      "high_score_count": 376,
+      "very_high_count": 73,
+      "avg_score": 46.2757027561977,
+      "max_score": 79.05494213575847,
+      "median_value": 242256.66878610197
+    },
+    "status": "success",
+    "duration_seconds": 0.000709
+  }
+]

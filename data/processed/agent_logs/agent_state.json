@@ -1,0 +1,12 @@
+{
+  "last_data_refresh": "2025-12-16T17:03:24.828851",
+  "last_scoring_run": "2025-12-16T17:03:24.828851",
+  "last_detection_run": null,
+  "last_alert_generation": "2025-12-16T17:03:24.828851",
+  "last_report_generation": "2025-12-16T17:03:24.828851",
+  "data_version": "v202512",
+  "total_opportunities_detected": 503,
+  "opportunities_this_week": 0,
+  "opportunities_this_month": 0,
+  "known_opportunity_hashes": []
+}

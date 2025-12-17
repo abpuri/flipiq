@@ -24,6 +24,9 @@ from src.scoring_engine import (
     summarize_by_geography,
     FAST_FLIP, VALUE_ADD_FLIP, BALANCED, FlipStrategy
 )
+from src.property_analyzer import PropertyAnalyzer
+import json
+from datetime import datetime, timedelta
 
 # Page config
 st.set_page_config(
@@ -59,6 +62,54 @@ st.markdown("""
 def load_data():
     """Load and cache all datasets."""
     return load_all_datasets()
+
+
+def load_agent_data():
+    """Load agent logs and state data."""
+    agent_logs_dir = Path(__file__).parent / "data" / "processed" / "agent_logs"
+
+    data = {
+        'state': None,
+        'alerts': [],
+        'summary': None,
+        'timeline': None,
+        'agent_logs': {}
+    }
+
+    if not agent_logs_dir.exists():
+        return data
+
+    # Load agent state
+    state_file = agent_logs_dir / "agent_state.json"
+    if state_file.exists():
+        with open(state_file, 'r') as f:
+            data['state'] = json.load(f)
+
+    # Load alerts
+    alerts_file = agent_logs_dir / "alerts.json"
+    if alerts_file.exists():
+        with open(alerts_file, 'r') as f:
+            data['alerts'] = json.load(f)
+
+    # Load simulation summary
+    summary_file = agent_logs_dir / "simulation_summary.json"
+    if summary_file.exists():
+        with open(summary_file, 'r') as f:
+            data['summary'] = json.load(f)
+
+    # Load timeline data
+    timeline_file = agent_logs_dir / "timeline_data.csv"
+    if timeline_file.exists():
+        data['timeline'] = pd.read_csv(timeline_file)
+        data['timeline']['date'] = pd.to_datetime(data['timeline']['date'])
+
+    # Load individual agent logs
+    for log_file in agent_logs_dir.glob("*_logs.json"):
+        agent_name = log_file.stem.replace("_logs", "")
+        with open(log_file, 'r') as f:
+            data['agent_logs'][agent_name] = json.load(f)
+
+    return data
 
 
 @st.cache_data(ttl=3600)
@@ -222,12 +273,13 @@ def main():
     # =====================================
     # TABS
     # =====================================
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📊 Top Opportunities",
         "🗺️ Geographic View",
         "📈 Score Analysis",
         "📉 Market Trends",
-        "⚖️ Compare ZIPs"
+        "⚖️ Compare ZIPs",
+        "🤖 Agent Monitoring"
     ])
 
     # ----- TAB 1: TOP OPPORTUNITIES -----
@@ -681,6 +733,383 @@ def main():
                 )
                 fig_compare_trend.update_layout(height=350)
                 st.plotly_chart(fig_compare_trend, use_container_width=True)
+
+    # ----- TAB 6: AGENT MONITORING -----
+    with tab6:
+        st.subheader("Agent Monitoring Dashboard")
+
+        # Load agent data
+        agent_data = load_agent_data()
+
+        if agent_data['state'] is None:
+            st.warning("No agent data available. Run the simulation first: `python workflows/simulate_agent_run.py`")
+        else:
+            # ===== AGENT STATUS PANEL =====
+            st.markdown("### Agent Status")
+
+            state = agent_data['state']
+            summary = agent_data['summary'] or {}
+
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                last_refresh = state.get('last_data_refresh', 'Never')
+                if last_refresh and last_refresh != 'Never':
+                    last_refresh_dt = datetime.fromisoformat(last_refresh)
+                    last_refresh_str = last_refresh_dt.strftime('%Y-%m-%d %H:%M')
+                else:
+                    last_refresh_str = 'Never'
+                st.metric("Last Data Refresh", last_refresh_str)
+
+            with col2:
+                st.metric("Total Opportunities", f"{state.get('total_opportunities_detected', 0):,}")
+
+            with col3:
+                st.metric("Total Alerts", f"{summary.get('total_alerts', 0):,}")
+
+            with col4:
+                st.metric("Data Version", state.get('data_version', 'Unknown'))
+
+            # Agent health indicators
+            st.markdown("#### Agent Health Status")
+            agent_cols = st.columns(6)
+            agents = [
+                ("DataRefresh", "DataRefreshAgent"),
+                ("Scoring", "ScoringAgent"),
+                ("Detection", "OpportunityDetectionAgent"),
+                ("Analysis", "PropertyAnalysisAgent"),
+                ("Alert", "AlertAgent"),
+                ("Report", "ReportGeneratorAgent")
+            ]
+
+            for i, (label, agent_key) in enumerate(agents):
+                with agent_cols[i]:
+                    logs = agent_data['agent_logs'].get(agent_key, [])
+                    if logs:
+                        last_log = logs[-1] if isinstance(logs, list) and len(logs) > 0 else {}
+                        status = last_log.get('status', 'unknown')
+                        if status == 'completed':
+                            st.success(f"✅ {label}")
+                        elif status == 'running':
+                            st.warning(f"⏳ {label}")
+                        else:
+                            st.info(f"⬜ {label}")
+                    else:
+                        st.info(f"⬜ {label}")
+
+            st.markdown("---")
+
+            # ===== RECENT ALERTS SECTION =====
+            st.markdown("### Recent Alerts")
+
+            alerts = agent_data['alerts']
+            if alerts:
+                # Filter controls
+                col1, col2, col3 = st.columns([1, 1, 2])
+                with col1:
+                    priority_filter = st.selectbox(
+                        "Priority",
+                        ["All", "HOT", "WARM", "WATCH"],
+                        index=0
+                    )
+                with col2:
+                    num_alerts = st.slider("Show", 10, 100, 25, step=5)
+
+                # Apply filter
+                filtered_alerts = alerts
+                if priority_filter != "All":
+                    filtered_alerts = [a for a in alerts if a.get('priority') == priority_filter]
+
+                # Sort by timestamp (newest first) and limit
+                filtered_alerts = sorted(
+                    filtered_alerts,
+                    key=lambda x: x.get('timestamp', ''),
+                    reverse=True
+                )[:num_alerts]
+
+                # Display alerts
+                for alert in filtered_alerts:
+                    priority = alert.get('priority', 'INFO')
+                    priority_color = {
+                        'HOT': '🔥',
+                        'WARM': '🌡️',
+                        'WATCH': '👀',
+                        'INFO': 'ℹ️'
+                    }.get(priority, '⬜')
+
+                    timestamp = alert.get('timestamp', '')
+                    if timestamp:
+                        try:
+                            ts_dt = datetime.fromisoformat(timestamp)
+                            timestamp = ts_dt.strftime('%Y-%m-%d %H:%M')
+                        except:
+                            pass
+
+                    zip_code = alert.get('zip_code', 'N/A')
+                    city = alert.get('city', '')
+                    state_abbr = alert.get('state', '')
+                    score = alert.get('current_score', 0)
+                    value = alert.get('current_value', 0)
+                    reason = alert.get('trigger_reason', 'No reason provided')
+
+                    with st.expander(f"{priority_color} [{priority}] ZIP {zip_code} - {city}, {state_abbr} (Score: {score:.1f})"):
+                        st.write(f"**Timestamp:** {timestamp}")
+                        st.write(f"**Value:** ${value:,.0f}")
+                        st.write(f"**Reason:** {reason}")
+                        st.write(f"**Action:** {alert.get('recommended_action', 'Review recommended')}")
+                        if alert.get('is_new_opportunity'):
+                            st.info("🆕 New Opportunity")
+
+                # Summary stats
+                st.markdown("---")
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    hot_count = len([a for a in alerts if a.get('priority') == 'HOT'])
+                    st.metric("HOT Alerts", hot_count, delta=None)
+                with col2:
+                    warm_count = len([a for a in alerts if a.get('priority') == 'WARM'])
+                    st.metric("WARM Alerts", warm_count, delta=None)
+                with col3:
+                    watch_count = len([a for a in alerts if a.get('priority') == 'WATCH'])
+                    st.metric("WATCH Alerts", watch_count, delta=None)
+                with col4:
+                    unack = len([a for a in alerts if not a.get('acknowledged', False)])
+                    st.metric("Unacknowledged", unack, delta=None)
+
+            else:
+                st.info("No alerts generated yet.")
+
+            st.markdown("---")
+
+            # ===== OPPORTUNITY TIMELINE =====
+            st.markdown("### Opportunity Timeline")
+
+            timeline = agent_data['timeline']
+            if timeline is not None and len(timeline) > 0:
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    # Cumulative opportunities chart
+                    fig_cum_opp = px.line(
+                        timeline,
+                        x='date',
+                        y='cumulative_opportunities',
+                        title='Cumulative Opportunities Detected',
+                        labels={'cumulative_opportunities': 'Total Opportunities', 'date': 'Date'}
+                    )
+                    fig_cum_opp.update_layout(height=350)
+                    st.plotly_chart(fig_cum_opp, use_container_width=True)
+
+                with col2:
+                    # Cumulative alerts chart
+                    fig_cum_alerts = px.line(
+                        timeline,
+                        x='date',
+                        y='cumulative_alerts',
+                        title='Cumulative Alerts Generated',
+                        labels={'cumulative_alerts': 'Total Alerts', 'date': 'Date'},
+                        color_discrete_sequence=['orange']
+                    )
+                    fig_cum_alerts.update_layout(height=350)
+                    st.plotly_chart(fig_cum_alerts, use_container_width=True)
+
+                # Daily activity bar chart
+                fig_daily = go.Figure()
+                fig_daily.add_trace(go.Bar(
+                    x=timeline['date'],
+                    y=timeline['new_opportunities'],
+                    name='New Opportunities',
+                    marker_color='steelblue'
+                ))
+                fig_daily.add_trace(go.Bar(
+                    x=timeline['date'],
+                    y=timeline['alerts_generated'],
+                    name='Alerts Generated',
+                    marker_color='coral'
+                ))
+                fig_daily.update_layout(
+                    title='Daily Agent Activity',
+                    barmode='group',
+                    height=350,
+                    legend=dict(orientation="h", y=-0.15)
+                )
+                st.plotly_chart(fig_daily, use_container_width=True)
+
+            else:
+                st.info("No timeline data available.")
+
+            st.markdown("---")
+
+            # ===== AGENT DECISION LOG =====
+            st.markdown("### Agent Decision Log")
+
+            agent_logs = agent_data['agent_logs']
+            if agent_logs:
+                selected_agent = st.selectbox(
+                    "Select Agent",
+                    list(agent_logs.keys())
+                )
+
+                if selected_agent:
+                    logs = agent_logs[selected_agent]
+                    if logs and isinstance(logs, list) and len(logs) > 0:
+                        # Show last N logs
+                        num_logs = st.slider("Show last N entries", 5, 50, 10)
+                        recent_logs = logs[-num_logs:][::-1]  # Reverse to show newest first
+
+                        for log in recent_logs:
+                            status = log.get('status', 'unknown')
+                            status_icon = {'completed': '✅', 'running': '⏳', 'failed': '❌'}.get(status, '⬜')
+
+                            timestamp = log.get('timestamp', '')
+                            if timestamp:
+                                try:
+                                    ts_dt = datetime.fromisoformat(timestamp)
+                                    timestamp = ts_dt.strftime('%Y-%m-%d %H:%M')
+                                except:
+                                    pass
+
+                            action = log.get('action', 'Unknown action')
+                            with st.expander(f"{status_icon} [{timestamp}] {action}"):
+                                st.json(log.get('details', {}))
+                    else:
+                        st.info(f"No logs available for {selected_agent}")
+            else:
+                st.info("No agent logs available.")
+
+            st.markdown("---")
+
+            # ===== MANUAL CONTROLS =====
+            st.markdown("### Manual Controls")
+
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.markdown("**Threshold Configuration**")
+                hot_threshold = st.number_input("HOT Score Threshold", 50, 100, 70)
+                warm_threshold = st.number_input("WARM Score Threshold", 40, 90, 60)
+                st.caption("These thresholds determine alert priority levels.")
+
+            with col2:
+                st.markdown("**Quick Actions**")
+                if st.button("🔄 Refresh Agent Data"):
+                    st.cache_data.clear()
+                    st.rerun()
+
+                st.caption("Click to reload agent data from disk.")
+
+            with col3:
+                st.markdown("**Export Options**")
+                # Download alerts as CSV
+                if alerts:
+                    alerts_df = pd.DataFrame(alerts)
+                    csv_alerts = alerts_df.to_csv(index=False)
+                    st.download_button(
+                        label="📥 Download Alerts (CSV)",
+                        data=csv_alerts,
+                        file_name="agent_alerts.csv",
+                        mime="text/csv"
+                    )
+
+                # Download timeline
+                if timeline is not None and len(timeline) > 0:
+                    csv_timeline = timeline.to_csv(index=False)
+                    st.download_button(
+                        label="📥 Download Timeline (CSV)",
+                        data=csv_timeline,
+                        file_name="agent_timeline.csv",
+                        mime="text/csv"
+                    )
+
+            st.markdown("---")
+
+            # ===== PROPERTY DEEP DIVE =====
+            st.markdown("### Property Deep Dive")
+            st.caption("Select a ZIP code from recent HOT alerts for detailed analysis.")
+
+            # Get HOT alert ZIP codes
+            hot_zips = list(set([
+                a.get('zip_code') for a in alerts
+                if a.get('priority') == 'HOT' and a.get('zip_code')
+            ]))[:20]
+
+            if hot_zips:
+                selected_zip = st.selectbox("Select ZIP for Deep Dive", hot_zips)
+
+                if selected_zip and st.button("🔍 Analyze ZIP"):
+                    with st.spinner(f"Analyzing ZIP {selected_zip}..."):
+                        try:
+                            # Initialize analyzer
+                            analyzer = PropertyAnalyzer(datasets)
+
+                            # Get analysis
+                            report = analyzer.analyze_zip(selected_zip)
+
+                            if report:
+                                st.success(f"Analysis complete for {report.zip_code} ({report.city}, {report.state})")
+
+                                col1, col2 = st.columns(2)
+
+                                with col1:
+                                    st.markdown("#### Trend Analysis")
+                                    trend = report.trend_analysis
+                                    st.write(f"**Current Value:** ${trend.current_value:,.0f}")
+                                    st.write(f"**Trend Direction:** {trend.trend_direction.title()}")
+                                    st.write(f"**Trend Strength:** {trend.trend_strength.title()}")
+                                    st.write(f"**Volatility Score:** {trend.volatility_score:.1f}")
+                                    st.write(f"**YoY Change:** {trend.yoy_change_pct:.1f}%")
+                                    if trend.two_year_change_pct:
+                                        st.write(f"**2-Year Change:** {trend.two_year_change_pct:.1f}%")
+                                    st.write(f"**Seasonality Detected:** {'Yes' if trend.seasonality_detected else 'No'}")
+
+                                with col2:
+                                    st.markdown("#### Market Momentum")
+                                    momentum = report.momentum
+                                    st.write(f"**Momentum Score:** {momentum.momentum_score:.1f}")
+                                    st.write(f"**Momentum Grade:** {momentum.momentum_grade}")
+                                    st.write(f"**Velocity Score:** {momentum.velocity_score:.1f}")
+                                    st.write(f"**Appreciation Score:** {momentum.appreciation_score:.1f}")
+                                    st.write(f"**Demand Score:** {momentum.demand_score:.1f}")
+                                    if momentum.momentum_factors:
+                                        st.markdown("**Key Factors:**")
+                                        for factor in momentum.momentum_factors[:3]:
+                                            st.write(f"- {factor}")
+
+                                st.markdown("---")
+                                col3, col4 = st.columns(2)
+
+                                with col3:
+                                    st.markdown("#### Risk Assessment")
+                                    risk = report.risk
+                                    risk_colors = {'Low': 'green', 'Medium': 'orange', 'High': 'red', 'Very High': 'red'}
+                                    st.markdown(f"**Risk Grade:** :{risk_colors.get(risk.risk_grade, 'gray')}[{risk.risk_grade}]")
+                                    st.write(f"**Overall Risk Score:** {risk.overall_risk_score:.1f}")
+                                    st.write(f"**Market Risk:** {risk.market_risk:.1f}")
+                                    st.write(f"**Price Risk:** {risk.price_risk:.1f}")
+                                    st.write(f"**Liquidity Risk:** {risk.liquidity_risk:.1f}")
+                                    if risk.risk_factors:
+                                        st.markdown("**Risk Factors:**")
+                                        for rf in risk.risk_factors[:3]:
+                                            st.write(f"- {rf}")
+
+                                with col4:
+                                    st.markdown("#### Investment Recommendation")
+                                    rec = report.recommendation
+                                    action_colors = {'STRONG BUY': 'green', 'BUY': 'blue', 'HOLD': 'orange', 'AVOID': 'red'}
+                                    st.markdown(f"**Action:** :{action_colors.get(rec.action, 'gray')}[{rec.action}]")
+                                    st.write(f"**Confidence:** {rec.confidence}")
+                                    st.write(f"**Target Price:** ${rec.target_purchase_price:,.0f}")
+                                    st.write(f"**Est. ARV:** ${rec.estimated_arv:,.0f}")
+                                    st.write(f"**Est. Profit:** ${rec.estimated_profit:,.0f}")
+                                    st.write(f"**Profit Margin:** {rec.profit_margin_pct:.1f}%")
+                                    st.write(f"**Hold Period:** {rec.recommended_hold_period}")
+                                    st.write(f"**Exit Strategy:** {rec.exit_strategy}")
+                            else:
+                                st.warning(f"Could not analyze ZIP {selected_zip}")
+                        except Exception as e:
+                            st.error(f"Analysis error: {str(e)}")
+            else:
+                st.info("No HOT alerts available for deep dive analysis.")
 
     # Footer
     st.markdown("---")
