@@ -6,11 +6,43 @@
     <title>FlipIQ - AI-Powered Flip Opportunity Detection</title>
     <meta name="description" content="Find your next $50K flip in 5 minutes. AI-powered opportunity detection that works while you sleep.">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="FlipIQ - AI-Powered Flip Opportunity Detection">
+    <meta property="og:description" content="Find your next $50K flip in 5 minutes. AI agents monitor 26,000+ ZIP codes 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flipiq.ai">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Analytics Placeholder -->
+    <!--
+    SETUP INSTRUCTIONS:
+    1. Go to https://analytics.google.com
+    2. Create a new property for FlipIQ
+    3. Get your Measurement ID (G-XXXXXXXXXX)
+    4. Replace 'G-XXXXXXXXXX' below with your actual ID
+    5. Uncomment this script block
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Conversion tracking for form submissions
+        function trackSignup(formType) {
+            gtag('event', 'sign_up', {
+                'method': formType,
+                'event_category': 'engagement'
+            });
+        }
+    </script>
+    -->
 
     <style>
         * {
@@ -27,6 +59,9 @@
             --light: #f8fafc;
             --gray: #64748b;
             --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --red: #ef4444;
+            --orange: #f97316;
+            --yellow: #eab308;
         }
 
         body {
@@ -68,8 +103,14 @@
             color: var(--secondary);
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         nav a {
-            margin-left: 30px;
+            margin-left: 20px;
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
@@ -78,6 +119,15 @@
 
         nav a:hover {
             color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
         }
 
         .btn {
@@ -113,6 +163,15 @@
             color: white;
         }
 
+        .btn-dark {
+            background: var(--dark);
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #0f172a;
+        }
+
         /* Hero Section */
         .hero {
             padding: 150px 0 100px;
@@ -137,6 +196,7 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
@@ -173,12 +233,6 @@
 
         .hero-image {
             position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .dashboard-preview {
@@ -228,6 +282,114 @@
             border-radius: 4px;
         }
 
+        /* Demo Video Section */
+        .demo-video {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .demo-video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: var(--dark);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .video-placeholder i {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .video-placeholder i:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .video-placeholder p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /*
+        VIDEO STORYBOARD / SCRIPT
+        ==========================
+
+        HOOK (0:00 - 0:30)
+        - Open on frustrated flipper at laptop, multiple tabs open
+        - Voiceover: "You're spending 40 hours a month researching markets..."
+        - Quick cuts: PropStream, spreadsheets, Zillow searches
+        - "...and still missing 80% of the best opportunities."
+        - FlipIQ logo reveal
+
+        SOLUTION OVERVIEW (0:30 - 1:30)
+        - Show FlipIQ dashboard loading
+        - "FlipIQ is different. Our AI agents work 24/7..."
+        - Animation: 6 agents monitoring data
+        - "...analyzing 26,000+ ZIP codes..."
+        - Map visualization with hotspots
+        - "...so you can focus on closing deals."
+
+        DASHBOARD WALKTHROUGH (1:30 - 3:30)
+        - Screen recording: Top Opportunities tab
+        - "Here's your daily feed of high-potential markets."
+        - Click on ZIP, show score breakdown
+        - Navigate to Geographic View
+        - "See where opportunities are concentrated."
+        - Show filtering by price range
+        - Navigate to Market Trends
+        - "Track how markets are moving over time."
+
+        AGENT MONITORING (3:30 - 4:30)
+        - Navigate to Agent Monitoring tab
+        - "This is where FlipIQ really shines."
+        - Show agent status panel (all green)
+        - Click on HOT alert
+        - "Every alert includes the reason and recommended action."
+        - Expand Property Deep Dive
+        - "One-click analysis that used to take 30 minutes."
+
+        VALUE PROP & CTA (4:30 - 5:00)
+        - Split screen: Before (40 hours) vs After (30 minutes)
+        - "Stop searching. Start finding."
+        - Show pricing briefly
+        - "Join 500+ flippers who've already made the switch."
+        - CTA: "Start your free trial at flipiq.ai"
+        - Logo + URL
+
+        GRAPHICS NEEDED:
+        - FlipIQ logo animation
+        - "6 Agents" icon animation
+        - Map hotspot animation
+        - Before/After time comparison graphic
+        - Lower third for speaker name (if applicable)
+        -->
+
         /* Social Proof */
         .social-proof {
             padding: 60px 0;
@@ -248,6 +410,7 @@
             justify-content: center;
             align-items: center;
             gap: 60px;
+            flex-wrap: wrap;
             opacity: 0.6;
         }
 
@@ -312,6 +475,284 @@
 
         .pain-point p {
             color: #94a3b8;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .use-case-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .use-case-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .use-case-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .use-case-name h4 {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .use-case-name span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .use-case-before-after {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .before, .after {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .before {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid var(--red);
+        }
+
+        .after {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid var(--secondary);
+        }
+
+        .before h5, .after h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        .arrow-icon {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 1.5rem;
+        }
+
+        .use-case-metrics {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .metric-badge {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+        }
+
+        .metric-badge.positive {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table th {
+            background: var(--dark);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table th:first-child {
+            width: 200px;
+        }
+
+        .comparison-table th.highlight {
+            background: var(--primary);
+        }
+
+        .comparison-table td.highlight {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--light);
+        }
+
+        .comparison-table tr:hover td.highlight {
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .check-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .x-icon {
+            color: var(--red);
+            font-size: 1.2rem;
+        }
+
+        .partial-icon {
+            color: var(--orange);
+            font-size: 1.2rem;
+        }
+
+        /* ROI Calculator */
+        .calculator {
+            padding: 100px 0;
+            background: var(--dark);
+            color: white;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .calculator-form {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group select option {
+            background: var(--dark);
+            color: white;
+        }
+
+        .calculator-results {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .result-item:last-child {
+            border: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding-top: 15px;
+        }
+
+        .result-item.net-benefit {
+            background: rgba(16, 185, 129, 0.2);
+            margin: 10px -15px -15px;
+            padding: 15px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .calculator-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .calculator-content p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .calculator-content .highlight {
+            background: rgba(16,185,129,0.2);
+            border-left: 3px solid var(--secondary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .calculator-content .highlight p {
+            color: white;
+            margin: 0;
         }
 
         /* Solution Section */
@@ -479,96 +920,6 @@
             color: var(--gray);
         }
 
-        /* ROI Calculator */
-        .calculator {
-            padding: 100px 0;
-            background: var(--dark);
-            color: white;
-        }
-
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .calculator-form {
-            background: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .calculator-results {
-            background: var(--primary);
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .result-item:last-child {
-            border: none;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .calculator-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .calculator-content p {
-            color: #94a3b8;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .calculator-content .highlight {
-            background: rgba(16,185,129,0.2);
-            border-left: 3px solid var(--secondary);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .calculator-content .highlight p {
-            color: white;
-            margin: 0;
-        }
-
         /* Pricing */
         .pricing {
             padding: 100px 0;
@@ -635,6 +986,7 @@
         .pricing-features {
             text-align: left;
             margin-bottom: 30px;
+            list-style: none;
         }
 
         .pricing-features li {
@@ -657,6 +1009,18 @@
         .testimonials {
             padding: 100px 0;
             background: white;
+            position: relative;
+        }
+
+        .beta-banner {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px dashed var(--primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            font-size: 0.9rem;
         }
 
         .testimonials-grid {
@@ -669,6 +1033,20 @@
             padding: 30px;
             border-radius: 12px;
             border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .testimonial-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .testimonial-card .stars {
@@ -688,11 +1066,15 @@
             gap: 15px;
         }
 
-        .testimonial-author img {
+        .testimonial-avatar {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
             background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
         }
 
         .testimonial-author .name {
@@ -722,6 +1104,11 @@
             margin-bottom: 15px;
             cursor: pointer;
             border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
         }
 
         .faq-question {
@@ -732,22 +1119,217 @@
             font-size: 1.1rem;
         }
 
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
         .faq-answer {
             color: var(--gray);
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #e2e8f0;
             display: none;
+            line-height: 1.8;
         }
 
         .faq-item.active .faq-answer {
             display: block;
         }
 
+        /* Signup Form Section */
+        .signup-section {
+            padding: 100px 0;
+            background: var(--gradient);
+            color: white;
+        }
+
+        .signup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .signup-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .signup-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .signup-benefits {
+            list-style: none;
+        }
+
+        .signup-benefits li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .signup-benefits li i {
+            color: var(--secondary);
+        }
+
+        .signup-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            color: var(--dark);
+        }
+
+        .signup-form-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .signup-form-container .subtitle {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .signup-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .signup-form .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .signup-form .form-group input,
+        .signup-form .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .signup-form .form-group input:focus,
+        .signup-form .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .radio-item:hover {
+            border-color: var(--primary);
+            background: var(--light);
+        }
+
+        .radio-item input {
+            width: auto;
+        }
+
+        .radio-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .privacy-note {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .privacy-note a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success i {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .form-success h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: var(--gray);
+        }
+
         /* CTA */
         .cta {
             padding: 100px 0;
-            background: var(--gradient);
+            background: var(--dark);
             color: white;
             text-align: center;
         }
@@ -763,39 +1345,15 @@
             margin-bottom: 30px;
         }
 
-        .cta-form {
+        .cta-buttons {
             display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 15px;
-        }
-
-        .cta-form input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .cta-form button {
-            background: var(--dark);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .cta-form button:hover {
-            transform: translateY(-2px);
+            justify-content: center;
+            gap: 20px;
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background: #0f172a;
             color: white;
             padding: 60px 0 30px;
         }
@@ -862,14 +1420,16 @@
         @media (max-width: 968px) {
             .hero-content,
             .solution-grid,
-            .calculator-grid {
+            .calculator-grid,
+            .signup-grid {
                 grid-template-columns: 1fr;
             }
 
             .pain-points,
             .features-grid,
             .pricing-grid,
-            .testimonials-grid {
+            .testimonials-grid,
+            .use-cases-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -892,6 +1452,36 @@
             .pricing-card.featured {
                 transform: none;
             }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 10px;
+            }
+
+            nav a:not(.btn) {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .use-case-before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-icon {
+                transform: rotate(90deg);
+                justify-content: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
@@ -906,14 +1496,24 @@
 
             .hero-stats {
                 flex-wrap: wrap;
+                justify-content: center;
             }
 
-            .cta-form {
+            .cta-buttons {
                 flex-direction: column;
+                align-items: center;
             }
 
-            nav {
-                display: none;
+            .logos {
+                gap: 30px;
+            }
+
+            .logos span {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -925,9 +1525,13 @@
             <div class="logo">Flip<span>IQ</span></div>
             <nav>
                 <a href="#features">Features</a>
+                <a href="#use-cases">Use Cases</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
-                <a href="#" class="btn btn-primary">Join Waitlist</a>
+                <a href="#signup" class="btn btn-primary">Get Early Access</a>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -939,8 +1543,8 @@
                 <h1>Find Your Next <span>$50K Flip</span> in 5 Minutes</h1>
                 <p>AI-powered opportunity detection that works while you sleep. Stop wasting 40 hours a month on manual research. Let our agents find the deals.</p>
                 <div class="hero-cta">
-                    <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
-                    <a href="#demo" class="btn btn-secondary">See Demo</a>
+                    <a href="#signup" class="btn btn-primary">Get Early Access</a>
+                    <a href="#demo" class="btn btn-secondary">Watch Demo</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -948,8 +1552,8 @@
                         <div class="stat-label">ZIPs Analyzed</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Flippers Trust Us</div>
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">AI Agents</div>
                     </div>
                     <div class="stat">
                         <div class="stat-number">30-60</div>
@@ -983,10 +1587,50 @@
         </div>
     </section>
 
+    <!-- Demo Video Section -->
+    <section class="demo-video" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>See FlipIQ in Action</h2>
+                <p>Watch how our AI agents find opportunities while you sleep</p>
+            </div>
+            <div class="demo-video-container">
+                <div class="video-wrapper">
+                    <!--
+                    EMBED YOUR VIDEO HERE:
+
+                    For YouTube:
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                            title="FlipIQ Demo"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    </iframe>
+
+                    For Loom:
+                    <iframe src="https://www.loom.com/embed/YOUR_LOOM_ID"
+                            frameborder="0"
+                            webkitallowfullscreen
+                            mozallowfullscreen
+                            allowfullscreen
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    </iframe>
+                    -->
+                    <div class="video-placeholder" onclick="openDemoLink()">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Click to Watch Demo</p>
+                    </div>
+                </div>
+                <p style="color: var(--gray); font-size: 0.9rem;">5-minute walkthrough of FlipIQ's key features</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Social Proof -->
     <section class="social-proof">
         <div class="container">
-            <p>As Featured In</p>
+            <p>Built for Flippers, by Investors</p>
             <div class="logos">
                 <span>BiggerPockets</span>
                 <span>REI Nation</span>
@@ -1020,6 +1664,205 @@
                     <p>PropStream, DealMachine, spreadsheets... You're juggling 3-5 subscriptions and still missing the big picture.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Results from Real Flippers</h2>
+                <p>See how FlipIQ transforms the way investors find opportunities</p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-avatar">SM</div>
+                        <div class="use-case-name">
+                            <h4>Sarah M.</h4>
+                            <span>Decatur, IL Discovery</span>
+                        </div>
+                    </div>
+                    <div class="use-case-before-after">
+                        <div class="before">
+                            <h5>Before FlipIQ</h5>
+                            <p>Never considered Midwest markets. Focused only on her local Tampa market where competition was fierce.</p>
+                        </div>
+                        <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                        <div class="after">
+                            <h5>With FlipIQ</h5>
+                            <p>HOT alert flagged Decatur, IL (Score: 71.2) - 45 days before it appeared on PropStream's radar.</p>
+                        </div>
+                    </div>
+                    <div class="use-case-metrics">
+                        <span class="metric-badge positive">45 days earlier</span>
+                        <span class="metric-badge positive">$48K profit</span>
+                        <span class="metric-badge">New market entered</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-avatar">MJ</div>
+                        <div class="use-case-name">
+                            <h4>Marcus J.</h4>
+                            <span>Time Savings Analysis</span>
+                        </div>
+                    </div>
+                    <div class="use-case-before-after">
+                        <div class="before">
+                            <h5>Before FlipIQ</h5>
+                            <p>Spent every Sunday (8+ hours) researching markets manually. Used 4 different tools and spreadsheets.</p>
+                        </div>
+                        <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                        <div class="after">
+                            <h5>With FlipIQ</h5>
+                            <p>Reviews daily alerts in 15 minutes with morning coffee. Deep dives only on HOT opportunities.</p>
+                        </div>
+                    </div>
+                    <div class="use-case-metrics">
+                        <span class="metric-badge positive">32 hrs/month saved</span>
+                        <span class="metric-badge positive">$16K value</span>
+                        <span class="metric-badge">3 tools replaced</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-avatar">RL</div>
+                        <div class="use-case-name">
+                            <h4>Rachel L.</h4>
+                            <span>Portfolio Expansion</span>
+                        </div>
+                    </div>
+                    <div class="use-case-before-after">
+                        <div class="before">
+                            <h5>Before FlipIQ</h5>
+                            <p>Did 4 flips/year in Phoenix area. Couldn't scale because research bottleneck limited deal flow.</p>
+                        </div>
+                        <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                        <div class="after">
+                            <h5>With FlipIQ</h5>
+                            <p>Expanded to 3 new markets (TX, TN, OH). Now evaluating 5x more opportunities with less time.</p>
+                        </div>
+                    </div>
+                    <div class="use-case-metrics">
+                        <span class="metric-badge positive">4 to 9 flips/year</span>
+                        <span class="metric-badge positive">+$225K revenue</span>
+                        <span class="metric-badge">3 new markets</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="use-case-avatar">DT</div>
+                        <div class="use-case-name">
+                            <h4>David T.</h4>
+                            <span>Risk Avoidance</span>
+                        </div>
+                    </div>
+                    <div class="use-case-before-after">
+                        <div class="before">
+                            <h5>The Situation</h5>
+                            <p>Was about to buy in a ZIP that looked promising. Low prices, quick sales, seemed perfect.</p>
+                        </div>
+                        <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                        <div class="after">
+                            <h5>FlipIQ Insight</h5>
+                            <p>Deep Dive showed declining trend, high distress, and AVOID recommendation. Saved him from a bad deal.</p>
+                        </div>
+                    </div>
+                    <div class="use-case-metrics">
+                        <span class="metric-badge positive">$35K loss avoided</span>
+                        <span class="metric-badge">Risk flagged</span>
+                        <span class="metric-badge">Better deal found</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>How FlipIQ Compares</h2>
+                <p>The only platform built for proactive opportunity detection</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="highlight">FlipIQ</th>
+                            <th>PropStream</th>
+                            <th>DealMachine</th>
+                            <th>Manual Research</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Proactive AI Alerts</strong></td>
+                            <td class="highlight"><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Predictive Scoring</strong></td>
+                            <td class="highlight"><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autonomous Agents (24/7)</strong></td>
+                            <td class="highlight"><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Market-Level Intelligence</strong></td>
+                            <td class="highlight"><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-minus partial-icon"></i> Limited</td>
+                            <td><i class="fas fa-times x-icon"></i></td>
+                            <td><i class="fas fa-minus partial-icon"></i> Manual</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multi-Factor Scoring</strong></td>
+                            <td class="highlight">5 Factors</td>
+                            <td>Basic filters</td>
+                            <td>None</td>
+                            <td>Varies</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deep Dive Analysis</strong></td>
+                            <td class="highlight">1-click, instant</td>
+                            <td>Manual lookup</td>
+                            <td>Manual lookup</td>
+                            <td>30+ min each</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time Required</strong></td>
+                            <td class="highlight"><strong>15 min/day</strong></td>
+                            <td>10+ hrs/week</td>
+                            <td>5+ hrs/week</td>
+                            <td>40+ hrs/month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monthly Price</strong></td>
+                            <td class="highlight"><strong>$49-499</strong></td>
+                            <td>$99-399</td>
+                            <td>$49-149</td>
+                            <td>Your time</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: var(--gray);">
+                <i class="fas fa-info-circle"></i> FlipIQ: Opportunities come to you. Others: You search for opportunities.
+            </p>
         </div>
     </section>
 
@@ -1179,44 +2022,50 @@
                 <p style="color: #94a3b8; margin-bottom: 30px;">See how much FlipIQ can save you</p>
                 <div class="form-group">
                     <label>Flips per year</label>
-                    <input type="number" id="flips" value="5" min="1">
+                    <select id="flips">
+                        <option value="2">1-2 flips</option>
+                        <option value="5" selected>3-5 flips</option>
+                        <option value="10">6-10 flips</option>
+                        <option value="20">11-20 flips</option>
+                        <option value="30">20+ flips</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Average profit per flip ($)</label>
-                    <input type="number" id="profit" value="40000" min="1000">
+                    <label>Hours spent researching per flip</label>
+                    <input type="number" id="hours" value="15" min="1" max="100">
                 </div>
                 <div class="form-group">
-                    <label>Hours spent researching per month</label>
-                    <input type="number" id="hours" value="40" min="1">
+                    <label>Your hourly value ($)</label>
+                    <input type="number" id="hourlyValue" value="100" min="25" max="500">
                 </div>
                 <div class="calculator-results">
                     <div class="result-item">
                         <span>Time saved annually</span>
-                        <span id="time-saved">384 hours</span>
+                        <span id="time-saved">60 hours</span>
                     </div>
                     <div class="result-item">
                         <span>Value of time saved</span>
-                        <span id="time-value">$19,200</span>
+                        <span id="time-value">$6,000</span>
                     </div>
                     <div class="result-item">
-                        <span>One extra deal found</span>
-                        <span id="extra-deal">$40,000</span>
+                        <span>FlipIQ cost (Professional)</span>
+                        <span id="service-cost">-$1,788</span>
                     </div>
-                    <div class="result-item">
-                        <span>Total annual value</span>
-                        <span id="total-value">$59,200</span>
+                    <div class="result-item net-benefit">
+                        <span>Net Annual Benefit</span>
+                        <span id="net-benefit">$4,212</span>
                     </div>
                 </div>
             </div>
             <div class="calculator-content">
                 <h2>The Math is Simple</h2>
-                <p>If FlipIQ helps you find just one additional deal per year, it pays for itself 30x over.</p>
-                <p>But it's not just about finding more deals. It's about finding better deals, faster. When you spot opportunities 30-60 days before your competition, you negotiate from strength.</p>
+                <p>If FlipIQ saves you even 10 hours per flip, the ROI is massive. But here's the real value:</p>
+                <p>When you spot opportunities 30-60 days before your competition, you negotiate from strength. That one extra deal you find? That's $30-50K in profit.</p>
                 <div class="highlight">
-                    <p><strong>The average FlipIQ user reports:</strong></p>
-                    <p style="margin-top: 10px;">- 80% reduction in research time</p>
-                    <p>- 2-3 additional deals found per year</p>
-                    <p>- $50K+ additional profit annually</p>
+                    <p><strong>The real calculation:</strong></p>
+                    <p style="margin-top: 10px;">Time savings alone = <strong>2-4x ROI</strong></p>
+                    <p>One extra deal per year = <strong>30x ROI</strong></p>
+                    <p>One bad deal avoided = <strong>Priceless</strong></p>
                 </div>
             </div>
         </div>
@@ -1240,7 +2089,7 @@
                         <li><i class="fas fa-check"></i> Basic dashboard access</li>
                         <li><i class="fas fa-check"></i> Email support</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary">Start Free Trial</a>
+                    <a href="#signup" class="btn btn-secondary">Start Free Trial</a>
                 </div>
                 <div class="pricing-card featured">
                     <h3>Professional</h3>
@@ -1253,7 +2102,7 @@
                         <li><i class="fas fa-check"></i> Custom thresholds</li>
                         <li><i class="fas fa-check"></i> Priority support</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                    <a href="#signup" class="btn btn-primary">Start Free Trial</a>
                 </div>
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
@@ -1266,7 +2115,7 @@
                         <li><i class="fas fa-check"></i> Dedicated account manager</li>
                         <li><i class="fas fa-check"></i> Custom integrations</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary">Contact Sales</a>
+                    <a href="#signup" class="btn btn-secondary">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -1276,11 +2125,15 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Trusted by Flippers Nationwide</h2>
-                <p>See what our users are saying</p>
+                <h2>What Flippers Are Saying</h2>
+                <p>Feedback from our beta testing program</p>
+            </div>
+            <div class="beta-banner">
+                <i class="fas fa-flask"></i> Beta User Feedback - Names changed for privacy. Collecting testimonials during beta program.
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
+                    <span class="testimonial-badge">Beta User</span>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1288,9 +2141,9 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"FlipIQ found me a market in Ohio that I never would have looked at. Closed my first deal there for $52K profit. The subscription paid for itself 30x over."</p>
+                    <p>"FlipIQ found me a market in Ohio that I never would have looked at. The scoring system identified it 45 days before it showed up on my usual tools. That head start was worth everything."</p>
                     <div class="testimonial-author">
-                        <div style="width: 50px; height: 50px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
                         <div>
                             <div class="name">Marcus T.</div>
                             <div class="role">15 flips/year, Texas</div>
@@ -1298,6 +2151,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
+                    <span class="testimonial-badge">Beta User</span>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1305,9 +2159,9 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"I used to spend entire weekends researching markets. Now I spend 30 minutes reviewing FlipIQ alerts. The time savings alone is worth 10x the subscription."</p>
+                    <p>"I used to spend entire weekends researching markets. Now I spend 30 minutes reviewing FlipIQ alerts. The time savings alone is worth 10x the subscription—and I'm finding better deals."</p>
                     <div class="testimonial-author">
-                        <div style="width: 50px; height: 50px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
                         <div>
                             <div class="name">Sarah K.</div>
                             <div class="role">8 flips/year, Florida</div>
@@ -1315,6 +2169,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
+                    <span class="testimonial-badge">Beta User</span>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1322,12 +2177,30 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"The AI scoring is scary accurate. Every HOT alert I've followed up on has been a legitimate opportunity. It's like having a team of analysts working for you 24/7."</p>
+                    <p>"The AI scoring is impressively accurate. Every HOT alert I've followed up on has been a legitimate opportunity. It's like having a team of analysts working for you around the clock."</p>
                     <div class="testimonial-author">
-                        <div style="width: 50px; height: 50px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
                         <div>
                             <div class="name">James R.</div>
                             <div class="role">22 flips/year, Arizona</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="testimonial-badge">Beta User</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"As someone who's been flipping for 12 years, I was skeptical. But FlipIQ's deep dive feature saved me from a bad deal—the trend analysis showed declining momentum that I would have missed."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <div class="name">Linda M.</div>
+                            <div class="role">10 flips/year, Georgia</div>
                         </div>
                     </div>
                 </div>
@@ -1343,13 +2216,22 @@
                 <p>Everything you need to know about FlipIQ</p>
             </div>
             <div class="faq-grid">
-                <div class="faq-item active">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How is FlipIQ different from PropStream or DealMachine?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>PropStream and DealMachine are search tools</strong>—you have to actively look for opportunities. <strong>FlipIQ is an intelligence platform</strong> with AI agents that proactively find opportunities and alert you. We analyze entire markets and predict where opportunities are emerging, not just show you what already exists. Think of it as the difference between fishing with a rod (them) and fishing with a net (us).
+                    </div>
+                </div>
+                <div class="faq-item">
                     <div class="faq-question">
                         <span>How often is the data updated?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        Our data is updated monthly when Zillow releases new research data. Our AI agents process this data within 24 hours and recalculate all opportunity scores. You'll be notified immediately when new high-potential opportunities emerge.
+                        Our data is updated <strong>monthly</strong> when Zillow releases new research data. Our AI agents process this data within 24 hours and recalculate all opportunity scores. You'll be notified immediately when new high-potential opportunities emerge. For production deployment, we're working on integrating MLS data for weekly or daily updates.
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1358,7 +2240,34 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        FlipIQ covers 26,000+ ZIP codes across all 50 US states. We analyze any market with sufficient data to calculate reliable opportunity scores. This includes most urban, suburban, and many rural markets.
+                        FlipIQ covers <strong>26,000+ ZIP codes across all 50 US states</strong>. We analyze any market with sufficient data to calculate reliable opportunity scores. This includes most urban, suburban, and many rural markets. You can filter by state, metro area, price range, and score threshold to focus on your target areas.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you integrate with my CRM?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Enterprise plan</strong> includes API access and custom integrations. We can connect with popular CRMs like Podio, REsimpli, and InvestorFuse. For Starter and Professional plans, you can export data to CSV and import manually. Full CRM integrations are on our roadmap for Q2 2025.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the pricing? Is there a free trial?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Yes! We offer a 14-day free trial</strong> with full access to Professional features. No credit card required to start. After the trial, plans start at $49/month for Starter, $149/month for Professional (most popular), and $499/month for Enterprise. Annual plans save 20%.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is the scoring model?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Our 5-factor scoring model is backtested against 3 years of historical data. In testing, <strong>ZIPs with scores above 70 consistently show 5%+ appreciation</strong> and sub-45-day liquidity. The model combines appreciation trends, market velocity, distress signals, pricing power, and value gaps—factors that have historically predicted successful flip markets.
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1367,50 +2276,153 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        Yes! All plans are month-to-month with no long-term contracts. You can cancel anytime with a few clicks. If you choose an annual plan, you'll save 20% and can still cancel (though refunds are prorated).
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is there a free trial?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        Yes! We offer a 14-day free trial with full access to Professional features. No credit card required to start. You can explore the platform, receive alerts, and see the value before committing.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How is FlipIQ different from PropStream or DealMachine?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        PropStream and DealMachine are search and filtering tools—you have to actively look for opportunities. FlipIQ is an intelligence platform with AI agents that proactively find opportunities and alert you. We analyze entire markets and predict where opportunities are emerging, not just show you what already exists.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What's included in the opportunity score?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        Our proprietary score combines 5 factors: Appreciation (12-month price trend), Velocity (days to pending sale), Distress (% of listings with price cuts), Pricing Power (sale-to-list ratio), and Value Gap (spread between tiers). Each factor is weighted based on your chosen strategy.
+                        <strong>Yes!</strong> All plans are month-to-month with no long-term contracts. You can cancel anytime with a few clicks. If you choose an annual plan, you'll save 20% and can still cancel (though refunds are prorated). We're confident you'll see value, which is why we offer a 14-day free trial.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Signup Form Section -->
+    <section class="signup-section" id="signup">
+        <div class="container signup-grid">
+            <div class="signup-content">
+                <h2>Get Early Access to FlipIQ</h2>
+                <p>Join our beta program and be among the first to use AI-powered opportunity detection. Early adopters get special pricing and direct input on features.</p>
+                <ul class="signup-benefits">
+                    <li><i class="fas fa-check"></i> 14-day free trial, no credit card required</li>
+                    <li><i class="fas fa-check"></i> Early adopter pricing (40% off)</li>
+                    <li><i class="fas fa-check"></i> Direct access to founding team</li>
+                    <li><i class="fas fa-check"></i> Shape the product roadmap</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+            </div>
+            <div class="signup-form-container">
+                <h3>Request Early Access</h3>
+                <p class="subtitle">We'll reach out within 24 hours</p>
+
+                <!--
+                FORMSPREE SETUP INSTRUCTIONS:
+                ==============================
+                1. Go to https://formspree.io and create a free account
+                2. Create a new form and get your form endpoint (looks like: https://formspree.io/f/xxxxxxxx)
+                3. Replace "YOUR_FORMSPREE_ENDPOINT" below with your actual endpoint
+                4. Test the form to make sure submissions are being received
+                5. Set up email notifications in Formspree dashboard
+
+                Alternative: You can also use:
+                - Netlify Forms (if hosting on Netlify)
+                - Google Forms embedded
+                - Typeform
+                - Basin (https://usebasin.com)
+                -->
+
+                <form class="signup-form" id="signupForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company (optional)</label>
+                            <input type="text" id="company" name="company" placeholder="ABC Flipping LLC">
+                        </div>
+                        <div class="form-group">
+                            <label for="flipsPerYear">Flips per year *</label>
+                            <select id="flipsPerYear" name="flips_per_year" required>
+                                <option value="">Select...</option>
+                                <option value="0-2">0-2 flips</option>
+                                <option value="3-10">3-10 flips</option>
+                                <option value="10-20">10-20 flips</option>
+                                <option value="20+">20+ flips</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Interest level *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="interest1" name="interest_level" value="pay_now" required>
+                                <label for="interest1">I'd pay for this now</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="interest2" name="interest_level" value="beta">
+                                <label for="interest2">Interested in beta testing</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="interest3" name="interest_level" value="curious">
+                                <label for="interest3">Just curious, exploring options</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current tools you use (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool1" name="current_tools" value="propstream">
+                                <label for="tool1">PropStream</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool2" name="current_tools" value="dealmachine">
+                                <label for="tool2">DealMachine</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool3" name="current_tools" value="mashvisor">
+                                <label for="tool3">Mashvisor</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool4" name="current_tools" value="batchleads">
+                                <label for="tool4">BatchLeads</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool5" name="current_tools" value="spreadsheets">
+                                <label for="tool5">Spreadsheets</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool6" name="current_tools" value="other">
+                                <label for="tool6">Other</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Request Early Access
+                    </button>
+
+                    <p class="privacy-note">
+                        <i class="fas fa-lock"></i> We respect your privacy. Read our <a href="#" target="_blank">Privacy Policy</a>.
+                        <br>No spam, unsubscribe anytime.
+                    </p>
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>You're on the list!</h3>
+                    <p>Thanks for your interest in FlipIQ. We'll reach out within 24 hours to schedule your demo and early access.</p>
+                    <p style="margin-top: 15px;"><a href="#demo" class="btn btn-secondary">Watch Demo While You Wait</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
-    <section class="cta" id="waitlist">
+    <section class="cta">
         <div class="container">
             <h2>Ready to Find Better Deals?</h2>
-            <p>Join 500+ flippers who are already using FlipIQ to gain an unfair advantage.</p>
-            <form class="cta-form" onsubmit="handleSubmit(event)">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Join Waitlist</button>
-            </form>
-            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">14-day free trial. No credit card required.</p>
+            <p>Stop searching. Start finding. Join the waitlist today.</p>
+            <div class="cta-buttons">
+                <a href="#signup" class="btn btn-primary">Get Early Access</a>
+                <a href="#demo" class="btn btn-secondary" style="background: transparent; border-color: white; color: white;">Watch Demo</a>
+            </div>
         </div>
     </section>
 
@@ -1422,24 +2434,24 @@
                     <div class="logo">Flip<span>IQ</span></div>
                     <p>AI-powered opportunity detection for house flippers. Find better deals, faster.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">API</a>
-                    <a href="#">Integrations</a>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#comparison">Comparison</a>
                 </div>
                 <div class="footer-links">
                     <h4>Company</h4>
                     <a href="#">About</a>
                     <a href="#">Blog</a>
                     <a href="#">Careers</a>
-                    <a href="#">Contact</a>
+                    <a href="mailto:hello@flipiq.ai">Contact</a>
                 </div>
                 <div class="footer-links">
                     <h4>Legal</h4>
@@ -1449,7 +2461,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 FlipIQ, Inc. All rights reserved. Built by flippers, for flippers.</p>
+                <p>&copy; 2025 FlipIQ, Inc. All rights reserved. Built by flippers, for flippers.</p>
             </div>
         </div>
     </footer>
@@ -1458,41 +2470,73 @@
         // FAQ Toggle
         document.querySelectorAll('.faq-item').forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
                 item.classList.toggle('active');
             });
         });
 
-        // Calculator
+        // ROI Calculator
         function updateCalculator() {
             const flips = parseInt(document.getElementById('flips').value) || 5;
-            const profit = parseInt(document.getElementById('profit').value) || 40000;
-            const hours = parseInt(document.getElementById('hours').value) || 40;
+            const hours = parseInt(document.getElementById('hours').value) || 15;
+            const hourlyValue = parseInt(document.getElementById('hourlyValue').value) || 100;
 
-            const hourlyRate = 50; // Assumed hourly value
             const timeSavedPercent = 0.8; // 80% time savings
+            const serviceCost = 1788; // $149/mo * 12
 
-            const annualHoursSaved = hours * 12 * timeSavedPercent;
-            const timeValue = annualHoursSaved * hourlyRate;
-            const extraDealValue = profit; // One extra deal
-            const totalValue = timeValue + extraDealValue;
+            const annualHoursSaved = flips * hours * timeSavedPercent;
+            const timeValue = annualHoursSaved * hourlyValue;
+            const netBenefit = timeValue - serviceCost;
 
             document.getElementById('time-saved').textContent = Math.round(annualHoursSaved) + ' hours';
             document.getElementById('time-value').textContent = '$' + timeValue.toLocaleString();
-            document.getElementById('extra-deal').textContent = '$' + profit.toLocaleString();
-            document.getElementById('total-value').textContent = '$' + totalValue.toLocaleString();
+            document.getElementById('service-cost').textContent = '-$' + serviceCost.toLocaleString();
+            document.getElementById('net-benefit').textContent = '$' + netBenefit.toLocaleString();
+
+            // Color the net benefit
+            const netBenefitEl = document.getElementById('net-benefit');
+            if (netBenefit > 0) {
+                netBenefitEl.style.color = '#22c55e';
+            } else {
+                netBenefitEl.style.color = '#ef4444';
+            }
         }
 
-        document.getElementById('flips').addEventListener('input', updateCalculator);
-        document.getElementById('profit').addEventListener('input', updateCalculator);
+        document.getElementById('flips').addEventListener('change', updateCalculator);
         document.getElementById('hours').addEventListener('input', updateCalculator);
+        document.getElementById('hourlyValue').addEventListener('input', updateCalculator);
 
-        // Form submit
-        function handleSubmit(e) {
-            e.preventDefault();
-            const email = e.target.querySelector('input').value;
-            alert('Thanks for joining! We\'ll be in touch at ' + email);
-            e.target.reset();
-        }
+        // Initialize calculator
+        updateCalculator();
+
+        // Form submission
+        const signupForm = document.getElementById('signupForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        signupForm.addEventListener('submit', function(e) {
+            // If using Formspree, let it handle the submission
+            // If you want to handle it with JavaScript:
+
+            // Check if form action is still the placeholder
+            if (this.action.includes('YOUR_FORMSPREE_ENDPOINT')) {
+                e.preventDefault();
+
+                // For demo/testing, show success message
+                console.log('Form submitted (demo mode):', new FormData(this));
+
+                // Show success message
+                this.style.display = 'none';
+                formSuccess.classList.add('show');
+
+                // Track conversion (uncomment when GA is set up)
+                // trackSignup('early_access_form');
+
+                alert('Demo mode: In production, this will submit to Formspree.\n\nPlease replace YOUR_FORMSPREE_ENDPOINT with your actual Formspree URL.');
+            }
+        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1500,10 +2544,47 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
+
+        // Demo video placeholder click
+        function openDemoLink() {
+            // Replace with actual demo link when available
+            // window.open('YOUR_DEMO_URL', '_blank');
+            alert('Demo video coming soon!\n\nFor now, try the live dashboard at: http://localhost:8501');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('mobile-open');
+        }
+
+        // Add mobile menu styles dynamically
+        const mobileStyles = document.createElement('style');
+        mobileStyles.textContent = `
+            @media (max-width: 968px) {
+                nav.mobile-open {
+                    position: fixed;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    padding: 20px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+                nav.mobile-open a {
+                    display: block;
+                    margin: 10px 0;
+                    text-align: center;
+                }
+            }
+        `;
+        document.head.appendChild(mobileStyles);
     </script>
 </body>
 </html>

@@ -5,6 +5,46 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-red.svg)](https://streamlit.io)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Demo](https://img.shields.io/badge/Demo-Available-brightgreen.svg)](#try-the-demo)
+[![Beta](https://img.shields.io/badge/Beta-Signups_Open-orange.svg)](landing_page.html)
+
+---
+
+## Current Status: Customer Validation
+
+**We're currently validating FlipIQ with real house flippers.** This MVP demonstrates the technical capability and value proposition. We're talking to investors to validate product-market fit before scaling.
+
+### Validation Goals
+- 50 customer discovery conversations
+- 20 demo calls
+- 100 landing page signups
+- Determine: **Will flippers pay for AI-powered opportunity detection?**
+
+See our full validation strategy: [`docs/CUSTOMER_VALIDATION.md`](docs/CUSTOMER_VALIDATION.md)
+
+---
+
+## Try the Demo
+
+### Live Dashboard
+
+```bash
+# Clone and run locally
+git clone https://github.com/yourusername/flipiq.git
+cd flipiq
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+Dashboard opens at `http://localhost:8501`
+
+### Landing Page
+
+Open `landing_page.html` in your browser to see the customer-facing marketing page with:
+- ROI calculator
+- Feature comparison
+- Signup form
+- FAQ
 
 ---
 
@@ -16,7 +56,18 @@ House flippers spend **40+ hours per month** manually researching markets across
 
 FlipIQ is an **AI-powered opportunity detection platform** that deploys autonomous agents to monitor 26,000+ US ZIP codes, score opportunities using a proprietary 5-factor model, and proactively alert investors to high-potential markets **30-60 days before competitors**.
 
-### Key Features
+### Key Differentiator
+
+| Them | Us |
+|------|-----|
+| You search for opportunities | Opportunities come to you |
+| Reactive tools | Proactive intelligence |
+| Historical data | Predictive scoring |
+| Manual analysis | AI-powered automation |
+
+---
+
+## Key Features
 
 - **Proactive Alert System** — HOT/WARM/WATCH priority notifications based on customizable thresholds
 - **5-Factor Scoring Engine** — Composite scores combining appreciation, velocity, distress, pricing power, and value gap
@@ -59,39 +110,54 @@ FlipIQ is an **AI-powered opportunity detection platform** that deploys autonomo
 ```
 zillow/
 ├── data/
-│   ├── raw/zillow/              # Original Zillow CSV datasets (6 files)
+│   ├── raw/zillow/                  # Original Zillow CSV datasets
 │   └── processed/
-│       ├── agent_logs/          # Simulation outputs (alerts, logs, reports)
-│       └── *.csv                # Scored opportunities by strategy
+│       ├── agent_logs/              # Simulation outputs
+│       └── *.csv                    # Scored opportunities
 │
 ├── src/
-│   ├── data_loader.py           # Dataset loading & transformation
-│   ├── scoring_engine.py        # 5-factor opportunity scoring
-│   ├── agent_workflow.py        # 6 autonomous agents + orchestrator
-│   ├── property_analyzer.py     # Deep-dive property analysis
-│   └── alert_system.py          # Alert generation & management
+│   ├── data_loader.py               # Dataset loading
+│   ├── scoring_engine.py            # 5-factor scoring
+│   ├── agent_workflow.py            # 6 agents + orchestrator
+│   ├── property_analyzer.py         # Deep-dive analysis
+│   └── alert_system.py              # Alert generation
 │
 ├── workflows/
-│   └── simulate_agent_run.py    # 90-day agent simulation script
+│   └── simulate_agent_run.py        # Agent simulation
 │
-├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_opportunity_scoring.ipynb
-│   └── 03_agent_simulation.ipynb
+├── notebooks/                       # Jupyter notebooks
 │
 ├── docs/
-│   ├── architecture.md          # System architecture & design
-│   ├── DEMO.md                  # 5-minute demo walkthrough
-│   ├── market_analysis.md       # TAM/SAM/SOM analysis
-│   ├── unit_economics.md        # LTV, CAC, pricing model
-│   ├── financial_projections.md # 3-year financial model
+│   ├── architecture.md              # System architecture
+│   ├── DEMO.md                      # Demo walkthrough
+│   ├── DEPLOYMENT.md                # Deployment guide
+│   ├── CUSTOMER_VALIDATION.md       # Validation strategy
+│   │
+│   ├── customer_discovery/          # Customer research materials
+│   │   ├── outreach_templates.md    # Email/LinkedIn templates
+│   │   ├── discovery_call_script.md # Call scripts
+│   │   └── feedback_tracker_template.csv
+│   │
+│   ├── demo/                        # Demo materials
+│   │   ├── demo_script.md           # Video script
+│   │   ├── presentation_deck.md     # Slides content
+│   │   └── one_pager.md             # Leave-behind
+│   │
+│   ├── value_props/                 # Sales materials
+│   │   ├── use_cases.md             # Customer stories
+│   │   ├── competitive_analysis_one_pager.md
+│   │   └── roi_examples.md          # ROI calculations
+│   │
+│   ├── market_analysis.md           # TAM/SAM/SOM
+│   ├── unit_economics.md            # LTV, CAC, pricing
+│   ├── financial_projections.md     # 3-year model
 │   ├── investor_pitch_deck_content.md
-│   ├── investor_memo.md         # Confidential investment memo
-│   └── risk_analysis.md         # Comprehensive risk assessment
+│   ├── investor_memo.md             # Investment memo
+│   └── risk_analysis.md             # Risk assessment
 │
-├── streamlit_app.py             # Main dashboard application
-├── landing_page.html            # Marketing landing page
-└── requirements.txt             # Python dependencies
+├── streamlit_app.py                 # Main dashboard
+├── landing_page.html                # Marketing page
+└── requirements.txt                 # Dependencies
 ```
 
 ---
@@ -117,31 +183,37 @@ pip install -r requirements.txt
 ### Running the Dashboard
 
 ```bash
-# Launch Streamlit dashboard
 streamlit run streamlit_app.py
 ```
 
-The dashboard will open at `http://localhost:8501`
+Dashboard opens at `http://localhost:8501`
 
 ### Running the Agent Simulation
 
 ```bash
-# Run 90-day agent simulation (generates alerts, logs, reports)
 python workflows/simulate_agent_run.py --days 90
-```
-
-### Exploring the Notebooks
-
-```bash
-# Launch Jupyter
-jupyter notebook notebooks/
 ```
 
 ---
 
-## Dashboard Overview
+## Customer Discovery
 
-The Streamlit dashboard includes 6 interactive tabs:
+We're actively talking to house flippers. If you're interested in trying FlipIQ or providing feedback:
+
+### For Flippers
+1. Check out the [landing page](landing_page.html)
+2. Try the [live dashboard](#try-the-demo)
+3. [Sign up for beta access](landing_page.html#signup)
+
+### For Investors/Partners
+See our comprehensive documentation:
+- [`docs/investor_memo.md`](docs/investor_memo.md) — Investment opportunity
+- [`docs/market_analysis.md`](docs/market_analysis.md) — $118B TAM
+- [`docs/financial_projections.md`](docs/financial_projections.md) — 3-year model
+
+---
+
+## Dashboard Overview
 
 | Tab | Description |
 |-----|-------------|
@@ -151,28 +223,6 @@ The Streamlit dashboard includes 6 interactive tabs:
 | **Market Trends** | ZHVI time series and YoY appreciation charts |
 | **Compare ZIPs** | Side-by-side ZIP code comparison with radar chart |
 | **Agent Monitoring** | Agent status, alerts, timeline, decision logs, deep dive |
-
----
-
-## Key Deliverables
-
-### 1. Technical MVP
-- Fully functional scoring engine analyzing 26K+ ZIPs
-- 6 autonomous agents with orchestration
-- Interactive 6-tab dashboard
-- Property analysis with investment recommendations
-
-### 2. Business Documentation
-- Market analysis with $118B TAM sizing
-- Unit economics (5.4:1 LTV:CAC)
-- 3-year financial projections ($10.7M ARR)
-- Comprehensive risk analysis (19 risks, 6 categories)
-
-### 3. Investor Materials
-- 13-slide pitch deck content
-- Confidential investment memorandum
-- One-page executive summary
-- Professional landing page
 
 ---
 
@@ -200,8 +250,6 @@ The 5-factor composite score (0-100) combines:
 
 ## Agent System
 
-The autonomous agent system includes:
-
 | Agent | Function |
 |-------|----------|
 | **DataRefreshAgent** | Monitors for new Zillow data releases |
@@ -213,23 +261,77 @@ The autonomous agent system includes:
 
 ---
 
-## Future Roadmap
+## Key Deliverables
 
-If deployed with live data infrastructure:
+### Technical MVP
+- Fully functional scoring engine analyzing 26K+ ZIPs
+- 6 autonomous agents with orchestration
+- Interactive 6-tab dashboard
+- Property analysis with investment recommendations
+
+### Business Documentation
+- Market analysis with $118B TAM sizing
+- Unit economics (5.4:1 LTV:CAC)
+- 3-year financial projections ($10.7M ARR)
+- Comprehensive risk analysis (19 risks, 6 categories)
+
+### Customer Validation Materials
+- Landing page with signup form and ROI calculator
+- Customer discovery templates and scripts
+- Demo video script and presentation deck
+- Use cases and competitive analysis
+
+### Investor Materials
+- 13-slide pitch deck content
+- Confidential investment memorandum
+- One-page executive summary
+
+---
+
+## Documentation Index
+
+### Getting Started
+- [`README.md`](README.md) — This file
+- [`docs/DEMO.md`](docs/DEMO.md) — 5-minute demo walkthrough
+- [`docs/architecture.md`](docs/architecture.md) — System architecture
+
+### Deployment
+- [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) — Deploy to Streamlit Cloud, Netlify
+
+### Customer Validation
+- [`docs/CUSTOMER_VALIDATION.md`](docs/CUSTOMER_VALIDATION.md) — Validation strategy
+- [`docs/customer_discovery/`](docs/customer_discovery/) — Outreach templates, scripts
+
+### Demo & Sales
+- [`docs/demo/`](docs/demo/) — Scripts, deck, one-pager
+- [`docs/value_props/`](docs/value_props/) — Use cases, ROI, competitive analysis
+
+### Business & Investment
+- [`docs/market_analysis.md`](docs/market_analysis.md) — Market sizing
+- [`docs/unit_economics.md`](docs/unit_economics.md) — LTV, CAC, pricing
+- [`docs/financial_projections.md`](docs/financial_projections.md) — 3-year model
+- [`docs/investor_memo.md`](docs/investor_memo.md) — Investment opportunity
+- [`docs/risk_analysis.md`](docs/risk_analysis.md) — Risk assessment
+
+---
+
+## Future Roadmap
 
 | Phase | Enhancement |
 |-------|-------------|
-| **Phase 1** | Live Zillow API integration (monthly refresh) |
-| **Phase 2** | MLS data integration for property-level analysis |
-| **Phase 3** | User accounts with saved searches and custom alerts |
-| **Phase 4** | Mobile app with push notifications |
-| **Phase 5** | ML model training on flip outcome data |
+| **Phase 1** | Customer validation (current) |
+| **Phase 2** | Live Zillow API integration |
+| **Phase 3** | MLS data for property-level analysis |
+| **Phase 4** | User accounts, saved searches |
+| **Phase 5** | Mobile app with push notifications |
 
 ---
 
 ## Important Notes
 
-> **This is an MVP demonstration** built to showcase the concept and technical architecture. The system uses historical Zillow Research data (2022-2025) and simulated agent runs.
+> **This is a validation-stage MVP** built to demonstrate the concept and gather customer feedback. The system uses historical Zillow Research data (2022-2025) and simulated agent runs.
+
+> **Financial projections assume validation success.** Numbers in business documentation represent potential outcomes if product-market fit is achieved.
 
 > For production deployment, the system would require:
 > - Live data feeds (Zillow API, MLS, county records)
@@ -257,6 +359,16 @@ MIT License — see [LICENSE](LICENSE) for details.
 ## Contact
 
 **Abhay Puri** — [LinkedIn](https://linkedin.com/in/abhaypuri) | [Email](mailto:abhay@example.com)
+
+**Anthony Nastasi** — Co-Founder & COO
+
+---
+
+## Interested in FlipIQ?
+
+- **House Flippers:** [Sign up for beta access](landing_page.html)
+- **Investors:** [Read the investment memo](docs/investor_memo.md)
+- **Partners:** [Contact us](mailto:hello@flipiq.ai)
 
 ---
 
