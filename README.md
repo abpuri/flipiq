@@ -32,7 +32,7 @@ https://flipiq.streamlit.app/
 
 ### Landing Page
 
-Open https://abpuri.github.io/flipiq/landing_page.html in your browser to see the customer-facing marketing page with:
+Open https://abpuri.github.io/flipiq/landing_page.html in your browser to see:
 - ROI calculator
 - Feature comparison
 - Signup form
