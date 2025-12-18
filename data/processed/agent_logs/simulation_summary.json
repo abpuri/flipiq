@@ -1,12 +1,12 @@
 {
   "simulation_days": 78,
-  "total_new_opportunities": 503,
-  "total_changed_opportunities": 35,
-  "total_alerts": 538,
-  "hot_alerts": 171,
-  "warm_alerts": 367,
+  "total_new_opportunities": 538,
+  "total_changed_opportunities": 30,
+  "total_alerts": 568,
+  "hot_alerts": 197,
+  "warm_alerts": 371,
   "watch_alerts": 0,
   "data_refreshes": 4,
   "reports_generated": 13,
-  "avg_daily_alerts": 6.897435897435898
+  "avg_daily_alerts": 7.282051282051282
 }

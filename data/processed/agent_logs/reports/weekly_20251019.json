@@ -1,57 +1,57 @@
 {
   "report_type": "weekly",
-  "generated_at": "2025-10-19T17:03:24.828851",
+  "generated_at": "2025-10-19T23:19:37.501208",
   "period": {
-    "start": "2025-10-12T17:03:24.828851",
-    "end": "2025-10-19T17:03:24.828851"
+    "start": "2025-10-12T23:19:37.501208",
+    "end": "2025-10-19T23:19:37.501208"
   },
   "summary": {
     "total_opportunities_monitored": 21680,
-    "new_opportunities_this_week": 31,
-    "total_alerts": 36,
-    "hot_alerts": 13,
-    "warm_alerts": 23
+    "new_opportunities_this_week": 301,
+    "total_alerts": 321,
+    "hot_alerts": 100,
+    "warm_alerts": 221
   },
   "top_opportunities": [
     {
       "zip": "62573",
       "city": "Warrensburg",
       "state": "IL",
-      "score": 76.1,
+      "score": 76.0,
       "value": 154973.0
     },
     {
       "zip": "61925",
       "city": "Dalton City",
       "state": "IL",
-      "score": 78.8,
+      "score": 76.2,
       "value": 198539.0
     },
     {
       "zip": "62501",
       "city": "Oreana",
       "state": "IL",
-      "score": 78.0,
+      "score": 77.0,
       "value": 187742.0
     },
     {
       "zip": "62554",
       "city": "Oreana",
       "state": "IL",
-      "score": 77.0,
+      "score": 75.3,
       "value": 169367.0
     },
     {
       "zip": "62521",
       "city": "Decatur",
       "state": "IL",
-      "score": 78.1,
+      "score": 76.1,
       "value": 115800.0
     }
   ],
   "market_highlights": [
-    "Average opportunity score: 46.2",
-    "Highest score: 78.8",
+    "Average opportunity score: 46.3",
+    "Highest score: 79.2",
     "Median home value: $242,257"
   ],
   "recommendations": []

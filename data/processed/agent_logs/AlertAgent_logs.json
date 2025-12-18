@@ -1168,5 +1168,1175 @@
     },
     "status": "success",
     "duration_seconds": 0.00725
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.525956",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.007161
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.553208",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006518
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.579899",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 7,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006466
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.608963",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006495
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.636879",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 10,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 7,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006883
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.665370",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006686
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.693237",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006538
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.721239",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006551
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.748572",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006589
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.777067",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006365
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.803673",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 10,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006652
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.830844",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006595
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.857922",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 9,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006478
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.884715",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 28,
+      "by_priority": {
+        "HOT": 8,
+        "WARM": 20,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006415
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.912049",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 19,
+      "by_priority": {
+        "HOT": 6,
+        "WARM": 13,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006707
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.939919",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 12,
+      "by_priority": {
+        "HOT": 6,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006621
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.971213",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 12,
+      "by_priority": {
+        "HOT": 7,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006376
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.999425",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.007713
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.027459",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 10,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.007983
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.053542",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006343
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.079654",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006808
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.107773",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006717
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.133918",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.00623
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.159762",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006355
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.186686",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006309
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.213135",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006277
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.239450",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006292
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.266638",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006329
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.292739",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006431
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.318351",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 5,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006322
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.348712",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 12,
+      "by_priority": {
+        "HOT": 5,
+        "WARM": 7,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006426
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.374516",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006595
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.399777",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006355
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.426180",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006388
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.451616",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006434
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.477019",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006465
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.502526",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006413
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.527923",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006342
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.553674",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 23,
+      "by_priority": {
+        "HOT": 5,
+        "WARM": 18,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.007241
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.581102",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 19,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 15,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006423
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.607125",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 21,
+      "by_priority": {
+        "HOT": 6,
+        "WARM": 15,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006621
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.637603",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 12,
+      "by_priority": {
+        "HOT": 7,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006602
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.662593",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006242
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.688726",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006843
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.713737",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006349
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.740292",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 5,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006283
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.765511",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006512
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.791225",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006349
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.816770",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006357
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.842640",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006255
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.868359",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006386
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.895069",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 9,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 7,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006318
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.920634",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 6,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006331
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.946449",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006263
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.972604",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 2,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006347
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.998510",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 2,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006443
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.024829",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 6,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006374
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.051950",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006359
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.078800",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 7,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006427
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.105663",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 3,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006694
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.133225",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 7,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006442
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.160854",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.007124
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.188429",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006297
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.215435",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 2,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006231
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.244497",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 16,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 12,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.00747
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.273793",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 16,
+      "by_priority": {
+        "HOT": 4,
+        "WARM": 12,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006747
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.301788",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 19,
+      "by_priority": {
+        "HOT": 5,
+        "WARM": 14,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006423
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.334051",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 9,
+      "by_priority": {
+        "HOT": 8,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006482
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.354483",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 0,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 0,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 2e-06
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.382240",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006712
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.409625",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.00646
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.436340",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 1,
+        "WARM": 7,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006277
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.463294",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006362
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.494918",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 7,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006513
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.526048",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 8,
+      "by_priority": {
+        "HOT": 3,
+        "WARM": 5,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006627
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.553147",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 4,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 4,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006383
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.579915",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 3,
+      "by_priority": {
+        "HOT": 2,
+        "WARM": 1,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006781
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.606595",
+    "agent_name": "AlertAgent",
+    "action": "alerts_generated",
+    "details": {
+      "total_alerts": 2,
+      "by_priority": {
+        "HOT": 0,
+        "WARM": 2,
+        "WATCH": 0
+      }
+    },
+    "status": "success",
+    "duration_seconds": 0.006338
   }
 ]

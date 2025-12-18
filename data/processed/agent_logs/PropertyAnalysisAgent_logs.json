@@ -778,5 +778,785 @@
     },
     "status": "success",
     "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.526040",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 3.2e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.553300",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.579989",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.609043",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.636992",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.665465",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.693318",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.2e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.721325",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.2e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.748652",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.5e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.777147",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.1e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.803783",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.8e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.830925",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.858008",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.884864",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.912163",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.940022",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.971318",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.5e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:37.999503",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.027542",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.053618",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.079723",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.107848",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.133984",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.159842",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.186775",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.213204",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.239518",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.266729",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.5e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.292819",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.318427",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.348811",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.374585",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.399843",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.426254",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.451696",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.477078",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 1.9e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.502604",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.527979",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.553809",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.8e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.581227",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.607264",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.8e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.637714",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.662652",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 1.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.688814",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.713815",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.1e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.740364",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.5e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.765588",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.791304",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.816855",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.842714",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.868420",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.1e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.895158",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.920707",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.946506",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.1e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.972654",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 2
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:38.998563",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 2
+    },
+    "status": "success",
+    "duration_seconds": 1.7e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.024906",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.052018",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 1.8e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.078876",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.105739",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.133319",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.1e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.160929",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.188492",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.1e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.215487",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 2
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.244629",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.8e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.273915",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.301903",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.334147",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.354506",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 0
+    },
+    "status": "success",
+    "duration_seconds": 0.0
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.382321",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.409695",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.436427",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.463373",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.6e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.495013",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 3.2e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.526144",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 5
+    },
+    "status": "success",
+    "duration_seconds": 2.9e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.553220",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 4
+    },
+    "status": "success",
+    "duration_seconds": 2.5e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.579984",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 3
+    },
+    "status": "success",
+    "duration_seconds": 2.4e-05
+  },
+  {
+    "timestamp": "2025-12-17T23:19:39.606651",
+    "agent_name": "PropertyAnalysisAgent",
+    "action": "analysis_completed",
+    "details": {
+      "properties_analyzed": 2
+    },
+    "status": "success",
+    "duration_seconds": 1.6e-05
   }
 ]

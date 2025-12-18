@@ -12,7 +12,7 @@
 
 Seed Round | $750K
 
-December 2024
+December 2025
 
 ---
 
