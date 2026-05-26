@@ -189,10 +189,10 @@
       <div class="score-slider-wrap">
         <div class="score-slider-row">
           <span style="font-size:0.78rem;color:var(--mid)">0</span>
-          <span class="score-slider-val" id="score-display">50</span>
+          <span class="score-slider-val" id="score-display">40</span>
           <span style="font-size:0.78rem;color:var(--mid)">100</span>
         </div>
-        <input type="range" id="min-score" min="0" max="90" value="50" step="5">
+        <input type="range" id="min-score" min="0" max="90" value="40" step="5">
       </div>
     </div>
 
@@ -359,8 +359,8 @@ function sortRows() {
 function resetFilters() {
   document.getElementById('min-value').value = 50000;
   document.getElementById('max-value').value = 1500000;
-  document.getElementById('min-score').value = 50;
-  document.getElementById('score-display').textContent = '50';
+  document.getElementById('min-score').value = 40;
+  document.getElementById('score-display').textContent = '40';
   document.getElementById('state-filter').value = '';
   applyFilters();
 }
@@ -392,7 +392,8 @@ function scoreClass(s) {
   return 'score-low';
 }
 
-function fmt$( v) { return v != null ? '$' + Math.round(v).toLocaleString() : '—'; }
+function fmtZip(v) { return v != null ? String(v).padStart(5, '0') : '—'; }
+function fmt$(v) { return v != null ? '$' + Math.round(v).toLocaleString() : '—'; }
 function fmtN(v, dec=1) { return v != null ? v.toFixed(dec) : '—'; }
 
 const COLS = [
@@ -431,7 +432,7 @@ function renderTable() {
     const selected = selectedRow && selectedRow.region_name === row.region_name ? 'selected' : '';
     tbody += `<tr class="${selected}" data-idx="${i}">
       <td class="rank-cell">${i+1}</td>
-      <td class="zip-cell">${row.region_name ?? '—'}</td>
+      <td class="zip-cell">${fmtZip(row.region_name)}</td>
       <td class="location-cell">${row.city ? row.city + ', ' : ''}${row.state ?? '—'}</td>
       <td class="value-cell">${fmt$(row.current_value)}</td>
       <td><span class="score-pill ${scoreClass(sc)}">${fmtN(sc)}</span></td>
@@ -554,7 +555,7 @@ function renderBreakdown(row) {
 
   pane.innerHTML = `
     <div class="bd-header">
-      <div class="bd-zip">ZIP ${row.region_name}</div>
+      <div class="bd-zip">ZIP ${fmtZip(row.region_name)}</div>
       <div class="bd-location">${[row.city, row.state].filter(Boolean).join(', ')} &nbsp;·&nbsp; ${row.metro || ''}</div>
     </div>
     <div class="bd-score-ring">
