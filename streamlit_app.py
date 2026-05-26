@@ -36,24 +36,124 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS — matches landing page: Inter font, blue/white palette, clean layout
 st.markdown("""
 <style>
-    .metric-card {
-        background-color: #f0f2f6;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    /* Top bar */
+    header[data-testid="stHeader"] {
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Main content padding */
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        max-width: 1080px;
+    }
+
+    /* Sidebar */
+    section[data-testid="stSidebar"] {
+        background: #f8fafc;
+        border-right: 1px solid #e2e8f0;
+    }
+    section[data-testid="stSidebar"] .block-container {
+        padding-top: 1.5rem;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 4px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    .stTabs [data-baseweb="tab"] {
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 6px 6px 0 0;
+        color: #64748b;
+    }
+    .stTabs [aria-selected="true"] {
+        color: #2563eb !important;
+        font-weight: 600;
+    }
+
+    /* Metrics */
+    [data-testid="metric-container"] {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
         border-radius: 10px;
-        padding: 15px;
-        text-align: center;
+        padding: 16px;
     }
-    .big-number {
-        font-size: 2.5em;
-        font-weight: bold;
-        color: #1f77b4;
+    [data-testid="metric-container"] label {
+        font-size: 0.78rem !important;
+        font-weight: 600 !important;
+        color: #64748b !important;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
     }
-    .metric-label {
-        font-size: 0.9em;
-        color: #666;
+    [data-testid="metric-container"] [data-testid="stMetricValue"] {
+        font-size: 1.6rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
     }
+
+    /* Info/warning boxes */
+    .stInfo, .stWarning, .stSuccess {
+        border-radius: 8px;
+        font-size: 0.85rem;
+    }
+
+    /* Buttons */
+    .stButton > button {
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    /* Dataframe */
+    [data-testid="stDataFrame"] {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Download button */
+    .stDownloadButton > button {
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        border-radius: 8px;
+        border: 1.5px solid #2563eb;
+        color: #2563eb;
+        background: #ffffff;
+    }
+    .stDownloadButton > button:hover {
+        background: #eff6ff;
+    }
+
+    /* Expander */
+    .streamlit-expanderHeader {
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: #0f172a;
+    }
+
+    /* Caption text */
+    .stCaption {
+        color: #64748b !important;
+        font-size: 0.78rem !important;
+    }
+
+    /* Page title */
+    h1 { font-weight: 800 !important; letter-spacing: -0.02em !important; }
+    h2 { font-weight: 700 !important; letter-spacing: -0.01em !important; }
+    h3 { font-weight: 600 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -222,8 +322,8 @@ def compute_scores(_datasets, strategy_name, min_value, max_value):
 
 def main():
     # Header
-    st.title("🏠 House Flip Opportunity Dashboard")
-    st.markdown("*Identify high-potential flip opportunities using Zillow data*")
+    st.title("FlipIQ — Real Estate Market Intelligence")
+    st.markdown("*Score and compare 26,000+ US ZIP codes across five market signals. Powered by Zillow Research data.*")
 
     # Load data
     with st.spinner("Loading data..."):

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlipIQ — Market Scorecard for House Flippers</title>
-  <meta name="description" content="FlipIQ scores 26,000+ US ZIP codes on five market signals so you can find the right markets faster. Free to use, powered by Zillow Research data.">
-  <meta property="og:title" content="FlipIQ — Market Scorecard for House Flippers">
-  <meta property="og:description" content="26,000+ ZIP codes scored on appreciation, velocity, distress, pricing power, and renovation potential. Free dashboard, updated monthly.">
+  <title>FlipIQ — Real Estate Market Intelligence</title>
+  <meta name="description" content="FlipIQ scores 26,000+ US ZIP codes on five market signals — appreciation, velocity, distress, pricing power, and value gap. Built for real estate investors, agents, and wholesalers.">
+  <meta property="og:title" content="FlipIQ — Real Estate Market Intelligence">
+  <meta property="og:description" content="26,000+ ZIP codes scored on five market signals. Know which markets to focus on before you spend time on the ground.">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -411,9 +411,7 @@
   <div class="container">
     <div class="nav-inner">
       <div class="logo">Flip<span>IQ</span></div>
-      <a href="https://flipiq.streamlit.app" class="btn btn-primary" target="_blank">
-        Open Dashboard →
-      </a>
+      <a href="#signup" class="btn btn-primary">Get Access →</a>
     </div>
   </div>
 </nav>
@@ -423,10 +421,10 @@
   <div class="container">
     <div class="hero-inner">
       <div>
-<h1>A scorecard for every <span>ZIP code</span> in America</h1>
-        <p>FlipIQ scores 26,000+ US ZIP codes on five market signals — appreciation, velocity, distress, pricing power, and renovation potential — so you can identify the right markets faster.</p>
+        <h1>Real estate market intelligence for <span>every ZIP code</span> in America</h1>
+        <p>FlipIQ scores 26,000+ US ZIP codes on five market signals — appreciation, velocity, distress, pricing power, and value gap — so you know which markets are worth your time before you spend it.</p>
         <div class="hero-actions">
-          <a href="https://flipiq.streamlit.app" class="btn btn-primary" target="_blank">Try the Dashboard — Free</a>
+          <a href="#signup" class="btn btn-primary">Request Access →</a>
           <a href="#how-it-works" class="btn btn-outline">How it works</a>
         </div>
         <p class="hero-note">Powered by Zillow Research data &nbsp;·&nbsp; 26,307 ZIP codes scored</p>
@@ -445,7 +443,7 @@
           </div>
         </div>
         <div class="card-meta">
-          Strategy: <span>Fast Flip</span> &nbsp;&nbsp; Value: <span>$312,000</span>
+          Strategy: <span>Balanced</span> &nbsp;&nbsp; Median Value: <span>$312,000</span>
         </div>
         <div class="card-bullets">
           <div class="bullet">
@@ -483,7 +481,7 @@
   <div class="container">
     <div class="section-label">The scoring model</div>
     <div class="section-title">Five signals, one score</div>
-    <p class="section-sub">Each ZIP gets a 0–100 composite score. The weight of each factor depends on which strategy you pick — Fast Flip, Value-Add, or Balanced.</p>
+    <p class="section-sub">Each ZIP gets a 0–100 composite score. Adjust the weighting by strategy — fast-turn markets, value-add plays, or a balanced view across all five signals.</p>
 
     <div class="factors-grid">
       <div class="factor-card">
@@ -529,11 +527,11 @@
         <div class="section-label">Early access</div>
         <h2>Help shape what this becomes</h2>
         <p>
-          FlipIQ is in active development. If you're an active house flipper, we want your feedback —
-          what signals matter, what's missing, and whether this is actually useful in your deal-finding process.
+          FlipIQ is in active development. Whether you're flipping, wholesaling, representing investor clients,
+          or evaluating buy-and-hold markets — we want to know if this is actually useful in your workflow.
         </p>
         <ul class="signup-points">
-          <li>Free dashboard access, no account required</li>
+          <li>Immediate access to the full dashboard</li>
           <li>Direct input on what gets built next</li>
           <li>Early access to new features and data signals</li>
           <li>No spam — just updates when something meaningful changes</li>
@@ -554,17 +552,19 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="flipsPerYear">How many flips do you do per year?</label>
-            <select id="flipsPerYear" name="flips_per_year" required>
+            <label for="role">What best describes you?</label>
+            <select id="role" name="role" required>
               <option value="">Select...</option>
-              <option value="0-2">0–2 flips</option>
-              <option value="3-10">3–10 flips</option>
-              <option value="10-20">10–20 flips</option>
-              <option value="20+">20+ flips</option>
+              <option value="house_flipper">House flipper</option>
+              <option value="wholesaler">Wholesaler</option>
+              <option value="real_estate_agent">Real estate agent</option>
+              <option value="buy_and_hold">Buy-and-hold investor</option>
+              <option value="developer">Developer / builder</option>
+              <option value="other">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label>What would you do with this tool?</label>
+            <label>What would you use this for?</label>
             <div class="radio-group">
               <label class="radio-item">
                 <input type="radio" name="interest_level" value="screen_markets" required>
@@ -572,11 +572,15 @@
               </label>
               <label class="radio-item">
                 <input type="radio" name="interest_level" value="validate_intuition">
-                Validate my intuition on a market I'm already watching
+                Validate my read on a market I'm already watching
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="interest_level" value="client_research">
+                Research markets for investor clients
               </label>
               <label class="radio-item">
                 <input type="radio" name="interest_level" value="just_exploring">
-                Just exploring — curious what the data shows
+                Just exploring
               </label>
             </div>
           </div>
@@ -596,10 +600,12 @@
         </form>
         <div class="form-success" id="formSuccess">
           <div class="check">✓</div>
-          <h3>Got it — thanks.</h3>
-          <p>We'll be in touch. In the meantime, the dashboard is live and free to use.</p>
+          <h3>You're in.</h3>
+          <p>Here's your access link — bookmark it.</p>
           <br>
-          <a href="https://flipiq.streamlit.app" class="btn btn-primary" target="_blank">Open Dashboard →</a>
+          <a href="https://flipiq.streamlit.app" class="btn btn-primary" target="_blank">Open FlipIQ Dashboard →</a>
+          <br><br>
+          <p style="font-size:0.8rem; color:#64748b;">We'll reach out as new features ship. No spam.</p>
         </div>
       </div>
     </div>
@@ -614,7 +620,6 @@
         <strong>FlipIQ</strong> &nbsp;·&nbsp; Data from <a href="https://www.zillow.com/research/data/" style="color: var(--blue);">Zillow Research</a> &nbsp;·&nbsp; Updated monthly
       </div>
       <div class="footer-links">
-        <a href="https://flipiq.streamlit.app" target="_blank">Dashboard</a>
         <a href="https://linkedin.com/in/abhaypuri1" target="_blank">Abhay Puri</a>
         <a href="https://www.linkedin.com/in/anthony-g-nastasi-b8a387143/" target="_blank">Anthony Nastasi</a>
       </div>
