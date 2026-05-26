@@ -58,9 +58,99 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-@st.cache_data(ttl=3600)
+def generate_zip_narrative(row: pd.Series) -> list:
+    """Return plain-English bullets explaining why a ZIP scored well."""
+    bullets = []
+    metro = row.get('metro') or 'this metro'
+    county = row.get('county_name') or 'this county'
+
+    apprec_pct = row.get('appreciation_pct')
+    apprec_score = row.get('appreciation_score')
+    if pd.notna(apprec_pct) and pd.notna(apprec_score):
+        if apprec_score >= 70:
+            bullets.append(
+                f"**Strong appreciation**: Home values up {apprec_pct:.1f}% in 12 months, "
+                f"outpacing {apprec_score:.0f}% of all ZIPs analyzed (ZIP-level data)"
+            )
+        elif apprec_score >= 50:
+            bullets.append(
+                f"**Solid appreciation**: Home values up {apprec_pct:.1f}% over 12 months, "
+                f"above the median ZIP (ZIP-level data)"
+            )
+        else:
+            bullets.append(
+                f"**Modest appreciation**: Home values up {apprec_pct:.1f}% over 12 months "
+                f"(ZIP-level data)"
+            )
+
+    dtp = row.get('days_to_pending')
+    vel_score = row.get('velocity_score')
+    if pd.notna(dtp) and pd.notna(vel_score):
+        if vel_score >= 70:
+            bullets.append(
+                f"**Fast-moving market**: Homes go pending in ~{dtp:.0f} days in {metro} "
+                f"— top quartile nationally for sales velocity (metro-level signal)"
+            )
+        elif vel_score >= 50:
+            bullets.append(
+                f"**Active market**: Homes go pending in ~{dtp:.0f} days in {metro} "
+                f"(metro-level signal)"
+            )
+        else:
+            bullets.append(
+                f"**Slower velocity**: Homes take ~{dtp:.0f} days to go pending in {metro} "
+                f"(metro-level signal)"
+            )
+
+    pc = row.get('price_cut_pct')
+    dist_score = row.get('distress_score')
+    if pd.notna(pc) and pd.notna(dist_score):
+        if dist_score >= 70:
+            bullets.append(
+                f"**Seller pressure**: {pc:.1f}% of listings have taken price cuts in {metro} "
+                f"— above-average negotiating room for buyers (metro-level signal)"
+            )
+        elif dist_score >= 50:
+            bullets.append(
+                f"**Moderate concessions**: {pc:.1f}% of listings with price cuts in {metro} "
+                f"(metro-level signal)"
+            )
+
+    stl = row.get('sale_to_list')
+    pp_score = row.get('pricing_power_score')
+    if pd.notna(stl) and pd.notna(pp_score):
+        if pp_score >= 70:
+            if stl < 1.0:
+                bullets.append(
+                    f"**Buy-side leverage**: Homes selling at {stl:.3f}x list price in {metro} "
+                    f"— buyers getting discounts off asking (metro-level signal)"
+                )
+            else:
+                bullets.append(
+                    f"**Pricing conditions**: Sale-to-list ratio of {stl:.3f} in {metro} "
+                    f"(metro-level signal)"
+                )
+
+    vg = row.get('value_gap_pct')
+    vg_score = row.get('value_gap_score')
+    if pd.notna(vg) and pd.notna(vg_score):
+        if vg_score >= 70:
+            bullets.append(
+                f"**High renovation upside**: {vg:.0f}% spread between entry-level and median "
+                f"home values in {county} — room to step up through renovation (county-level signal)"
+            )
+        elif vg_score >= 50:
+            bullets.append(
+                f"**Moderate renovation upside**: {vg:.0f}% value gap in {county} "
+                f"(county-level signal)"
+            )
+
+    return bullets
+
+
+@st.cache_data
 def load_data():
-    """Load and cache all datasets."""
+    """Load and cache all datasets. Clear cache or restart app after running refresh_data.py."""
     return load_all_datasets()
 
 
@@ -112,7 +202,7 @@ def load_agent_data():
     return data
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data
 def compute_scores(_datasets, strategy_name, min_value, max_value):
     """Compute scores with caching."""
     strategy_map = {
@@ -170,9 +260,9 @@ def main():
     price_range = st.sidebar.slider(
         "Price Range ($)",
         min_value=50000,
-        max_value=500000,
-        value=(50000, 500000),
-        step=10000,
+        max_value=1500000,
+        value=(50000, 1500000),
+        step=25000,
         format="$%d"
     )
 
@@ -279,12 +369,17 @@ def main():
         "📈 Score Analysis",
         "📉 Market Trends",
         "⚖️ Compare ZIPs",
-        "🤖 Agent Monitoring"
+        "⚙️ Pipeline Status"
     ])
 
     # ----- TAB 1: TOP OPPORTUNITIES -----
     with tab1:
         st.subheader(f"Top {len(display_scores)} Flip Opportunities")
+        st.caption(
+            "Appreciation scores are ZIP-level (precise). Velocity, distress, and pricing power "
+            "are metro-level signals applied to all ZIPs in that metro. Value gap is county-level. "
+            "Use scores as directional filters — not surgical precision."
+        )
 
         if len(display_scores) == 0:
             st.warning("No opportunities match your filters. Try adjusting the criteria.")
@@ -349,6 +444,35 @@ def main():
                 file_name="flip_opportunities.csv",
                 mime="text/csv"
             )
+
+            # Score breakdown
+            st.markdown("---")
+            st.subheader("Score Breakdown")
+            breakdown_zip = st.selectbox(
+                "Select a ZIP to see what's driving its score",
+                display_scores['region_name'].tolist(),
+                key="breakdown_zip"
+            )
+            if breakdown_zip is not None:
+                brow = display_scores[display_scores['region_name'] == breakdown_zip].iloc[0]
+                city_state = (
+                    f"{brow.get('city', '')}, {brow.get('state', '')}"
+                    if brow.get('city') else brow.get('state', '')
+                )
+                st.markdown(f"**{breakdown_zip} — {city_state}** &nbsp; Score: **{brow['composite_score']:.1f} / 100**")
+                bullets = generate_zip_narrative(brow)
+                if bullets:
+                    for b in bullets:
+                        st.markdown(f"- {b}")
+                else:
+                    st.write("Not enough data to generate a narrative for this ZIP.")
+                st.info(
+                    "**Signal levels:** Appreciation is measured at the ZIP level. "
+                    "Velocity, distress, and pricing power are measured at the metro level — "
+                    "every ZIP in a metro shares those signals. Value gap is county-level. "
+                    "These are directional indicators from monthly Zillow Research data, "
+                    "not real-time property-level intelligence."
+                )
 
     # ----- TAB 2: GEOGRAPHIC VIEW -----
     with tab2:
@@ -734,18 +858,27 @@ def main():
                 fig_compare_trend.update_layout(height=350)
                 st.plotly_chart(fig_compare_trend, use_container_width=True)
 
-    # ----- TAB 6: AGENT MONITORING -----
+    # ----- TAB 6: PIPELINE STATUS -----
     with tab6:
-        st.subheader("Agent Monitoring Dashboard")
+        st.subheader("Pipeline Status")
+        st.caption(
+            "This tab shows results from the last analysis pipeline run. "
+            "The pipeline loads Zillow Research data, scores all ZIPs, detects opportunities, "
+            "and generates alerts. Data updates monthly — run `python refresh_data.py` to pull "
+            "the latest Zillow datasets, then restart the app."
+        )
 
         # Load agent data
         agent_data = load_agent_data()
 
         if agent_data['state'] is None:
-            st.warning("No agent data available. Run the simulation first: `python workflows/simulate_agent_run.py`")
+            st.info(
+                "No pipeline run data found. To generate alerts and timeline data, "
+                "run: `python workflows/simulate_agent_run.py`"
+            )
         else:
-            # ===== AGENT STATUS PANEL =====
-            st.markdown("### Agent Status")
+            # ===== PIPELINE RUN SUMMARY =====
+            st.markdown("### Last Pipeline Run")
 
             state = agent_data['state']
             summary = agent_data['summary'] or {}
@@ -770,16 +903,16 @@ def main():
             with col4:
                 st.metric("Data Version", state.get('data_version', 'Unknown'))
 
-            # Agent health indicators
-            st.markdown("#### Agent Health Status")
+            # Pipeline step status
+            st.markdown("#### Pipeline Steps")
             agent_cols = st.columns(6)
             agents = [
-                ("DataRefresh", "DataRefreshAgent"),
-                ("Scoring", "ScoringAgent"),
-                ("Detection", "OpportunityDetectionAgent"),
-                ("Analysis", "PropertyAnalysisAgent"),
-                ("Alert", "AlertAgent"),
-                ("Report", "ReportGeneratorAgent")
+                ("1. Refresh", "DataRefreshAgent"),
+                ("2. Score", "ScoringAgent"),
+                ("3. Detect", "OpportunityDetectionAgent"),
+                ("4. Analyze", "PropertyAnalysisAgent"),
+                ("5. Alert", "AlertAgent"),
+                ("6. Report", "ReportGeneratorAgent")
             ]
 
             for i, (label, agent_key) in enumerate(agents):

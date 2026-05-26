@@ -1,322 +1,158 @@
-# FlipIQ: AI-Powered House Flip Opportunity Detection
+# FlipIQ — House Flip Opportunity Scorecard
 
-> **Autonomous agent system that identifies high-potential real estate flip opportunities using Zillow data, predictive scoring, and proactive market intelligence.**
+A data-driven scoring tool that ranks 26,000+ US ZIP codes for house flip potential using Zillow Research data and a 5-factor model. Built as an interactive Streamlit dashboard.
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-red.svg)](https://streamlit.io)
-[![Demo](https://img.shields.io/badge/Demo-Available-brightgreen.svg)](#try-the-demo)
-[![Beta](https://img.shields.io/badge/Beta-Signups_Open-orange.svg)](landing_page.html)
+
+**[Live Dashboard →](https://flipiq.streamlit.app/)** &nbsp;|&nbsp; **[Landing Page →](https://abpuri.github.io/flipiq/landing_page.html)**
 
 ---
 
-## Current Status: Customer Validation
+## What it does
 
-**We're currently validating FlipIQ with real house flippers.** This MVP demonstrates the technical capability and value proposition. We're talking to investors to validate product-market fit before scaling.
+FlipIQ scores every ZIP code in the Zillow dataset on five market signals, then surfaces the top opportunities in an interactive dashboard. A flipper can filter by state, metro, price range, and strategy preset — and see a plain-English breakdown of exactly why each ZIP ranked where it did.
 
-### Validation Goals
-- 50 customer discovery conversations
-- 20 demo calls
-- 100 landing page signups
-- Determine: **Will flippers pay for AI-powered opportunity detection?**
-
-See our full validation strategy: [`docs/CUSTOMER_VALIDATION.md`](docs/CUSTOMER_VALIDATION.md)
+**What it is not:** real-time data, property-level analysis, or a predictive model. It's a fast, systematic first-pass filter across 26K+ ZIPs — the research leg of the deal-finding process.
 
 ---
 
-## Try the Demo
+## Scoring model
 
-## Live Dashboard
+Five factors, combined into a 0–100 composite score:
 
-🚀 **[Try the Live Dashboard →](https://flipiq.streamlit.app/)**
+| Factor | Weight | Data level | Signal |
+|--------|--------|------------|--------|
+| **Appreciation** | 25% | ZIP | 12-month ZHVI price growth |
+| **Velocity** | 25% | Metro | Days to pending (market liquidity) |
+| **Distress** | 20% | Metro | % of listings with price cuts |
+| **Pricing Power** | 15% | Metro | Sale-to-list ratio |
+| **Value Gap** | 15% | County | Bottom-tier vs median home value spread |
 
-Fully interactive demo analyzing 26,000+ ZIP codes. No installation required.
+**Important:** appreciation is ZIP-level (precise). The other four signals are metro- or county-level — all ZIPs within a metro share the same velocity, distress, and pricing power scores. This is a meaningful limitation for surgical analysis; the scores are directional, not surgical.
 
-## Learn More
+### Strategy presets
 
-📄 **[View Landing Page →](https://abpuri.github.io/flipiq/landing_page.html)**
-
-Features:
-- ROI calculator
-- Feature comparison
-- Signup form
-- FAQ
-
----
-
-## The Problem
-
-House flippers spend **40+ hours per month** manually researching markets across fragmented tools, missing **80% of emerging opportunities** due to reactive workflows. Current solutions require constant monitoring and provide historical data—not actionable intelligence.
-
-## The Solution
-
-FlipIQ is an **AI-powered opportunity detection platform** that deploys autonomous agents to monitor 26,000+ US ZIP codes, score opportunities using a proprietary 5-factor model, and proactively alert investors to high-potential markets **30-60 days before competitors**.
-
-### Key Differentiator
-
-| Them | Us |
-|------|-----|
-| You search for opportunities | Opportunities come to you |
-| Reactive tools | Proactive intelligence |
-| Historical data | Predictive scoring |
-| Manual analysis | AI-powered automation |
-
----
-
-## Key Features
-
-- **Proactive Alert System** — HOT/WARM/WATCH priority notifications based on customizable thresholds
-- **5-Factor Scoring Engine** — Composite scores combining appreciation, velocity, distress, pricing power, and value gap
-- **6 Autonomous Agents** — End-to-end workflow automation from data refresh to report generation
-- **Interactive Dashboard** — 6-tab Streamlit interface for analysis, visualization, and deep-dives
-- **Property Deep Dive** — Comprehensive analysis with trend, momentum, risk, and investment recommendations
-
----
-
-## Project Highlights
-
-| Metric | Value |
-|--------|-------|
-| ZIP Codes Analyzed | **26,307** |
-| Autonomous Agents | **6** |
-| Simulation Period | **90 days** |
-| Alerts Generated | **538** (171 HOT, 367 WARM) |
-| Scoring Factors | **5** |
-| Dashboard Tabs | **6** |
-| Strategy Presets | **3** (Fast Flip, Value-Add, Balanced) |
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| **Language** | Python 3.9+ |
-| **Data Processing** | Pandas, NumPy |
-| **Machine Learning** | Scikit-learn (normalization, scoring) |
-| **Visualization** | Plotly, Matplotlib, Seaborn |
-| **Dashboard** | Streamlit |
-| **Architecture** | Agent-based orchestration pattern |
-| **Data Source** | Zillow Research (public datasets) |
-
----
-
-## Customer Discovery
-
-We're actively talking to house flippers. If you're interested in trying FlipIQ or providing feedback:
-
-### For Flippers
-1. Check out the [landing page](landing_page.html)
-2. Try the [live dashboard](#try-the-demo)
-3. [Sign up for beta access](landing_page.html#signup)
-
-### For Investors/Partners
-See our comprehensive documentation:
-- [`docs/investor_memo.md`](docs/investor_memo.md) — Investment opportunity
-- [`docs/market_analysis.md`](docs/market_analysis.md) — $118B TAM
-- [`docs/financial_projections.md`](docs/financial_projections.md) — 3-year model
-
----
-
-## Dashboard Overview
-
-| Tab | Description |
-|-----|-------------|
-| **Top Opportunities** | Ranked list of flip opportunities with composite scores |
-| **Geographic View** | US choropleth map and state/metro analysis |
-| **Score Analysis** | Score distributions, correlations, scatter plots |
-| **Market Trends** | ZHVI time series and YoY appreciation charts |
-| **Compare ZIPs** | Side-by-side ZIP code comparison with radar chart |
-| **Agent Monitoring** | Agent status, alerts, timeline, decision logs, deep dive |
-
----
-
-## Scoring Model
-
-The 5-factor composite score (0-100) combines:
-
-| Factor | Weight | Signal |
-|--------|--------|--------|
-| **Appreciation** | 25% | 12-month price growth (ZHVI) |
-| **Velocity** | 25% | Days to pending sale (liquidity) |
-| **Distress** | 20% | % of listings with price cuts |
-| **Pricing Power** | 15% | Sale-to-list ratio |
-| **Value Gap** | 15% | Bottom-tier vs all-homes spread |
-
-### Strategy Presets
-
-| Strategy | Best For |
+| Strategy | Best for |
 |----------|----------|
-| **Fast Flip** | Quick turns, high liquidity markets |
-| **Value-Add** | Renovation opportunities, distressed sellers |
-| **Balanced** | General-purpose scoring |
+| **Fast Flip** | High-turnover markets, minimal renovation |
+| **Value-Add** | Renovation plays, distressed sellers |
+| **Balanced** | General-purpose screening |
 
 ---
 
-## Agent System
+## Dashboard tabs
 
-| Agent | Function |
-|-------|----------|
-| **DataRefreshAgent** | Monitors for new Zillow data releases |
-| **ScoringAgent** | Computes opportunity scores for all ZIPs |
-| **OpportunityDetectionAgent** | Identifies new/changed opportunities |
-| **PropertyAnalysisAgent** | Performs deep-dive analysis |
-| **AlertAgent** | Generates priority-based alerts |
-| **ReportGeneratorAgent** | Creates weekly summary reports |
-
----
-
-## Key Deliverables
-
-### Technical MVP
-- Fully functional scoring engine analyzing 26K+ ZIPs
-- 6 autonomous agents with orchestration
-- Interactive 6-tab dashboard
-- Property analysis with investment recommendations
-
-### Business Documentation
-- Market analysis with $118B TAM sizing
-- Unit economics (5.4:1 LTV:CAC)
-- 3-year financial projections ($10.7M ARR)
-- Comprehensive risk analysis (19 risks, 6 categories)
-
-### Customer Validation Materials
-- Landing page with signup form and ROI calculator
-- Customer discovery templates and scripts
-- Demo video script and presentation deck
-- Use cases and competitive analysis
-
-### Investor Materials
-- 13-slide pitch deck content
-- Confidential investment memorandum
-- One-page executive summary
+| Tab | What's in it |
+|-----|-------------|
+| **Top Opportunities** | Ranked table + plain-English score breakdown per ZIP |
+| **Geographic View** | US choropleth and state/metro bar charts |
+| **Score Analysis** | Distributions, correlations, scatter plots |
+| **Market Trends** | ZHVI time series and YoY charts for selected ZIPs |
+| **Compare ZIPs** | Side-by-side comparison with radar chart |
+| **Pipeline Status** | Last pipeline run results, alerts, and timeline |
 
 ---
 
+## Getting started
 
-## Future Roadmap
-
-| Phase | Enhancement |
-|-------|-------------|
-| **Phase 1** | Customer validation (current) |
-| **Phase 2** | Live Zillow API integration |
-| **Phase 3** | MLS data for property-level analysis |
-| **Phase 4** | User accounts, saved searches |
-| **Phase 5** | Mobile app with push notifications |
+```bash
+git clone https://github.com/abpuri/flipiq
+cd flipiq
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
 
 ---
 
-## Important Notes
+## Keeping data current
 
-> **This is a validation-stage MVP** built to demonstrate the concept and gather customer feedback. The system uses historical Zillow Research data (2022-2025) and simulated agent runs (for now!).
+Zillow Research publishes updated datasets monthly (typically around the 16th). To refresh:
 
-> **Financial projections assume validation success.** Numbers in business documentation represent potential outcomes if product-market fit is achieved.
+```bash
+python refresh_data.py
+```
 
-> For production deployment, the system would require:
-> - Live data feeds (Zillow API, MLS, county records)
-> - Database layer for multi-user support
-> - Authentication and authorization
-> - Scheduled job infrastructure (cron/Airflow)
-> - Alert delivery system (email, SMS, push)
+This downloads the latest CSVs directly from Zillow Research and replaces the local files. Restart the Streamlit app afterward to load the new data.
+
+If a download fails, verify the current URLs at [zillow.com/research/data](https://www.zillow.com/research/data/) and update `DATASET_URLS` in `refresh_data.py`.
 
 ---
 
-## Data Sources
+## Data sources
 
-- [Zillow Research Data](https://www.zillow.com/research/data/) — Public datasets
-- ZHVI (Zillow Home Value Index) — ZIP, County, Metro levels
-- Market indicators — Days to pending, price cuts, sale-to-list ratio
+All data is from [Zillow Research public datasets](https://www.zillow.com/research/data/):
+
+| File | Coverage | Granularity |
+|------|----------|-------------|
+| `zhvi_all_homes_zip.csv` | 26,307 ZIP codes | Monthly |
+| `zhvi_bottom_tier_county.csv` | 3,001 counties | Monthly |
+| `market_heat_index_metro.csv` | 928 metros | Monthly |
+| `days_to_pending_metro.csv` | 702 metros | Monthly |
+| `price_cuts_metro.csv` | 928 metros | Monthly |
+| `sale_to_list_metro.csv` | 192 metros | Weekly |
+
+---
+
+## Project structure
+
+```
+flipiq/
+├── streamlit_app.py          # Dashboard
+├── refresh_data.py           # Download latest Zillow data
+├── requirements.txt
+│
+├── src/
+│   ├── data_loader.py        # Load and standardize CSVs
+│   ├── scoring_engine.py     # 5-factor scoring model
+│   ├── agent_workflow.py     # Analysis pipeline (6 steps)
+│   ├── property_analyzer.py  # Deep-dive ZIP analysis
+│   └── alert_system.py       # Alert generation
+│
+├── workflows/
+│   └── simulate_agent_run.py # Run full pipeline, generate alerts
+│
+├── data/
+│   ├── raw/zillow/           # Zillow CSV datasets
+│   └── processed/
+│       ├── agent_logs/       # Pipeline run outputs
+│       └── *.csv             # Scored results
+│
+└── docs/                     # Business and validation docs
+```
+
+---
+
+## Analysis pipeline
+
+Running `python workflows/simulate_agent_run.py` executes a 6-step pipeline:
+
+1. **Data refresh** — checks for updated Zillow data
+2. **Scoring** — computes 5-factor scores for all ZIPs
+3. **Opportunity detection** — identifies new and changed opportunities
+4. **Property analysis** — deep-dives on the top-ranked ZIPs
+5. **Alert generation** — classifies opportunities as HOT (≥70), WARM (≥60), or WATCH (≥50)
+6. **Report generation** — writes a summary to `data/processed/agent_logs/`
+
+The Pipeline Status tab in the dashboard shows results from the last run.
+
+---
+
+## What's next
+
+To turn this into a production tool, the meaningful upgrades are:
+
+- **Richer data signals** — tax delinquencies, permit pulls, MLS days-on-market at the ZIP level
+- **Outcome tracking** — log which alerts led to actual deals and use that to validate/tune the model
+- **Automated refresh** — scheduled job (cron or Airflow) to pull new data on publish day
+- **User accounts and saved searches** — multi-user support with personalized filters
+- **Alert delivery** — email or SMS when a watched ZIP crosses a threshold
 
 ---
 
 ## Contact
 
-**Abhay Puri** — [LinkedIn](https://linkedin.com/in/abhaypuri1)
+**Abhay Puri** — [LinkedIn](https://linkedin.com/in/abhaypuri1)  
+**Anthony Nastasi** — [LinkedIn](https://www.linkedin.com/in/anthony-g-nastasi-b8a387143/)  
 
-**Anthony Nastasi** — [LinkedIn](https://www.linkedin.com/in/anthony-g-nastasi-b8a387143/)
-
----
-
-## Interested in FlipIQ?
-
-- **House Flippers:** [Sign up for beta access](landing_page.html)
-- **Investors:** [Read the investment memo](docs/investor_memo.md)
-- **Partners:** [Contact us](abhaypuri189@gmail.com)
-
----
-
-## Documentation Index
-
-### Getting Started
-- [`README.md`](README.md) — This file
-- [`docs/DEMO.md`](docs/DEMO.md) — 5-minute demo walkthrough (IN PROGRESS)
-- [`docs/architecture.md`](docs/architecture.md) — System architecture
-
-### Customer Validation
-- [`docs/CUSTOMER_VALIDATION.md`](docs/CUSTOMER_VALIDATION.md) — Validation strategy
-
-### Demo & Sales
-- [`docs/value_props/`](docs/value_props/) — Use cases, ROI, competitive analysis
-
-### Business & Investment
-- [`docs/market_analysis.md`](docs/market_analysis.md) — Market sizing
-- [`docs/unit_economics.md`](docs/unit_economics.md) — LTV, CAC, pricing
-- [`docs/financial_projections.md`](docs/financial_projections.md) — 3-year model
-- [`docs/investor_memo.md`](docs/investor_memo.md) — Investment opportunity
-- [`docs/risk_analysis.md`](docs/risk_analysis.md) — Risk assessment
-
----
-
-## Repository Structure
-
-```
-zillow/
-├── data/
-│   ├── raw/zillow/                  # Original Zillow CSV datasets
-│   └── processed/
-│       ├── agent_logs/              # Simulation outputs
-│       └── *.csv                    # Scored opportunities
-│
-├── src/
-│   ├── data_loader.py               # Dataset loading
-│   ├── scoring_engine.py            # 5-factor scoring
-│   ├── agent_workflow.py            # 6 agents + orchestrator
-│   ├── property_analyzer.py         # Deep-dive analysis
-│   └── alert_system.py              # Alert generation
-│
-├── workflows/
-│   └── simulate_agent_run.py        # Agent simulation
-│
-├── notebooks/                       # Jupyter notebooks
-│
-├── docs/
-│   ├── architecture.md              # System architecture
-│   ├── DEMO.md                      # Demo walkthrough
-│   ├── DEPLOYMENT.md                # Deployment guide
-│   ├── CUSTOMER_VALIDATION.md       # Validation strategy
-│   │
-│   ├── customer_discovery/          # Customer research materials
-│   │   ├── outreach_templates.md    # Email/LinkedIn templates
-│   │   ├── discovery_call_script.md # Call scripts
-│   │   └── feedback_tracker_template.csv
-│   │
-│   ├── demo/                        # Demo materials
-│   │   ├── demo_script.md           # Video script
-│   │   ├── presentation_deck.md     # Slides content
-│   │   └── one_pager.md             # Leave-behind
-│   │
-│   ├── value_props/                 # Sales materials
-│   │   ├── use_cases.md             # Customer stories
-│   │   ├── competitive_analysis_one_pager.md
-│   │   └── roi_examples.md          # ROI calculations
-│   │
-│   ├── market_analysis.md           # TAM/SAM/SOM
-│   ├── unit_economics.md            # LTV, CAC, pricing
-│   ├── financial_projections.md     # 3-year model
-│   ├── investor_pitch_deck_content.md
-│   ├── investor_memo.md             # Investment memo
-│   └── risk_analysis.md             # Risk assessment
-│
-├── streamlit_app.py                 # Main dashboard
-├── landing_page.html                # Marketing page
-└── requirements.txt                 # Dependencies
-```
+Interested in testing FlipIQ on real deals? [Sign up for beta access](https://abpuri.github.io/flipiq/landing_page.html)

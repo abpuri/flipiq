@@ -67,88 +67,51 @@ def _validate_dataframe(df: pd.DataFrame, name: str) -> Dict:
     return validation
 
 
-def load_zhvi_zip(data_dir: Optional[Path] = None) -> pd.DataFrame:
-    """
-    Load ZIP-level Zillow Home Value Index (all homes).
+def _load_csv(path: Path, **kwargs) -> pd.DataFrame:
+    """Load a CSV with a clear error if the file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Data file not found: {path}\n"
+            "Run `python refresh_data.py` to download the latest Zillow Research data."
+        )
+    return pd.read_csv(path, **kwargs)
 
-    Returns DataFrame with standardized column names.
-    Geographic level: ZIP code
-    """
+
+def load_zhvi_zip(data_dir: Optional[Path] = None) -> pd.DataFrame:
+    """Load ZIP-level ZHVI (all homes, middle tier). Geographic level: ZIP code."""
     path = (data_dir or DATA_DIR) / "zhvi_all_homes_zip.csv"
-    df = pd.read_csv(path, dtype={'RegionName': str})
-    df = _standardize_column_names(df)
-    return df
+    df = _load_csv(path, dtype={'RegionName': str})
+    return _standardize_column_names(df)
 
 
 def load_zhvi_bottom_tier_county(data_dir: Optional[Path] = None) -> pd.DataFrame:
-    """
-    Load County-level bottom tier home values.
-
-    Bottom tier represents homes in the 5th-35th percentile of value.
-    Geographic level: County
-    """
+    """Load county-level bottom-tier ZHVI (5th–35th percentile). Geographic level: County."""
     path = (data_dir or DATA_DIR) / "zhvi_bottom_tier_county.csv"
-    df = pd.read_csv(path)
-    df = _standardize_column_names(df)
-    return df
+    return _standardize_column_names(_load_csv(path))
 
 
 def load_market_heat_index(data_dir: Optional[Path] = None) -> pd.DataFrame:
-    """
-    Load Metro-level Market Heat Index.
-
-    Higher values indicate hotter (more competitive) markets.
-    Scale: Typically 0-100+
-    Geographic level: Metro (MSA)
-    """
+    """Load metro-level Market Heat Index. Higher = more competitive. Geographic level: Metro."""
     path = (data_dir or DATA_DIR) / "market_heat_index_metro.csv"
-    df = pd.read_csv(path)
-    df = _standardize_column_names(df)
-    return df
+    return _standardize_column_names(_load_csv(path))
 
 
 def load_days_to_pending(data_dir: Optional[Path] = None) -> pd.DataFrame:
-    """
-    Load Metro-level Days to Pending.
-
-    Measures how quickly listings go under contract.
-    Lower values = faster market velocity.
-    Geographic level: Metro (MSA)
-    """
+    """Load metro-level days-to-pending. Lower = faster market. Geographic level: Metro."""
     path = (data_dir or DATA_DIR) / "days_to_pending_metro.csv"
-    df = pd.read_csv(path)
-    df = _standardize_column_names(df)
-    return df
+    return _standardize_column_names(_load_csv(path))
 
 
 def load_price_cuts(data_dir: Optional[Path] = None) -> pd.DataFrame:
-    """
-    Load Metro-level Price Cuts percentage.
-
-    Percentage of listings with a price cut.
-    Higher values may indicate distress or overpricing.
-    Geographic level: Metro (MSA)
-    """
+    """Load metro-level price-cut percentage. Geographic level: Metro."""
     path = (data_dir or DATA_DIR) / "price_cuts_metro.csv"
-    df = pd.read_csv(path)
-    df = _standardize_column_names(df)
-    return df
+    return _standardize_column_names(_load_csv(path))
 
 
 def load_sale_to_list(data_dir: Optional[Path] = None) -> pd.DataFrame:
-    """
-    Load Metro-level Sale-to-List ratio.
-
-    Ratio of sale price to list price.
-    Values > 1.0 indicate homes selling above asking.
-    Values < 1.0 indicate homes selling below asking.
-    Geographic level: Metro (MSA)
-    Note: This dataset is WEEKLY (not monthly like others).
-    """
+    """Load metro-level sale-to-list ratio (weekly). >1.0 = above asking. Geographic level: Metro."""
     path = (data_dir or DATA_DIR) / "sale_to_list_metro.csv"
-    df = pd.read_csv(path)
-    df = _standardize_column_names(df)
-    return df
+    return _standardize_column_names(_load_csv(path))
 
 
 def load_all_datasets(data_dir: Optional[Path] = None) -> Dict[str, pd.DataFrame]:

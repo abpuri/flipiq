@@ -282,7 +282,7 @@ def flip_opportunity_score(
     appreciation_lookback: int = 12,
     metro_lookback: int = 6,
     min_home_value: float = 50000,
-    max_home_value: float = 500000
+    max_home_value: float = 1500000
 ) -> pd.DataFrame:
     """
     Calculate flip opportunity scores for all ZIPs.
@@ -358,7 +358,9 @@ def flip_opportunity_score(
     )
     result = result[mask].copy()
 
-    # 9. Calculate composite score
+    # 9. Calculate composite score.
+    # Metro/county scores that couldn't be joined are filled with 50 (median)
+    # so unmatched ZIPs aren't penalized for missing geographic data.
     result['composite_score'] = (
         result['appreciation_score'] * strategy.appreciation_weight +
         result['velocity_score'].fillna(50) * strategy.velocity_weight +
