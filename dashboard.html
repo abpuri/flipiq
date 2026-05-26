@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlipIQ — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+      --green: #10b981; --green-light: #f0fdf4;
+      --orange: #f97316; --orange-light: #fff7ed;
+      --dark: #0f172a; --mid: #475569; --muted: #94a3b8;
+      --light: #f1f5f9; --border: #e2e8f0; --white: #fff;
+      --sidebar-w: 240px;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* NAV */
+    nav { height: 56px; background: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 20px; justify-content: space-between; flex-shrink: 0; z-index: 20; }
+    .logo { font-size: 1.2rem; font-weight: 800; color: var(--blue); }
+    .logo span { color: var(--green); }
+    .nav-back { font-size: 0.82rem; color: var(--mid); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+    .nav-back:hover { color: var(--dark); }
+
+    /* LAYOUT */
+    .app { display: flex; flex: 1; overflow: hidden; }
+
+    /* SIDEBAR */
+    aside {
+      width: var(--sidebar-w); flex-shrink: 0;
+      background: var(--light); border-right: 1px solid var(--border);
+      overflow-y: auto; padding: 20px 16px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .filter-group label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mid); display: block; margin-bottom: 8px; }
+    .strategy-options { display: flex; flex-direction: column; gap: 6px; }
+    .strategy-btn { background: var(--white); border: 1.5px solid var(--border); border-radius: 7px; padding: 8px 12px; font-family: inherit; font-size: 0.82rem; font-weight: 500; color: var(--dark); cursor: pointer; text-align: left; transition: all 0.12s; }
+    .strategy-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .strategy-btn.active { background: var(--blue-light); border-color: var(--blue); color: var(--blue); font-weight: 600; }
+    .strategy-desc { font-size: 0.72rem; color: var(--mid); margin-top: 6px; line-height: 1.4; }
+    .range-inputs { display: flex; gap: 6px; align-items: center; }
+    .range-inputs input { width: 100%; padding: 7px 10px; border: 1.5px solid var(--border); border-radius: 7px; font-family: inherit; font-size: 0.82rem; color: var(--dark); }
+    .range-inputs input:focus { outline: none; border-color: var(--blue); }
+    .range-sep { color: var(--muted); font-size: 0.8rem; flex-shrink: 0; }
+    select.filter-select { width: 100%; padding: 8px 10px; border: 1.5px solid var(--border); border-radius: 7px; font-family: inherit; font-size: 0.82rem; color: var(--dark); background: var(--white); cursor: pointer; }
+    select.filter-select:focus { outline: none; border-color: var(--blue); }
+    .score-slider-wrap { display: flex; flex-direction: column; gap: 6px; }
+    .score-slider-row { display: flex; justify-content: space-between; align-items: center; }
+    .score-slider-val { font-size: 0.82rem; font-weight: 700; color: var(--blue); }
+    input[type=range] { width: 100%; accent-color: var(--blue); }
+    .apply-btn { width: 100%; padding: 10px; background: var(--blue); color: var(--white); border: none; border-radius: 8px; font-family: inherit; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: background 0.12s; }
+    .apply-btn:hover { background: var(--blue-dark); }
+    .reset-btn { width: 100%; padding: 8px; background: transparent; color: var(--mid); border: 1.5px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.12s; }
+    .reset-btn:hover { border-color: var(--mid); color: var(--dark); }
+    .sidebar-note { font-size: 0.72rem; color: var(--muted); line-height: 1.5; padding-top: 4px; border-top: 1px solid var(--border); }
+
+    /* MAIN */
+    main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* METRICS */
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .metric { background: var(--light); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; }
+    .metric-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mid); margin-bottom: 4px; }
+    .metric-value { font-size: 1.45rem; font-weight: 800; color: var(--dark); line-height: 1; }
+    .metric-sub { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 2px; padding: 0 20px; border-bottom: 1px solid var(--border); flex-shrink: 0; background: var(--white); }
+    .tab { padding: 10px 16px; font-size: 0.84rem; font-weight: 500; color: var(--mid); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.12s; }
+    .tab:hover { color: var(--dark); }
+    .tab.active { color: var(--blue); font-weight: 600; border-bottom-color: var(--blue); }
+
+    /* TAB CONTENT */
+    .tab-content { flex: 1; overflow: hidden; display: none; }
+    .tab-content.active { display: flex; }
+
+    /* OPPORTUNITIES TAB */
+    #tab-opps { display: flex; gap: 0; overflow: hidden; }
+    .table-pane { flex: 1; overflow-y: auto; padding: 16px 0 16px 20px; min-width: 0; }
+    .table-pane table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .table-pane th { padding: 8px 10px; text-align: left; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); border-bottom: 2px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; background: var(--white); position: sticky; top: 0; z-index: 1; }
+    .table-pane th:hover { color: var(--dark); }
+    .table-pane th .sort-arrow { margin-left: 4px; opacity: 0.4; }
+    .table-pane th.sort-asc .sort-arrow::after { content: '↑'; }
+    .table-pane th.sort-desc .sort-arrow::after { content: '↓'; }
+    .table-pane th:not(.sort-asc):not(.sort-desc) .sort-arrow::after { content: '↕'; }
+    .table-pane td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; white-space: nowrap; }
+    .table-pane tr { cursor: pointer; transition: background 0.08s; }
+    .table-pane tr:hover td { background: var(--blue-light); }
+    .table-pane tr.selected td { background: var(--blue-light); }
+    .rank-cell { color: var(--muted); font-size: 0.75rem; font-weight: 600; width: 32px; }
+    .zip-cell { font-weight: 700; color: var(--dark); }
+    .location-cell { color: var(--mid); }
+    .value-cell { font-weight: 600; }
+    .score-pill { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; }
+    .score-high { background: var(--green-light); color: #15803d; }
+    .score-mid { background: var(--blue-light); color: var(--blue); }
+    .score-low { background: #fef9c3; color: #a16207; }
+    .sub-score { font-size: 0.75rem; color: var(--mid); }
+    .show-more-btn { margin: 12px 20px 12px 0; padding: 8px 16px; background: var(--white); border: 1.5px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.82rem; font-weight: 500; color: var(--mid); cursor: pointer; width: calc(100% - 20px); }
+    .show-more-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* BREAKDOWN PANEL */
+    .breakdown-pane { width: 340px; flex-shrink: 0; border-left: 1px solid var(--border); overflow-y: auto; background: var(--white); }
+    .breakdown-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--muted); font-size: 0.85rem; text-align: center; padding: 32px; gap: 8px; }
+    .breakdown-empty .arrow { font-size: 1.5rem; }
+    .bd-header { padding: 16px 18px; border-bottom: 1px solid var(--border); }
+    .bd-zip { font-size: 1rem; font-weight: 800; color: var(--dark); }
+    .bd-location { font-size: 0.78rem; color: var(--mid); margin-top: 2px; }
+    .bd-score-ring { padding: 20px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; }
+    .bd-score-big { font-size: 3rem; font-weight: 800; color: var(--blue); line-height: 1; }
+    .bd-score-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mid); }
+    .bd-score-sub { font-size: 0.78rem; color: var(--mid); margin-top: 4px; }
+    .bd-bars { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+    .bd-bar-row { display: flex; flex-direction: column; gap: 3px; }
+    .bd-bar-label { display: flex; justify-content: space-between; font-size: 0.72rem; }
+    .bd-bar-name { font-weight: 600; color: var(--dark); }
+    .bd-bar-val { color: var(--mid); }
+    .bd-bar-track { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bd-bar-fill { height: 100%; background: var(--blue); border-radius: 3px; transition: width 0.3s; }
+    .bd-bullets { padding: 14px 18px; display: flex; flex-direction: column; gap: 10px; }
+    .bd-bullet { display: flex; gap: 8px; font-size: 0.78rem; line-height: 1.45; }
+    .bd-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-top: 5px; flex-shrink: 0; }
+    .bd-bullet-text { color: var(--mid); }
+    .bd-bullet-text b { color: var(--dark); }
+    .level-tag { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+    .level-zip { background: var(--green-light); color: #15803d; }
+    .level-metro { background: var(--blue-light); color: var(--blue); }
+    .level-county { background: var(--orange-light); color: #c2410c; }
+
+    /* GEOGRAPHY TAB */
+    #tab-geo { flex-direction: column; overflow-y: auto; padding: 20px; gap: 20px; }
+    .geo-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .chart-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .chart-card-title { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 0.85rem; font-weight: 700; }
+    .chart-card-body { padding: 4px; }
+    #map-chart { width: 100%; height: 340px; }
+    #state-chart { width: 100%; height: 340px; }
+
+    /* LOADING */
+    .loading { display: flex; align-items: center; justify-content: center; height: 200px; color: var(--muted); font-size: 0.9rem; gap: 10px; }
+    .spinner { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      aside { display: none; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .breakdown-pane { display: none; }
+      #tab-geo .geo-charts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Flip<span>IQ</span></div>
+  <a href="landing_page.html" class="nav-back">← flipiq.com</a>
+</nav>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="filter-group">
+      <label>Strategy</label>
+      <div class="strategy-options">
+        <button class="strategy-btn active" data-strategy="balanced">Balanced</button>
+        <button class="strategy-btn" data-strategy="fast_flip">Fast Flip</button>
+        <button class="strategy-btn" data-strategy="value_add">Value-Add</button>
+      </div>
+      <p class="strategy-desc" id="strategy-desc">Equal weight across all five signals.</p>
+    </div>
+
+    <div class="filter-group">
+      <label>Home Value Range</label>
+      <div class="range-inputs">
+        <input type="number" id="min-value" placeholder="Min $" value="50000" step="10000">
+        <span class="range-sep">—</span>
+        <input type="number" id="max-value" placeholder="Max $" value="1500000" step="10000">
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>Minimum Score</label>
+      <div class="score-slider-wrap">
+        <div class="score-slider-row">
+          <span style="font-size:0.78rem;color:var(--mid)">0</span>
+          <span class="score-slider-val" id="score-display">50</span>
+          <span style="font-size:0.78rem;color:var(--mid)">100</span>
+        </div>
+        <input type="range" id="min-score" min="0" max="90" value="50" step="5">
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>State</label>
+      <select class="filter-select" id="state-filter">
+        <option value="">All states</option>
+      </select>
+    </div>
+
+    <button class="apply-btn" id="apply-btn">Apply Filters</button>
+    <button class="reset-btn" id="reset-btn">Reset</button>
+
+    <p class="sidebar-note">
+      Data: Zillow Research · Updated monthly.<br>
+      Appreciation is ZIP-level. Velocity, distress &amp; pricing are metro-level.
+    </p>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- METRICS -->
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-label">Opportunities</div>
+        <div class="metric-value" id="m-count">—</div>
+        <div class="metric-sub" id="m-count-sub"></div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Avg Score</div>
+        <div class="metric-value" id="m-avg">—</div>
+        <div class="metric-sub" id="m-avg-sub"></div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Median Value</div>
+        <div class="metric-value" id="m-value">—</div>
+        <div class="metric-sub"></div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Avg Days to Pending</div>
+        <div class="metric-value" id="m-dtp">—</div>
+        <div class="metric-sub">metro-level</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" data-tab="opps">Top Opportunities</div>
+      <div class="tab" data-tab="geo">Geographic View</div>
+    </div>
+
+    <!-- TOP OPPORTUNITIES -->
+    <div class="tab-content active" id="tab-opps">
+      <div class="table-pane" id="table-pane">
+        <div class="loading"><div class="spinner"></div> Loading data…</div>
+      </div>
+      <div class="breakdown-pane" id="breakdown-pane">
+        <div class="breakdown-empty">
+          <div class="arrow">←</div>
+          <div>Click any row to see what's driving its score</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GEOGRAPHY -->
+    <div class="tab-content" id="tab-geo">
+      <div class="chart-card" style="width:100%">
+        <div class="chart-card-title">Average Score by State</div>
+        <div class="chart-card-body"><div id="map-chart"></div></div>
+      </div>
+      <div class="geo-charts">
+        <div class="chart-card">
+          <div class="chart-card-title">Top 15 States by Average Score</div>
+          <div class="chart-card-body"><div id="state-chart"></div></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-title">Top 15 States by Number of Opportunities</div>
+          <div class="chart-card-body"><div id="count-chart"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ── STATE ──────────────────────────────────────────────
+let allData = {};
+let currentStrategy = 'balanced';
+let filteredRows = [];
+let sortCol = 'composite_score';
+let sortDir = 'desc';
+let displayCount = 50;
+let selectedRow = null;
+let geoRendered = false;
+
+const STRATEGY_DESCS = {
+  balanced: 'Equal weight across all five signals.',
+  fast_flip: 'Prioritizes velocity and distress — quick turns, motivated sellers.',
+  value_add: 'Prioritizes value gap and appreciation — renovation and hold plays.'
+};
+
+// ── DATA LOAD ──────────────────────────────────────────
+fetch('data/processed/dashboard_data.json')
+  .then(r => r.json())
+  .then(data => {
+    allData = data;
+    populateStateFilter();
+    applyFilters();
+  })
+  .catch(() => {
+    document.getElementById('table-pane').innerHTML =
+      '<div class="loading" style="color:#ef4444">Failed to load data. Make sure dashboard_data.json exists.</div>';
+  });
+
+function populateStateFilter() {
+  const rows = allData[currentStrategy] || [];
+  const states = [...new Set(rows.map(r => r.state).filter(Boolean))].sort();
+  const sel = document.getElementById('state-filter');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All states</option>';
+  states.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    if (s === current) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+// ── FILTERS ────────────────────────────────────────────
+function applyFilters() {
+  const rows = allData[currentStrategy] || [];
+  const minVal = parseFloat(document.getElementById('min-value').value) || 0;
+  const maxVal = parseFloat(document.getElementById('max-value').value) || Infinity;
+  const minScore = parseFloat(document.getElementById('min-score').value) || 0;
+  const state = document.getElementById('state-filter').value;
+
+  filteredRows = rows.filter(r =>
+    (r.composite_score ?? 0) >= minScore &&
+    (r.current_value ?? 0) >= minVal &&
+    (r.current_value ?? 0) <= maxVal &&
+    (!state || r.state === state)
+  );
+
+  sortRows();
+  displayCount = 50;
+  selectedRow = null;
+  renderTable();
+  renderMetrics();
+  if (document.getElementById('tab-geo').classList.contains('active')) {
+    renderGeo();
+  }
+}
+
+function sortRows() {
+  filteredRows.sort((a, b) => {
+    const va = a[sortCol] ?? -Infinity;
+    const vb = b[sortCol] ?? -Infinity;
+    return sortDir === 'asc' ? va - vb : vb - va;
+  });
+}
+
+function resetFilters() {
+  document.getElementById('min-value').value = 50000;
+  document.getElementById('max-value').value = 1500000;
+  document.getElementById('min-score').value = 50;
+  document.getElementById('score-display').textContent = '50';
+  document.getElementById('state-filter').value = '';
+  applyFilters();
+}
+
+// ── METRICS ────────────────────────────────────────────
+function renderMetrics() {
+  const n = filteredRows.length;
+  const total = (allData[currentStrategy] || []).length;
+  document.getElementById('m-count').textContent = n.toLocaleString();
+  document.getElementById('m-count-sub').textContent = `of ${total.toLocaleString()} scored`;
+
+  const scores = filteredRows.map(r => r.composite_score).filter(v => v != null);
+  document.getElementById('m-avg').textContent = scores.length
+    ? (scores.reduce((a,b) => a+b,0) / scores.length).toFixed(1) : '—';
+
+  const vals = filteredRows.map(r => r.current_value).filter(v => v != null).sort((a,b)=>a-b);
+  const med = vals.length ? vals[Math.floor(vals.length/2)] : null;
+  document.getElementById('m-value').textContent = med ? '$' + Math.round(med).toLocaleString() : '—';
+
+  const dtps = filteredRows.map(r => r.days_to_pending).filter(v => v != null);
+  document.getElementById('m-dtp').textContent = dtps.length
+    ? Math.round(dtps.reduce((a,b)=>a+b,0)/dtps.length) + ' days' : '—';
+}
+
+// ── TABLE ──────────────────────────────────────────────
+function scoreClass(s) {
+  if (s >= 70) return 'score-high';
+  if (s >= 60) return 'score-mid';
+  return 'score-low';
+}
+
+function fmt$( v) { return v != null ? '$' + Math.round(v).toLocaleString() : '—'; }
+function fmtN(v, dec=1) { return v != null ? v.toFixed(dec) : '—'; }
+
+const COLS = [
+  { key: 'rank',               label: '#',          sortable: false },
+  { key: 'region_name',        label: 'ZIP',        sortable: false },
+  { key: 'location',           label: 'City, State',sortable: false },
+  { key: 'current_value',      label: 'Value',      sortable: true  },
+  { key: 'composite_score',    label: 'Score',      sortable: true  },
+  { key: 'appreciation_score', label: 'Apprec.',    sortable: true  },
+  { key: 'velocity_score',     label: 'Velocity',   sortable: true  },
+  { key: 'distress_score',     label: 'Distress',   sortable: true  },
+  { key: 'value_gap_score',    label: 'Val. Gap',   sortable: true  },
+];
+
+function renderTable() {
+  const pane = document.getElementById('table-pane');
+  const visible = filteredRows.slice(0, displayCount);
+
+  if (!visible.length) {
+    pane.innerHTML = '<div class="loading">No results match your filters.</div>';
+    return;
+  }
+
+  let thead = '<thead><tr>';
+  COLS.forEach(col => {
+    let cls = col.sortable ? '' : '';
+    if (col.key === sortCol) cls = 'sort-' + sortDir;
+    const arrow = col.sortable ? '<span class="sort-arrow"></span>' : '';
+    thead += `<th class="${cls}" data-key="${col.key}" ${col.sortable ? '' : 'style="cursor:default"'}>${col.label}${arrow}</th>`;
+  });
+  thead += '</tr></thead>';
+
+  let tbody = '<tbody>';
+  visible.forEach((row, i) => {
+    const sc = row.composite_score;
+    const selected = selectedRow && selectedRow.region_name === row.region_name ? 'selected' : '';
+    tbody += `<tr class="${selected}" data-idx="${i}">
+      <td class="rank-cell">${i+1}</td>
+      <td class="zip-cell">${row.region_name ?? '—'}</td>
+      <td class="location-cell">${row.city ? row.city + ', ' : ''}${row.state ?? '—'}</td>
+      <td class="value-cell">${fmt$(row.current_value)}</td>
+      <td><span class="score-pill ${scoreClass(sc)}">${fmtN(sc)}</span></td>
+      <td class="sub-score">${fmtN(row.appreciation_score)}</td>
+      <td class="sub-score">${fmtN(row.velocity_score)}</td>
+      <td class="sub-score">${fmtN(row.distress_score)}</td>
+      <td class="sub-score">${fmtN(row.value_gap_score)}</td>
+    </tr>`;
+  });
+  tbody += '</tbody>';
+
+  let showMore = '';
+  if (filteredRows.length > displayCount) {
+    const remaining = filteredRows.length - displayCount;
+    showMore = `<button class="show-more-btn" id="show-more-btn">Show ${Math.min(remaining, 50)} more (${remaining} remaining)</button>`;
+  }
+
+  pane.innerHTML = `<table>${thead}${tbody}</table>${showMore}`;
+
+  // Sort headers
+  pane.querySelectorAll('th[data-key]').forEach(th => {
+    const key = th.dataset.key;
+    if (!COLS.find(c => c.key === key)?.sortable) return;
+    if (key === sortCol) th.classList.add('sort-' + sortDir);
+    th.addEventListener('click', () => {
+      if (sortCol === key) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      else { sortCol = key; sortDir = 'desc'; }
+      sortRows();
+      renderTable();
+    });
+  });
+
+  // Row click
+  pane.querySelectorAll('tbody tr').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const idx = parseInt(tr.dataset.idx);
+      selectedRow = filteredRows[idx];
+      renderBreakdown(selectedRow);
+      pane.querySelectorAll('tbody tr').forEach(r => r.classList.remove('selected'));
+      tr.classList.add('selected');
+    });
+  });
+
+  // Show more
+  const smb = document.getElementById('show-more-btn');
+  if (smb) smb.addEventListener('click', () => { displayCount += 50; renderTable(); });
+}
+
+// ── BREAKDOWN ──────────────────────────────────────────
+function generateNarrative(row) {
+  const bullets = [];
+  const metro = row.metro || 'this metro';
+  const county = row.county_name || 'this county';
+
+  const tag = (text, cls) => `<span class="level-tag level-${cls}">${text}</span>`;
+
+  if (row.appreciation_pct != null && row.appreciation_score != null) {
+    const p = row.appreciation_pct.toFixed(1), s = row.appreciation_score;
+    if (s >= 70) bullets.push(`<b>Strong appreciation:</b> Home values up ${p}% in 12 months, outpacing ${s.toFixed(0)}% of all ZIPs analyzed ${tag('ZIP-level','zip')}`);
+    else if (s >= 50) bullets.push(`<b>Solid appreciation:</b> Home values up ${p}% over 12 months, above the median ZIP ${tag('ZIP-level','zip')}`);
+    else bullets.push(`<b>Modest appreciation:</b> Home values up ${p}% over 12 months ${tag('ZIP-level','zip')}`);
+  }
+
+  if (row.days_to_pending != null && row.velocity_score != null) {
+    const d = Math.round(row.days_to_pending), s = row.velocity_score;
+    if (s >= 70) bullets.push(`<b>Fast-moving market:</b> Homes go pending in ~${d} days in ${metro} — top quartile nationally ${tag('Metro-level','metro')}`);
+    else if (s >= 50) bullets.push(`<b>Active market:</b> Homes go pending in ~${d} days in ${metro} ${tag('Metro-level','metro')}`);
+    else bullets.push(`<b>Slower velocity:</b> Homes take ~${d} days to go pending in ${metro} ${tag('Metro-level','metro')}`);
+  }
+
+  if (row.price_cut_pct != null && row.distress_score != null) {
+    const p = row.price_cut_pct.toFixed(1), s = row.distress_score;
+    if (s >= 70) bullets.push(`<b>Seller pressure:</b> ${p}% of listings have taken price cuts in ${metro} — above-average negotiating room ${tag('Metro-level','metro')}`);
+    else if (s >= 50) bullets.push(`<b>Moderate concessions:</b> ${p}% of listings with price cuts in ${metro} ${tag('Metro-level','metro')}`);
+  }
+
+  if (row.sale_to_list != null && row.pricing_power_score != null && row.pricing_power_score >= 70) {
+    const stl = row.sale_to_list;
+    if (stl < 1.0) bullets.push(`<b>Buy-side leverage:</b> Homes selling at ${stl.toFixed(3)}x list price in ${metro} — buyers getting discounts off asking ${tag('Metro-level','metro')}`);
+  }
+
+  if (row.value_gap_pct != null && row.value_gap_score != null) {
+    const v = Math.round(row.value_gap_pct), s = row.value_gap_score;
+    if (s >= 70) bullets.push(`<b>High renovation upside:</b> ${v}% spread between entry-level and median home values in ${county} ${tag('County-level','county')}`);
+    else if (s >= 50) bullets.push(`<b>Moderate renovation upside:</b> ${v}% value gap in ${county} ${tag('County-level','county')}`);
+  }
+
+  return bullets;
+}
+
+function renderBreakdown(row) {
+  const pane = document.getElementById('breakdown-pane');
+  const sc = row.composite_score;
+
+  const bars = [
+    { name: 'Appreciation', val: row.appreciation_score, raw: row.appreciation_pct != null ? row.appreciation_pct.toFixed(1) + '%' : '—' },
+    { name: 'Velocity',     val: row.velocity_score,     raw: row.days_to_pending != null ? Math.round(row.days_to_pending) + 'd' : '—' },
+    { name: 'Distress',     val: row.distress_score,     raw: row.price_cut_pct != null ? row.price_cut_pct.toFixed(1) + '%' : '—' },
+    { name: 'Pricing',      val: row.pricing_power_score,raw: row.sale_to_list != null ? row.sale_to_list.toFixed(3) : '—' },
+    { name: 'Value Gap',    val: row.value_gap_score,    raw: row.value_gap_pct != null ? Math.round(row.value_gap_pct) + '%' : '—' },
+  ];
+
+  const barsHtml = bars.map(b => {
+    const v = b.val ?? 0;
+    return `<div class="bd-bar-row">
+      <div class="bd-bar-label">
+        <span class="bd-bar-name">${b.name}</span>
+        <span class="bd-bar-val">${fmtN(b.val)} &nbsp;·&nbsp; ${b.raw}</span>
+      </div>
+      <div class="bd-bar-track"><div class="bd-bar-fill" style="width:${v}%"></div></div>
+    </div>`;
+  }).join('');
+
+  const bullets = generateNarrative(row);
+  const bulletsHtml = bullets.map(b =>
+    `<div class="bd-bullet"><div class="bd-dot"></div><div class="bd-bullet-text">${b}</div></div>`
+  ).join('');
+
+  const strategyLabel = { balanced: 'Balanced', fast_flip: 'Fast Flip', value_add: 'Value-Add' }[currentStrategy];
+
+  pane.innerHTML = `
+    <div class="bd-header">
+      <div class="bd-zip">ZIP ${row.region_name}</div>
+      <div class="bd-location">${[row.city, row.state].filter(Boolean).join(', ')} &nbsp;·&nbsp; ${row.metro || ''}</div>
+    </div>
+    <div class="bd-score-ring">
+      <div>
+        <div class="bd-score-big">${fmtN(sc)}</div>
+        <div class="bd-score-label">/ 100</div>
+      </div>
+      <div>
+        <div class="bd-score-sub" style="font-weight:600;color:var(--dark)">${strategyLabel} strategy</div>
+        <div class="bd-score-sub">${fmt$(row.current_value)} median value</div>
+      </div>
+    </div>
+    <div class="bd-bars">${barsHtml}</div>
+    <div class="bd-bullets">${bulletsHtml || '<div style="color:var(--muted);font-size:0.8rem">Not enough signal data for narrative.</div>'}</div>
+  `;
+}
+
+// ── GEOGRAPHY ──────────────────────────────────────────
+function renderGeo() {
+  if (!window.Plotly || geoRendered) return;
+  geoRendered = true;
+
+  const summary = allData.state_summary || {};
+  const states = Object.keys(summary);
+  const avgScores = states.map(s => summary[s].avg_score);
+  const counts = states.map(s => summary[s].count);
+
+  // Choropleth
+  Plotly.newPlot('map-chart', [{
+    type: 'choropleth', locationmode: 'USA-states',
+    locations: states, z: avgScores,
+    colorscale: [[0,'#dbeafe'],[0.5,'#3b82f6'],[1,'#1d4ed8']],
+    showscale: true,
+    colorbar: { title: 'Avg Score', thickness: 12, len: 0.6 },
+    hovertemplate: '<b>%{location}</b><br>Avg score: %{z:.1f}<extra></extra>'
+  }], {
+    geo: { scope: 'usa', showlakes: false, bgcolor: 'transparent' },
+    margin: { t: 0, b: 0, l: 0, r: 0 },
+    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+    font: { family: 'Inter, sans-serif', size: 11 }
+  }, { displayModeBar: false, responsive: true });
+
+  // Top 15 states bar
+  const sorted = states.map((s,i) => ({ state: s, score: avgScores[i], count: counts[i] }))
+    .sort((a,b) => b.score - a.score).slice(0, 15);
+
+  Plotly.newPlot('state-chart', [{
+    type: 'bar', orientation: 'h',
+    x: sorted.map(d => d.score).reverse(),
+    y: sorted.map(d => d.state).reverse(),
+    marker: { color: '#2563eb' },
+    hovertemplate: '<b>%{y}</b>: %{x:.1f}<extra></extra>'
+  }], {
+    margin: { t: 10, b: 30, l: 40, r: 20 },
+    xaxis: { title: 'Avg Score', range: [40, 80] },
+    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+    font: { family: 'Inter, sans-serif', size: 11 }
+  }, { displayModeBar: false, responsive: true });
+
+  // Count chart
+  const sortedCount = states.map((s,i) => ({ state: s, count: counts[i] }))
+    .sort((a,b) => b.count - a.count).slice(0, 15);
+
+  Plotly.newPlot('count-chart', [{
+    type: 'bar', orientation: 'h',
+    x: sortedCount.map(d => d.count).reverse(),
+    y: sortedCount.map(d => d.state).reverse(),
+    marker: { color: '#10b981' },
+    hovertemplate: '<b>%{y}</b>: %{x} ZIPs<extra></extra>'
+  }], {
+    margin: { t: 10, b: 30, l: 40, r: 20 },
+    xaxis: { title: '# of Opportunities' },
+    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+    font: { family: 'Inter, sans-serif', size: 11 }
+  }, { displayModeBar: false, responsive: true });
+}
+
+// ── EVENTS ─────────────────────────────────────────────
+document.querySelectorAll('.strategy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.strategy-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentStrategy = btn.dataset.strategy;
+    document.getElementById('strategy-desc').textContent = STRATEGY_DESCS[currentStrategy];
+    populateStateFilter();
+    geoRendered = false;
+    applyFilters();
+  });
+});
+
+document.getElementById('min-score').addEventListener('input', function() {
+  document.getElementById('score-display').textContent = this.value;
+});
+
+document.getElementById('apply-btn').addEventListener('click', applyFilters);
+document.getElementById('reset-btn').addEventListener('click', resetFilters);
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    if (tab.dataset.tab === 'geo') renderGeo();
+  });
+});
+</script>
+</body>
+</html>
