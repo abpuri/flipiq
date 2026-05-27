@@ -4,402 +4,185 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlipIQ — Real Estate Market Intelligence</title>
-  <meta name="description" content="FlipIQ scores 26,000+ US ZIP codes on five market signals — appreciation, velocity, distress, pricing power, and value gap. Built for real estate investors, agents, and wholesalers.">
-  <meta property="og:title" content="FlipIQ — Real Estate Market Intelligence">
-  <meta property="og:description" content="26,000+ ZIP codes scored on five market signals. Know which markets to focus on before you spend time on the ground.">
-  <meta property="og:type" content="website">
+  <meta name="description" content="FlipIQ scores 26,000+ US ZIP codes on five market signals. Built for real estate investors, agents, and wholesalers.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue: #2563eb;
-      --blue-dark: #1d4ed8;
-      --green: #10b981;
-      --dark: #0f172a;
-      --mid: #475569;
-      --light: #f1f5f9;
-      --border: #e2e8f0;
-      --white: #ffffff;
+      --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+      --green: #10b981; --green-light: #f0fdf4;
+      --orange: #f97316;
+      --dark: #0f172a; --mid: #475569; --muted: #94a3b8;
+      --light: #f1f5f9; --border: #e2e8f0; --white: #fff;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark);
-      line-height: 1.6;
-      background: var(--white);
-    }
-
+    body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; background: var(--white); }
     a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
+    /* NAV */
+    nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .logo { font-size: 1.35rem; font-weight: 800; color: var(--blue); }
     .logo span { color: var(--green); }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.15s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary {
-      background: var(--blue);
-      color: var(--white);
-    }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: all 0.15s; cursor: pointer; border: none; font-family: inherit; }
+    .btn-primary { background: var(--blue); color: var(--white); }
     .btn-primary:hover { background: var(--blue-dark); }
-    .btn-outline {
-      background: transparent;
-      color: var(--blue);
-      border: 1.5px solid var(--blue);
-    }
+    .btn-outline { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
     .btn-outline:hover { background: var(--light); }
 
-    /* ── HERO ── */
-    .hero {
-      padding: 80px 0 72px;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: #eff6ff;
-      color: var(--blue);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
-    }
+    /* HERO */
+    .hero { padding: 64px 0 0; text-align: center; }
+    .hero-tag { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-size: 2.7rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 16px; }
     .hero h1 span { color: var(--blue); }
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--mid);
-      margin-bottom: 32px;
-      max-width: 440px;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-note {
-      margin-top: 16px;
-      font-size: 0.8rem;
-      color: var(--mid);
-    }
+    .hero p { font-size: 1.05rem; color: var(--mid); max-width: 520px; margin: 0 auto 28px; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; margin-bottom: 48px; }
 
-    /* ── SCORE CARD MOCK ── */
-    .score-card {
-      background: var(--white);
+    /* PRODUCT WINDOW */
+    .product-window-wrap { padding: 0 24px; max-width: 1200px; margin: 0 auto; }
+    .product-window {
       border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      border-radius: 14px 14px 0 0;
+      box-shadow: 0 -4px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
       overflow: hidden;
+      background: var(--white);
+      position: relative;
     }
-    .card-header {
-      padding: 18px 20px;
+    .window-chrome {
+      background: var(--light);
       border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
     }
-    .card-header-left { }
-    .card-zip { font-weight: 700; font-size: 1rem; }
-    .card-location { font-size: 0.82rem; color: var(--mid); margin-top: 2px; }
-    .score-badge {
-      background: var(--blue);
-      color: white;
-      border-radius: 10px;
-      padding: 10px 16px;
-      text-align: center;
-      min-width: 80px;
-    }
-    .score-number { font-size: 1.6rem; font-weight: 800; line-height: 1; }
-    .score-label { font-size: 0.65rem; font-weight: 500; opacity: 0.85; margin-top: 2px; }
-    .card-meta {
-      padding: 10px 20px;
-      background: var(--light);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 20px;
-      font-size: 0.78rem;
-      color: var(--mid);
-    }
-    .card-meta span { font-weight: 600; color: var(--dark); }
-    .card-bullets { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
-    .bullet {
-      display: flex;
-      gap: 10px;
-      font-size: 0.82rem;
-      line-height: 1.45;
-    }
-    .bullet-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      margin-top: 5px;
-      flex-shrink: 0;
-    }
-    .bullet-text b { color: var(--dark); }
-    .bullet-text { color: var(--mid); }
-    .data-tag {
-      display: inline-block;
-      background: #f0fdf4;
-      color: #16a34a;
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 1px 7px;
-      border-radius: 4px;
-      margin-left: 4px;
-      white-space: nowrap;
-    }
-    .data-tag.metro { background: #eff6ff; color: var(--blue); }
-    .data-tag.county { background: #fff7ed; color: #c2410c; }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+    .window-dots span:nth-child(1) { background: #f87171; }
+    .window-dots span:nth-child(2) { background: #fbbf24; }
+    .window-dots span:nth-child(3) { background: #34d399; }
+    .window-url { flex: 1; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; font-size: 0.75rem; color: var(--muted); font-family: monospace; text-align: center; }
 
-    /* ── HOW IT WORKS ── */
-    .how {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--border);
+    .window-body { display: flex; height: 420px; overflow: hidden; }
+
+    /* Mini sidebar inside window */
+    .win-sidebar { width: 180px; flex-shrink: 0; background: var(--light); border-right: 1px solid var(--border); padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; }
+    .win-sb-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .win-sb-btn { background: var(--white); border: 1.5px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.75rem; font-weight: 500; color: var(--dark); }
+    .win-sb-btn.active { background: var(--blue-light); border-color: var(--blue); color: var(--blue); font-weight: 600; }
+    .win-sb-mini { height: 28px; background: var(--white); border: 1.5px solid var(--border); border-radius: 6px; }
+    .win-sb-apply { background: var(--blue); border: none; border-radius: 6px; padding: 7px 10px; font-size: 0.75rem; font-weight: 600; color: var(--white); text-align: center; margin-top: 4px; }
+
+    /* Window main area */
+    .win-main { flex: 1; display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+
+    /* Mini metrics strip */
+    .win-metrics { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .win-metric { flex: 1; padding: 8px 14px; border-right: 1px solid var(--border); }
+    .win-metric:last-child { border-right: none; }
+    .win-metric-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .win-metric-val { font-size: 1.1rem; font-weight: 800; color: var(--dark); line-height: 1.2; }
+
+    /* Tab bar */
+    .win-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--white); flex-shrink: 0; }
+    .win-tab { padding: 7px 14px; font-size: 0.75rem; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+    .win-tab.active { color: var(--blue); font-weight: 600; border-bottom-color: var(--blue); }
+
+    /* Table preview */
+    .win-table-wrap { flex: 1; overflow: hidden; position: relative; }
+    .win-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+    .win-table th { padding: 6px 10px; text-align: left; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); border-bottom: 2px solid var(--border); background: var(--white); }
+    .win-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    .win-score-pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
+    .score-high { background: var(--green-light); color: #15803d; }
+    .score-mid { background: var(--blue-light); color: var(--blue); }
+    .score-low { background: #fef9c3; color: #a16207; }
+
+    /* Gradient + CTA overlay */
+    .win-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.96) 60%, #fff 100%);
+      padding: 60px 20px 24px;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      gap: 10px;
     }
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      font-size: 1rem;
-      color: var(--mid);
-      margin-bottom: 48px;
-    }
-    .factors-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-    .factor-card {
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 16px;
-    }
-    .factor-weight {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--blue);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .factor-name {
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .factor-desc {
-      font-size: 0.75rem;
-      color: var(--mid);
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-    .factor-level {
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-      display: inline-block;
-    }
-    .level-zip { background: #f0fdf4; color: #16a34a; }
-    .level-metro { background: #eff6ff; color: var(--blue); }
+    .win-overlay-text { font-size: 0.82rem; color: var(--mid); font-weight: 500; }
+    .win-unlock-btn { background: var(--blue); color: var(--white); border: none; border-radius: 8px; padding: 10px 22px; font-size: 0.88rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .win-unlock-btn:hover { background: var(--blue-dark); }
+
+    /* Loading state */
+    .win-loading { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--muted); font-size: 0.8rem; gap: 8px; }
+    .spinner { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* HOW IT WORKS */
+    .how { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .section-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .section-sub { font-size: 1rem; color: var(--mid); margin-bottom: 48px; max-width: 560px; }
+    .factors-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .factor-card { background: var(--light); border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; }
+    .factor-weight { font-size: 1.4rem; font-weight: 800; color: var(--blue); line-height: 1; margin-bottom: 6px; }
+    .factor-name { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; }
+    .factor-desc { font-size: 0.75rem; color: var(--mid); line-height: 1.4; margin-bottom: 10px; }
+    .factor-level { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; display: inline-block; }
+    .level-zip { background: var(--green-light); color: #16a34a; }
+    .level-metro { background: var(--blue-light); color: var(--blue); }
     .level-county { background: #fff7ed; color: #c2410c; }
 
-    .data-note {
-      margin-top: 28px;
-      padding: 16px 20px;
-      background: var(--light);
-      border-left: 3px solid var(--blue);
-      border-radius: 0 8px 8px 0;
-      font-size: 0.82rem;
-      color: var(--mid);
-      max-width: 640px;
-    }
-    .data-note strong { color: var(--dark); }
-
-    /* ── SIGNUP ── */
-    .signup {
-      padding: 80px 0;
-      background: var(--light);
-    }
-    .signup-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .signup-left h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 14px;
-    }
-    .signup-left p {
-      color: var(--mid);
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
+    /* SIGNUP */
+    .signup { padding: 80px 0; background: var(--light); }
+    .signup-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .signup-left h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .signup-left p { color: var(--mid); font-size: 0.95rem; margin-bottom: 28px; line-height: 1.6; }
     .signup-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .signup-points li {
-      display: flex;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--mid);
-    }
-    .signup-points li::before {
-      content: "✓";
-      color: var(--green);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .form-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 32px;
-    }
-    .form-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
+    .signup-points li { display: flex; gap: 10px; font-size: 0.88rem; color: var(--mid); }
+    .signup-points li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
+    .form-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 24px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .form-group:last-of-type { margin-bottom: 0; }
     label { font-size: 0.82rem; font-weight: 600; color: var(--dark); }
-    input, select {
-      padding: 10px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.88rem;
-      color: var(--dark);
-      background: var(--white);
-      transition: border-color 0.15s;
-    }
-    input:focus, select:focus {
-      outline: none;
-      border-color: var(--blue);
-    }
+    input, select { padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.88rem; color: var(--dark); background: var(--white); transition: border-color 0.15s; }
+    input:focus, select:focus { outline: none; border-color: var(--blue); }
     .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
     .radio-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer; }
     .radio-item input { width: auto; margin: 0; }
     .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
     .checkbox-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; cursor: pointer; }
     .checkbox-item input { width: auto; margin: 0; }
-    .submit-btn {
-      width: 100%;
-      margin-top: 24px;
-      padding: 13px;
-      background: var(--blue);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
+    .submit-btn { width: 100%; margin-top: 24px; padding: 13px; background: var(--blue); color: white; border: none; border-radius: 8px; font-family: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
     .submit-btn:hover { background: var(--blue-dark); }
-    .privacy-note {
-      margin-top: 12px;
-      font-size: 0.75rem;
-      color: var(--mid);
-      text-align: center;
-    }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 32px;
-    }
+    .privacy-note { margin-top: 12px; font-size: 0.75rem; color: var(--mid); text-align: center; }
+    .form-success { display: none; text-align: center; padding: 32px; }
     .form-success .check { font-size: 2.5rem; margin-bottom: 12px; }
     .form-success h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
     .form-success p { font-size: 0.9rem; color: var(--mid); }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 32px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .footer-left { font-size: 0.82rem; color: var(--mid); }
     .footer-left strong { color: var(--dark); }
-    .footer-links { display: flex; gap: 24px; font-size: 0.82rem; color: var(--mid); }
-    .footer-links a:hover { color: var(--dark); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .score-card { max-width: 480px; }
+      .hero h1 { font-size: 2rem; }
+      .window-body { height: 340px; }
+      .win-sidebar { display: none; }
       .factors-grid { grid-template-columns: repeat(3, 1fr); }
       .signup-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2rem; }
       .factors-grid { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .checkbox-group { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -418,67 +201,79 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-inner">
-      <div>
-        <h1>Real estate market intelligence for <span>every ZIP code</span> in America</h1>
-        <p>FlipIQ scores 26,000+ US ZIP codes on five market signals so you know which markets are worth your time before you spend it.</p>
-        <div class="hero-actions">
-          <a href="#signup" class="btn btn-primary">Get Access →</a>
-          <a href="#how-it-works" class="btn btn-outline">How it works</a>
-        </div>
-      </div>
-
-      <!-- Score card mock -->
-      <div class="score-card">
-        <div class="card-header">
-          <div class="card-header-left">
-            <div class="card-zip">ZIP 33647</div>
-            <div class="card-location">Tampa, FL · Hillsborough County</div>
-          </div>
-          <div class="score-badge">
-            <div class="score-number">74.2</div>
-            <div class="score-label">SCORE / 100</div>
-          </div>
-        </div>
-        <div class="card-meta">
-          Strategy: <span>Balanced</span> &nbsp;&nbsp; Median Value: <span>$312,000</span>
-        </div>
-        <div class="card-bullets">
-          <div class="bullet">
-            <div class="bullet-dot"></div>
-            <div class="bullet-text">
-              <b>Strong appreciation:</b> Home values up 8.4% in 12 months, outpacing 81% of all ZIPs analyzed <span class="data-tag">ZIP-level</span>
-            </div>
-          </div>
-          <div class="bullet">
-            <div class="bullet-dot"></div>
-            <div class="bullet-text">
-              <b>Fast-moving market:</b> Homes go pending in ~11 days in Tampa — top quartile nationally for sales velocity <span class="data-tag metro">Metro-level</span>
-            </div>
-          </div>
-          <div class="bullet">
-            <div class="bullet-dot"></div>
-            <div class="bullet-text">
-              <b>Seller pressure:</b> 22% of listings have taken price cuts in Tampa — above-average negotiating room for buyers <span class="data-tag metro">Metro-level</span>
-            </div>
-          </div>
-          <div class="bullet">
-            <div class="bullet-dot"></div>
-            <div class="bullet-text">
-              <b>High renovation upside:</b> 46% spread between entry-level and median home values in Hillsborough County <span class="data-tag county">County-level</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="hero-tag">Real Estate Market Intelligence</div>
+    <h1>Find the right market <span>before</span> you spend time on the ground.</h1>
+    <p>26,000+ US ZIP codes scored on five signals. Know where to look — and where to skip.</p>
+    <div class="hero-actions">
+      <a href="#signup" class="btn btn-primary">Get Access →</a>
+      <a href="#how-it-works" class="btn btn-outline">How it works</a>
     </div>
   </div>
 </section>
+
+<!-- LIVE PRODUCT PREVIEW -->
+<div class="product-window-wrap">
+  <div class="product-window">
+    <div class="window-chrome">
+      <div class="window-dots"><span></span><span></span><span></span></div>
+      <div class="window-url">flipiq.com/dashboard</div>
+    </div>
+    <div class="window-body">
+
+      <!-- Fake sidebar -->
+      <div class="win-sidebar">
+        <div class="win-sb-label">Strategy</div>
+        <div class="win-sb-btn active">Balanced</div>
+        <div class="win-sb-btn">Fast Flip</div>
+        <div class="win-sb-btn">Value-Add</div>
+        <div style="height:12px"></div>
+        <div class="win-sb-label">Home Value</div>
+        <div class="win-sb-mini"></div>
+        <div class="win-sb-label" style="margin-top:8px">Min Score</div>
+        <div class="win-sb-mini"></div>
+        <div class="win-sb-label" style="margin-top:8px">State</div>
+        <div class="win-sb-mini"></div>
+        <div class="win-sb-apply">Apply Filters</div>
+      </div>
+
+      <!-- Main content -->
+      <div class="win-main">
+        <!-- Metrics -->
+        <div class="win-metrics" id="win-metrics">
+          <div class="win-metric"><div class="win-metric-label">Opportunities</div><div class="win-metric-val">—</div></div>
+          <div class="win-metric"><div class="win-metric-label">Avg Score</div><div class="win-metric-val">—</div></div>
+          <div class="win-metric"><div class="win-metric-label">Median Value</div><div class="win-metric-val">—</div></div>
+          <div class="win-metric"><div class="win-metric-label">Avg Days Pending</div><div class="win-metric-val">—</div></div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="win-tabs">
+          <div class="win-tab active">Top Opportunities</div>
+          <div class="win-tab">Geographic View</div>
+          <div class="win-tab">My List</div>
+        </div>
+
+        <!-- Table with overlay -->
+        <div class="win-table-wrap">
+          <div id="win-table-container">
+            <div class="win-loading"><div class="spinner"></div> Loading live data…</div>
+          </div>
+          <div class="win-overlay">
+            <div class="win-overlay-text">Showing a preview — sign up to unlock all markets</div>
+            <button class="win-unlock-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get full access →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- HOW IT WORKS -->
 <section class="how" id="how-it-works">
   <div class="container">
     <div class="section-label">The scoring model</div>
-    <div class="section-title">Five signals, one score</div>
+    <div class="section-title">Five signals, one score.</div>
     <p class="section-sub">Each ZIP gets a 0–100 composite score. Adjust the weighting by strategy — fast-turn markets, value-add plays, or a balanced view across all five signals.</p>
 
     <div class="factors-grid">
@@ -513,7 +308,6 @@
         <span class="factor-level level-county">County-level</span>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -523,7 +317,7 @@
     <div class="signup-inner">
       <div class="signup-left">
         <div class="section-label">Early access</div>
-        <h2>Help shape what this becomes</h2>
+        <h2>Help shape what this becomes.</h2>
         <p>
           FlipIQ is in active development. Whether you're flipping, wholesaling, representing investor clients,
           or evaluating buy-and-hold markets — we want to know if this is actually useful in your workflow.
@@ -537,7 +331,7 @@
       </div>
 
       <div class="form-card">
-        <h3>Stay in the loop</h3>
+        <h3>Get access</h3>
         <form id="signupForm" action="https://formspree.io/f/mjgbvrlb" method="POST">
           <div class="form-row">
             <div class="form-group">
@@ -564,22 +358,10 @@
           <div class="form-group">
             <label>What would you use this for?</label>
             <div class="radio-group">
-              <label class="radio-item">
-                <input type="radio" name="interest_level" value="screen_markets" required>
-                Screen markets before committing time to a new area
-              </label>
-              <label class="radio-item">
-                <input type="radio" name="interest_level" value="validate_intuition">
-                Validate my read on a market I'm already watching
-              </label>
-              <label class="radio-item">
-                <input type="radio" name="interest_level" value="client_research">
-                Research markets for investor clients
-              </label>
-              <label class="radio-item">
-                <input type="radio" name="interest_level" value="just_exploring">
-                Just exploring
-              </label>
+              <label class="radio-item"><input type="radio" name="interest_level" value="screen_markets" required> Screen markets before committing time to a new area</label>
+              <label class="radio-item"><input type="radio" name="interest_level" value="validate_intuition"> Validate my read on a market I'm already watching</label>
+              <label class="radio-item"><input type="radio" name="interest_level" value="client_research"> Research markets for investor clients</label>
+              <label class="radio-item"><input type="radio" name="interest_level" value="just_exploring"> Just exploring</label>
             </div>
           </div>
           <div class="form-group">
@@ -603,7 +385,7 @@
           <br>
           <a href="dashboard.html" class="btn btn-primary">Open FlipIQ Dashboard →</a>
           <br><br>
-          <p style="font-size:0.8rem; color:#64748b;">We'll reach out as new features ship. No spam.</p>
+          <p style="font-size:0.8rem;color:#64748b">We'll reach out as new features ship. No spam.</p>
         </div>
       </div>
     </div>
@@ -615,27 +397,70 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-left">
-        <strong>FlipIQ</strong> &nbsp;·&nbsp; Data from <a href="https://www.zillow.com/research/data/" style="color: var(--blue);">Zillow Research</a> &nbsp;·&nbsp; Updated monthly
+        <strong>FlipIQ</strong> &nbsp;·&nbsp; Data from <a href="https://www.zillow.com/research/data/" style="color:var(--blue)">Zillow Research</a> &nbsp;·&nbsp; Updated monthly
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    const data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(r => {
-      if (r.ok) {
-        form.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }
+// Form submission
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } })
+    .then(r => { if (r.ok) { this.style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; } });
+});
+
+// Load live preview data
+function fmtZip(v) { return v != null ? String(v).padStart(5, '0') : '—'; }
+function fmt$(v) { return v != null ? '$' + Math.round(v).toLocaleString() : '—'; }
+function fmtN(v) { return v != null ? Number(v).toFixed(1) : '—'; }
+function scoreClass(s) { if (s >= 70) return 'score-high'; if (s >= 60) return 'score-mid'; return 'score-low'; }
+
+fetch('data/processed/dashboard_data.json')
+  .then(r => r.json())
+  .then(data => {
+    const rows = (data.balanced || []).slice(0, 12);
+
+    // Fill metrics
+    const scores = rows.map(r => r.composite_score).filter(v => v != null);
+    const vals = rows.map(r => r.current_value).filter(v => v != null).sort((a,b)=>a-b);
+    const dtps = rows.map(r => r.days_to_pending).filter(v => v != null);
+    const total = (data.balanced || []).length;
+
+    const metrics = document.getElementById('win-metrics');
+    metrics.innerHTML = `
+      <div class="win-metric"><div class="win-metric-label">Opportunities</div><div class="win-metric-val">${total.toLocaleString()}</div></div>
+      <div class="win-metric"><div class="win-metric-label">Avg Score</div><div class="win-metric-val">${scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '—'}</div></div>
+      <div class="win-metric"><div class="win-metric-label">Median Value</div><div class="win-metric-val">${vals.length ? '$'+Math.round(vals[Math.floor(vals.length/2)]).toLocaleString() : '—'}</div></div>
+      <div class="win-metric"><div class="win-metric-label">Avg Days Pending</div><div class="win-metric-val">${dtps.length ? Math.round(dtps.reduce((a,b)=>a+b,0)/dtps.length)+'d' : '—'}</div></div>
+    `;
+
+    // Build table
+    let html = `<table class="win-table">
+      <thead><tr>
+        <th>#</th><th>ZIP</th><th>City, State</th><th>Value</th><th>Score</th><th>Apprec.</th><th>Velocity</th>
+      </tr></thead><tbody>`;
+
+    rows.forEach((r, i) => {
+      const sc = r.composite_score;
+      html += `<tr>
+        <td style="color:var(--muted);font-size:0.7rem">${i+1}</td>
+        <td style="font-weight:700">${fmtZip(r.region_name)}</td>
+        <td style="color:var(--mid)">${r.city ? r.city+', ' : ''}${r.state||'—'}</td>
+        <td style="font-weight:600">${fmt$(r.current_value)}</td>
+        <td><span class="win-score-pill ${scoreClass(sc)}">${fmtN(sc)}</span></td>
+        <td style="color:var(--mid);font-size:0.72rem">${fmtN(r.appreciation_score)}</td>
+        <td style="color:var(--mid);font-size:0.72rem">${fmtN(r.velocity_score)}</td>
+      </tr>`;
     });
+
+    html += '</tbody></table>';
+    document.getElementById('win-table-container').innerHTML = html;
+  })
+  .catch(() => {
+    document.getElementById('win-table-container').innerHTML =
+      '<div class="win-loading" style="color:var(--muted)">Preview unavailable</div>';
   });
 </script>
 
