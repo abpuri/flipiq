@@ -145,6 +145,26 @@
     .spinner { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* STAR / SAVE */
+    .star-cell { width: 28px; padding: 0 2px 0 8px !important; }
+    .star-btn { background: none; border: none; cursor: pointer; font-size: 1.05rem; color: var(--muted); padding: 2px 4px; border-radius: 4px; line-height: 1; transition: color 0.1s; }
+    .star-btn:hover { color: var(--orange); }
+    .star-btn.starred { color: var(--orange); }
+    .tab-badge { font-size: 0.75rem; font-weight: 600; }
+
+    /* MY LIST TAB */
+    #tab-mylist { flex-direction: column; overflow: hidden; }
+    .mylist-pane { flex: 1; display: flex; overflow: hidden; }
+    .mylist-table-pane { flex: 1; overflow-y: auto; padding: 16px 0 16px 20px; min-width: 0; }
+    .mylist-header { padding: 10px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: var(--white); }
+    .mylist-header-left { font-size: 0.82rem; color: var(--mid); }
+    .mylist-header-left strong { color: var(--dark); }
+    .clear-list-btn { font-size: 0.75rem; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; cursor: pointer; font-family: inherit; transition: all 0.1s; }
+    .clear-list-btn:hover { color: #ef4444; border-color: #fca5a5; }
+    .mylist-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: var(--muted); font-size: 0.85rem; text-align: center; padding: 40px; gap: 8px; }
+    .remove-btn { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 0.85rem; padding: 2px 6px; border-radius: 4px; transition: all 0.1s; }
+    .remove-btn:hover { color: #ef4444; background: #fee2e2; }
+
     /* MOBILE */
     @media (max-width: 900px) {
       aside { display: none; }
@@ -247,6 +267,7 @@
     <div class="tabs">
       <div class="tab active" data-tab="opps">Top Opportunities</div>
       <div class="tab" data-tab="geo">Geographic View</div>
+      <div class="tab" data-tab="mylist">My List<span class="tab-badge" id="mylist-badge"></span></div>
     </div>
 
     <!-- TOP OPPORTUNITIES -->
@@ -258,6 +279,29 @@
         <div class="breakdown-empty">
           <div class="arrow">←</div>
           <div>Click any row to see what's driving its score</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY LIST -->
+    <div class="tab-content" id="tab-mylist">
+      <div class="mylist-header">
+        <div class="mylist-header-left"><strong id="mylist-count">0</strong> saved ZIPs — scores reflect the currently selected strategy</div>
+        <button class="clear-list-btn" id="clear-list-btn">Clear all</button>
+      </div>
+      <div class="mylist-pane">
+        <div class="mylist-table-pane" id="mylist-table-pane">
+          <div class="mylist-empty">
+            <div style="font-size:1.8rem;opacity:.4">☆</div>
+            <div>No saved ZIPs yet.</div>
+            <div style="font-size:0.75rem;margin-top:4px">Click ☆ on any row to save it here.</div>
+          </div>
+        </div>
+        <div class="breakdown-pane" id="mylist-breakdown-pane">
+          <div class="breakdown-empty">
+            <div class="arrow">←</div>
+            <div>Click a saved ZIP to see its breakdown</div>
+          </div>
         </div>
       </div>
     </div>
@@ -293,6 +337,118 @@ let sortDir = 'desc';
 let displayCount = 50;
 let selectedRow = null;
 let geoRendered = false;
+
+// ── MY LIST ────────────────────────────────────────────
+const LIST_KEY = 'flipiq_mylist';
+let myList = (() => { try { return JSON.parse(localStorage.getItem(LIST_KEY) || '[]'); } catch { return []; } })();
+
+function isInList(zip) { return myList.includes(String(zip)); }
+
+function toggleList(zip) {
+  const z = String(zip);
+  myList = isInList(z) ? myList.filter(v => v !== z) : [...myList, z];
+  localStorage.setItem(LIST_KEY, JSON.stringify(myList));
+  updateListBadge();
+}
+
+function updateListBadge() {
+  const n = myList.length;
+  const badge = document.getElementById('mylist-badge');
+  if (badge) badge.textContent = n > 0 ? ` (${n})` : '';
+  const cnt = document.getElementById('mylist-count');
+  if (cnt) cnt.textContent = n;
+}
+
+function renderMyList() {
+  const pane = document.getElementById('mylist-table-pane');
+  if (!pane) return;
+
+  if (!myList.length) {
+    pane.innerHTML = `<div class="mylist-empty">
+      <div style="font-size:1.8rem;opacity:.4">☆</div>
+      <div>No saved ZIPs yet.</div>
+      <div style="font-size:0.75rem;margin-top:4px">Click ☆ on any row to save it here.</div>
+    </div>`;
+    document.getElementById('mylist-breakdown-pane').innerHTML = `<div class="breakdown-empty"><div class="arrow">←</div><div>Click a saved ZIP to see its breakdown</div></div>`;
+    return;
+  }
+
+  const stratData = allData[currentStrategy] || [];
+  const byZip = {};
+  stratData.forEach(r => { byZip[String(r.region_name)] = r; });
+
+  let thead = `<thead><tr>
+    <th style="cursor:default">ZIP</th>
+    <th style="cursor:default">City, State</th>
+    <th style="cursor:default">Value</th>
+    <th style="cursor:default">Score</th>
+    <th style="cursor:default;width:40px"></th>
+  </tr></thead>`;
+
+  let tbody = '<tbody>';
+  myList.forEach(zip => {
+    const row = byZip[zip];
+    if (!row) {
+      tbody += `<tr>
+        <td class="zip-cell">${fmtZip(zip)}</td>
+        <td class="location-cell" colspan="2" style="color:var(--muted);font-style:italic">Not in current strategy</td>
+        <td>—</td>
+        <td><button class="remove-btn" data-rmzip="${zip}" title="Remove">✕</button></td>
+      </tr>`;
+      return;
+    }
+    const sc = row.composite_score;
+    tbody += `<tr data-myzip="${zip}" style="cursor:pointer">
+      <td class="zip-cell">${fmtZip(zip)}</td>
+      <td class="location-cell">${row.city ? row.city + ', ' : ''}${row.state ?? '—'}</td>
+      <td class="value-cell">${fmt$(row.current_value)}</td>
+      <td><span class="score-pill ${scoreClass(sc)}">${fmtN(sc)}</span></td>
+      <td><button class="remove-btn" data-rmzip="${zip}" title="Remove">✕</button></td>
+    </tr>`;
+  });
+  tbody += '</tbody>';
+
+  pane.innerHTML = `<table class="mylist-table" style="width:100%;border-collapse:collapse;font-size:0.82rem">${thead}${tbody}</table>`;
+
+  // Style th same as main table
+  pane.querySelectorAll('th').forEach(th => {
+    th.style.cssText = 'padding:8px 10px;text-align:left;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--mid);border-bottom:2px solid var(--border);background:var(--white);position:sticky;top:0;z-index:1;';
+  });
+  pane.querySelectorAll('td').forEach(td => {
+    td.style.cssText = 'padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle;white-space:nowrap;';
+  });
+
+  // Row click → breakdown
+  pane.querySelectorAll('tr[data-myzip]').forEach(tr => {
+    tr.addEventListener('click', (e) => {
+      if (e.target.closest('.remove-btn')) return;
+      const zip = tr.dataset.myzip;
+      const stratData = allData[currentStrategy] || [];
+      const row = stratData.find(r => String(r.region_name) === zip);
+      if (row) {
+        renderBreakdown(row, 'mylist-breakdown-pane');
+        pane.querySelectorAll('tr').forEach(r => r.style.background = '');
+        tr.style.background = 'var(--blue-light)';
+      }
+    });
+  });
+
+  // Remove buttons
+  pane.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const zip = btn.dataset.rmzip;
+      myList = myList.filter(v => v !== zip);
+      localStorage.setItem(LIST_KEY, JSON.stringify(myList));
+      updateListBadge();
+      // Update star in main table if visible
+      document.querySelectorAll(`.star-btn[data-zip="${zip}"]`).forEach(sb => {
+        sb.textContent = '☆'; sb.classList.remove('starred');
+      });
+      renderMyList();
+    });
+  });
+}
 
 const STRATEGY_DESCS = {
   balanced: 'Equal weight across all five signals.',
@@ -421,7 +577,7 @@ function renderTable() {
     return;
   }
 
-  let thead = '<thead><tr>';
+  let thead = '<thead><tr><th style="width:28px;cursor:default"></th>';
   COLS.forEach(col => {
     let cls = col.sortable ? '' : '';
     if (col.key === sortCol) cls = 'sort-' + sortDir;
@@ -434,7 +590,9 @@ function renderTable() {
   visible.forEach((row, i) => {
     const sc = row.composite_score;
     const selected = selectedRow && selectedRow.region_name === row.region_name ? 'selected' : '';
+    const inList = isInList(row.region_name);
     tbody += `<tr class="${selected}" data-idx="${i}">
+      <td class="star-cell"><button class="star-btn${inList ? ' starred' : ''}" data-zip="${row.region_name}" title="${inList ? 'Remove from My List' : 'Save to My List'}">${inList ? '★' : '☆'}</button></td>
       <td class="rank-cell">${i+1}</td>
       <td class="zip-cell">${fmtZip(row.region_name)}</td>
       <td class="location-cell">${row.city ? row.city + ', ' : ''}${row.state ?? '—'}</td>
@@ -469,16 +627,29 @@ function renderTable() {
     });
   });
 
-  // Row click
-  pane.querySelectorAll('tbody tr').forEach(tr => {
-    tr.addEventListener('click', () => {
+  // Event delegation for star + row click
+  pane.addEventListener('click', (e) => {
+    const star = e.target.closest('.star-btn');
+    if (star) {
+      e.stopPropagation();
+      const zip = star.dataset.zip;
+      toggleList(zip);
+      const inList = isInList(zip);
+      star.textContent = inList ? '★' : '☆';
+      star.classList.toggle('starred', inList);
+      star.title = inList ? 'Remove from My List' : 'Save to My List';
+      if (document.getElementById('tab-mylist').classList.contains('active')) renderMyList();
+      return;
+    }
+    const tr = e.target.closest('tbody tr');
+    if (tr) {
       const idx = parseInt(tr.dataset.idx);
       selectedRow = filteredRows[idx];
-      renderBreakdown(selectedRow);
+      renderBreakdown(selectedRow, 'breakdown-pane');
       pane.querySelectorAll('tbody tr').forEach(r => r.classList.remove('selected'));
       tr.classList.add('selected');
-    });
-  });
+    }
+  }, { passive: false });
 
   // Show more
   const smb = document.getElementById('show-more-btn');
@@ -527,8 +698,8 @@ function generateNarrative(row) {
   return bullets;
 }
 
-function renderBreakdown(row) {
-  const pane = document.getElementById('breakdown-pane');
+function renderBreakdown(row, paneId = 'breakdown-pane') {
+  const pane = document.getElementById(paneId);
   const sc = row.composite_score;
 
   const bars = [
@@ -664,8 +835,24 @@ document.querySelectorAll('.tab').forEach(tab => {
     tab.classList.add('active');
     document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
     if (tab.dataset.tab === 'geo') renderGeo();
+    if (tab.dataset.tab === 'mylist') renderMyList();
   });
 });
+
+document.getElementById('clear-list-btn').addEventListener('click', () => {
+  if (!myList.length) return;
+  if (!confirm(`Remove all ${myList.length} saved ZIP${myList.length > 1 ? 's' : ''}?`)) return;
+  myList = [];
+  localStorage.setItem(LIST_KEY, JSON.stringify(myList));
+  updateListBadge();
+  document.querySelectorAll('.star-btn.starred').forEach(sb => {
+    sb.textContent = '☆'; sb.classList.remove('starred');
+  });
+  renderMyList();
+});
+
+// Init badge
+updateListBadge();
 </script>
 </body>
 </html>
