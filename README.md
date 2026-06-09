@@ -65,6 +65,23 @@ streamlit run streamlit_app.py
 
 ---
 
+## AI Deal Thesis memos
+
+FlipIQ can generate analyst-style investment memos per ZIP using the Claude API
+(`src/narrative_generator.py`). Memos synthesize all five signals into a verdict,
+numbers-backed bullets, watch-outs, and a recommended next move — with the data
+granularity caveats built into the prompt so the model never overstates precision.
+
+- **HTML dashboard:** memos are pre-generated server-side (the API key never
+  reaches the browser). Run `export ANTHROPIC_API_KEY=sk-ant-...` then
+  `python generate_memos.py --top 25` to write `data/processed/ai_memos.json`;
+  the dashboard picks it up automatically and hides the section if it's absent.
+- **Streamlit app:** memos generate on demand in the Top Opportunities score
+  breakdown when `ANTHROPIC_API_KEY` is set (env var or Streamlit secrets).
+  Without a key, the rule-based narrative still works.
+
+---
+
 ## Keeping data current
 
 Zillow Research publishes updated datasets monthly (typically around the 16th). To refresh:
