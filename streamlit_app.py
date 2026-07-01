@@ -25,6 +25,11 @@ from src.scoring_engine import (
     FAST_FLIP, VALUE_ADD_FLIP, BALANCED, FlipStrategy
 )
 from src.property_analyzer import PropertyAnalyzer
+from src.narrative_generator import (
+    generate_deal_thesis,
+    get_api_key,
+    NarrativeError,
+)
 import json
 from datetime import datetime, timedelta
 
@@ -246,6 +251,24 @@ def generate_zip_narrative(row: pd.Series) -> list:
             )
 
     return bullets
+
+
+def resolve_anthropic_key():
+    """Find an Anthropic API key from env or Streamlit secrets."""
+    key = get_api_key()
+    if key:
+        return key
+    try:
+        return st.secrets.get("ANTHROPIC_API_KEY")
+    except Exception:
+        return None
+
+
+@st.cache_data(show_spinner=False)
+def cached_deal_thesis(zip_code: str, strategy_name: str, facts_key: str, _row_dict: dict):
+    """Cache AI memos per ZIP + strategy + underlying data (facts_key)."""
+    row = pd.Series(_row_dict)
+    return generate_deal_thesis(row, strategy_name, api_key=resolve_anthropic_key())
 
 
 @st.cache_data
@@ -566,6 +589,45 @@ def main():
                         st.markdown(f"- {b}")
                 else:
                     st.write("Not enough data to generate a narrative for this ZIP.")
+
+                # ----- AI Deal Thesis -----
+                st.markdown("---")
+                st.subheader("✨ AI Deal Thesis")
+                if resolve_anthropic_key():
+                    if st.button("Generate AI Deal Thesis", key="ai_thesis_btn"):
+                        st.session_state["ai_thesis_zip"] = breakdown_zip
+                    if st.session_state.get("ai_thesis_zip") == breakdown_zip:
+                        row_dict = {
+                            k: (None if pd.isna(v) else v) if not isinstance(v, str) else v
+                            for k, v in brow.to_dict().items()
+                        }
+                        facts_key = json.dumps(
+                            {k: str(v) for k, v in row_dict.items()}, sort_keys=True
+                        )
+                        try:
+                            with st.spinner("FlipIQ analyst is writing the memo..."):
+                                thesis = cached_deal_thesis(
+                                    breakdown_zip, strategy_name, facts_key, row_dict
+                                )
+                            st.markdown(thesis)
+                            st.download_button(
+                                label="📥 Download Memo (Markdown)",
+                                data=f"# FlipIQ Deal Thesis — ZIP {breakdown_zip} ({city_state})\n\n{thesis}\n",
+                                file_name=f"flipiq_deal_thesis_{breakdown_zip}.md",
+                                mime="text/markdown",
+                            )
+                        except NarrativeError as e:
+                            st.warning(
+                                f"Could not generate the AI memo ({e}). "
+                                "The rule-based breakdown above is still accurate."
+                            )
+                else:
+                    st.caption(
+                        "AI-written deal memos are available when an Anthropic API key is "
+                        "configured (set `ANTHROPIC_API_KEY` or add it to Streamlit secrets). "
+                        "The rule-based breakdown above works without it."
+                    )
+
                 st.info(
                     "**Signal levels:** Appreciation is measured at the ZIP level. "
                     "Velocity, distress, and pricing power are measured at the metro level — "
